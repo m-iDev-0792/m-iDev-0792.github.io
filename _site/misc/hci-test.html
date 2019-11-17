@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!-- https://stackoverflow.com/questions/9100344/pure-css-multi-level-drop-down-menu -->
+    <meta charset="UTF-8">
+    <title>多级下拉菜单示例</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <!-- <link rel="stylesheet" href="menu.css" /> -->
+    <script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.js"></script>
+    <style>
+        :root{
+            --menuHeight:30px;
+            --menuWidth:150px;
+            --menuFontSize:14px;
+            --menuHeightMinus:-30px;
+            --menuWidthMinus:-150px;
+            --menuAColor:#FFFFFF;
+            --menuAHoverColor:#000000;
+            --menuLiColor:#999999;
+            --menuLiHoverColor: #CCCCCC;
+        }
+        /* 次级 */
+        .sub-level-menu {
+            position: relative;
+            top: calc(var(--menuHeightMinus));
+            right: calc(var(--menuWidthMinus));
+            width: var(--menuWidth);
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+        }
+        .sub-level-menu>li {
+            height: var(--menuHeight);
+            background: #999999;
+        }
+        .sub-level-menu>li:hover {
+            background: #CCCCCC;
+        }
+        /* 第一级 */
+        .first-level-menu {
+            position: absolute;
+            top: 30px;/*top应该和menu-switch的高度一样*/
+            left: 0;
+            width: var(--menuWidth);
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+        }
+        .first-level-menu>li {
+            position: relative;
+            height: var(--menuHeight);
+            background: #999999;
+        }
+        .first-level-menu>li:hover {
+            background: #CCCCCC;
+        }
+
+        .first-level-menu li:hover>ul {
+            /* 当 menu-switch的任意子代li有鼠标移动上去,则显示li的直接后代ul */
+            display: inline;
+        }
+        /*设置所有的a标签的样式*/
+        .first-level-menu a{
+            font: bold var(--menuFontSize) Arial, Helvetica, sans-serif;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 0 0 0 10px;
+            /* Make the link cover the entire list item-container */
+            display: block;
+            line-height: var(--menuHeight);
+            text-align: left;
+        }
+        .first-level-menu a:hover {
+            color: #000000;
+        }
+        /* 最高级 */
+        .menu-switch {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu-switch>li {
+            position: relative;
+            float: left;
+            height: 30px;
+            width: 200px;
+        }
+        #dLabel{
+            font: bold 16px Arial, Helvetica, sans-serif;
+            color: #FFFFFF;
+            background: #3276b1;
+            text-decoration: none;
+            /* padding: 0 0 0 10px; */
+            /* Make the link cover the entire list item-container */
+            height: 30px;
+            width: 150px;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            
+        }
+        #regenrateBtn{
+            font: bold 16px Arial, Helvetica, sans-serif;
+            color: #FFFFFF;
+            background: #3276b1;
+            text-decoration: none;
+            /* padding: 0 0 0 10px; */
+            /* Make the link cover the entire list item-container */
+            height: 30px;
+            width: 150px;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            
+        }
+        /* 当 menu-switch的任意子代li有鼠标移动上去,则显示li的直接后代ul */
+        /* .menu-switch li:hover>ul {
+            display: inline;
+        } */
+
+
+
+    </style>
+</head>
+<body>
+<div class="container" id="main" display="flex">
+    <div>
+        <h2>Welcome to HCI menu selection test!</h2>
+        <hr>
+    </div>
+    <h4 id="progressText">Current Progress - Test not started</h4>
+    <div class="progress" >
+        <div class="progress-bar" id="progressBar" style="width: 100%;">
+            <span class="sr-only" color="red">40% finished</span>
+        </div>
+    </div>
+    <h3 id="title">Please click 'start' button to start test</h3>
+    <h4 ><font color="red">Tip: Click 'Regenerate' when menu isn't selectable.</font></h4>
+    <ul class="menu-switch" id="menuContainer">
+        <li><a id="dLabel" text-align="center" href="#">
+                Start<span class="caret"></span>
+            </a>
+            <!--insert menu here-->
+        </li>
+        <li><a id="regenrateBtn" text-align="center" href="#" onclick="regenerateMenu()">Regenerate!</a></li>
+    </ul>
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    Click to collapse or hide log
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body" id="logText">
+                Page loaded sucessfully, ready to proceed a test.<br>
+                Please press 'Start' button to start test...
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Congratulations! You have finished all tests!
+                </h4>
+            </div>
+            <div class="modal-body">
+                Please click 'Download' button to download test result file and send it to us. Thank you! ;)
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveResult()">Download</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+</body>
+<script>
+    //Global objects
+    var title;
+    var firstLevelMenu;
+    var logText;
+    var menuStartBtn;
+    var progressBar;
+    var progressText;
+    //Global variables
+    var firstPress=true;
+    const maxRound=5;
+    var currentRound=1;
+    var startPressed=false;
+    var roundStartTime;
+    var roundEndTime;
+    //menu parameters
+    var menuWidth = 150;
+    var menuHeight = 30;
+    var fontSize = 14;
+    var menuLength=[4, 5, 6];
+    var menuTargetPos= [2, 3, 4];
+    //Record parameters and results
+    var records=[];
+    window.onload = function () {
+        //init global objects
+        title = document.getElementById('title');
+        title.innerHTML = 'Please click <font color="red">Start</font> and select menu item 2->3->4';
+        logText=document.getElementById('logText');
+        menuStartBtn= document.getElementById('dLabel');
+        progressBar =document.getElementById('progressBar');
+        progressText = document.getElementById('progressText');
+        //init menu
+        firstLevelMenu=createMenu(menuLength,menuTargetPos);
+        menuStartBtn.appendChild(firstLevelMenu);
+        //add menu click event response
+        document.addEventListener("click", event => {
+            var cDom = menuStartBtn;
+            var tDom = event.target;
+            if (cDom == tDom || cDom.contains(tDom)) {
+                firstLevelMenu.style.display = 'inline';
+                startNewRound();
+            } else {
+                firstLevelMenu.style.display = 'none';
+            }
+        });
+    };
+    function startNewRound(){
+        if(currentRound>maxRound||startPressed){
+            return;
+        }
+        if(firstPress){
+            progressText.innerHTML = 'Current Progress - 0 / ' + maxRound + ' finished';
+            progressBar.setAttribute('style', 'width: 0%;');
+            firstPress=false;
+        }
+        var singleRecord={"width":menuWidth,"height":menuHeight,"fontSize":fontSize,
+        "l1length:":menuLength[0], "l2length:": menuLength[1], "l3length:": menuLength[2],
+        "l1target":menuTargetPos[0], "l2target": menuTargetPos[1], "l3target": menuTargetPos[2],
+        "time":0};
+        // console.log("new parameter"+currentRound);
+        // console.log(singleRecord);
+        records[currentRound-1]=singleRecord;
+        startPressed=true;
+        roundStartTime = new Date();
+    }
+    //生成从minNum到maxNum的随机数
+    function randomNum(minNum, maxNum) {
+        switch (arguments.length) {
+            case 1:
+                return parseInt(Math.random() * minNum + 1, 10);
+                break;
+            case 2:
+                return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                break;
+            default:
+                return 0;
+                break;
+        }
+    }
+    function generateParameters(){
+        menuWidth = randomNum(50, 300);
+        menuHeight = randomNum(10, 60);
+        fontSize = randomNum(5, 60);
+        while (fontSize > (menuHeight - 5)) {
+            fontSize = randomNum(5, 60);
+        }
+        menuLength = [randomNum(1, 10), randomNum(1, 10), randomNum(1, 10)];
+        menuTargetPos = [randomNum(0, menuLength[0] - 1), randomNum(0, menuLength[1] - 1), randomNum(0, menuLength[2] - 1)];
+    }
+    function regenerateMenu() {
+        //reset variables
+        startPressed = false;
+        //delete old menu
+        menuStartBtn.removeChild(firstLevelMenu);
+        //generate new menu parameters
+        generateParameters();
+        //set new menu style
+        firstLevelMenu = createMenu(menuLength, menuTargetPos);
+        menuStartBtn.appendChild(firstLevelMenu);
+        setMenuStyle(menuWidth, menuHeight, fontSize);
+        //update instruction text
+        title.innerHTML = 'Please click <font color="red">Start</font> and select menu item ' + menuTargetPos[0] + '->' + menuTargetPos[1] + '->' + menuTargetPos[2];
+    }
+    function endRound(){
+        roundEndTime=new Date();
+        var interval=roundEndTime-roundStartTime;
+        records[currentRound-1].time=interval;
+        logText.innerHTML=logText.innerHTML+'<br>'+'selection '+currentRound+' time:'+interval+'ms';
+        logText.innerHTML=logText.innerHTML+ '<br> Parameters:'+ JSON.stringify(records[currentRound-1]);
+        var p = currentRound / maxRound * 100;
+        progressBar.setAttribute('style', 'width:' + p + '%;');
+        progressText.innerHTML= 'Current Progress - '+currentRound+' / '+maxRound+' finished';
+        //reset variables
+        ++currentRound;
+        if(currentRound>maxRound){
+            startPressed = false;
+            $('#myModal').modal('show')
+            return;
+        }
+        regenerateMenu();
+    }
+    function saveResult(){
+        var content="";
+        for(i=0;i<records.length;++i){
+            content+= JSON.stringify(records[i])+"\n";
+        }
+        var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+        saveAs(blob, "result.txt");
+    }
+    
+    function setMenuStyle(width,height,fontSize){
+        document.documentElement.style.setProperty('--menuWidth', width + 'px');
+        document.documentElement.style.setProperty('--menuWidthMinus', -width + 'px');
+
+        document.documentElement.style.setProperty('--menuHeight', height + 'px');
+        document.documentElement.style.setProperty('--menuHeightMinus', -height + 'px');
+
+        document.documentElement.style.setProperty('--menuFontSize', fontSize + 'px');
+    }
+    function createMenu(subMenuItemNum,subMenuTarget){
+        var lastMenu=null;
+        for(i=subMenuItemNum.length-1;i>=0;--i){
+            //创建新的子菜单
+            var currentMenu=document.createElement('ul');
+            if(i==0){
+                currentMenu.setAttribute('class', 'first-level-menu');
+            }else{
+                currentMenu.setAttribute('class', 'sub-level-menu');
+            }
+            currentMenu.setAttribute('id', 'menuLevel' + i);
+
+            for(j=0;j<subMenuItemNum[i];++j){
+                var item = document.createElement('a');
+                item.setAttribute('href', '#');
+                item.innerHTML = 'item' + j;//item.innerHTML = 'level' + i + ' item' + j;
+                var li = document.createElement('li');
+                if(j==subMenuTarget[i]){//目标选项
+                    if(lastMenu){//非最后一级菜单的目标选项
+                        li.appendChild(item);
+                        li.appendChild(lastMenu);//添加上轮建立的菜单
+                    }else{//最后一级菜单的目标选项
+                        li.appendChild(item);
+                        //添加选中触发事件
+                        item.setAttribute('onclick','endRound()');
+                    }
+                }else{//非目标菜单项
+                        if (i == subMenuItemNum.length - 1) {//最后一级菜单的菜单项无需迷惑
+                        li.appendChild(item);
+                    } else {
+                        //为非最后一级菜单的菜单项添加迷惑
+                        li.appendChild(item);
+                        var confuse = document.createElement('ul');
+                        confuse.setAttribute('class','sub-level-menu');
+                        confuse.innerHTML = '<li><a href="#">迷惑内容'+j+'</a></li>';
+                        li.appendChild(confuse);
+                    }
+                }
+                currentMenu.appendChild(li);
+            }
+            lastMenu=currentMenu;
+        }
+        // console.log(lastMenu.outerHTML);
+        return lastMenu;
+    }
+</script>
+</html>
+
