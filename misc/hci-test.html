@@ -3,7 +3,7 @@
 <head>
     <!-- https://stackoverflow.com/questions/9100344/pure-css-multi-level-drop-down-menu -->
     <meta charset="UTF-8">
-    <title>多级下拉菜单示例</title>
+    <title>Menu Selection Test</title>
     <script type="text/javascript" src="https://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <link rel="stylesheet" href="https://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
     <!-- <link rel="stylesheet" href="menu.css" /> -->
@@ -123,7 +123,10 @@
         /* .menu-switch li:hover>ul {
             display: inline;
         } */
-
+        #zero{
+            margin: 0px;
+            padding: 0px;
+        }
 
 
     </style>
@@ -132,16 +135,29 @@
 <div class="container" id="main" display="flex">
     <div>
         <h2>Welcome to HCI menu selection test!</h2>
-        <hr>
+        <form role="form" class="form-inline">
+            <label>Select Test Rounds</label>&nbsp;&nbsp;
+            <select class="form-control-sm" id="roundSelecter">
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+            </select>
+        </form>
     </div>
-    <h4 id="progressText">Current Progress - Test not started</h4>
-    <div class="progress" >
-        <div class="progress-bar" id="progressBar" style="width: 100%;">
-            <span class="sr-only" color="red">40% finished</span>
+    <div>
+        <h4 id="progressText">Current Progress - Test not started</h4>
+        <div class="progress">
+            <div class="progress-bar" id="progressBar" style="width: 100%;">
+                <span class="sr-only" color="red">40% finished</span>
+            </div>
         </div>
     </div>
     <h3 id="title">Please click 'start' button to start test</h3>
-    <h4 ><font color="red">Tip: Click 'Regenerate' when menu isn't selectable.</font></h4>
+    <h4>
+        <font color="red">Tip: Click 'Regenerate' when menu isn't selectable.</font>
+    </h4>
     <ul class="menu-switch" id="menuContainer">
         <li><a id="dLabel" text-align="center" href="#">
                 Start<span class="caret"></span>
@@ -150,8 +166,10 @@
         </li>
         <li><a id="regenrateBtn" text-align="center" href="#" onclick="regenerateMenu()">Regenerate!</a></li>
     </ul>
+    
 
-    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <!-- collapse panel -->
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
@@ -201,7 +219,7 @@
     var progressText;
     //Global variables
     var firstPress=true;
-    const maxRound=5;
+    var maxRound=10;
     var currentRound=1;
     var startPressed=false;
     var roundStartTime;
@@ -242,6 +260,9 @@
             return;
         }
         if(firstPress){
+            maxRound=$("#roundSelecter").val();
+            $("#roundSelecter").prop("disabled", true);
+            $(".selectpicker[data-id='roundSelecter']").addClass("disabled");
             progressText.innerHTML = 'Current Progress - 0 / ' + maxRound + ' finished';
             progressBar.setAttribute('style', 'width: 0%;');
             firstPress=false;
@@ -277,10 +298,22 @@
         while (fontSize > (menuHeight - 5)) {
             fontSize = randomNum(5, 60);
         }
-        menuLength = [randomNum(1, 10), randomNum(1, 10), randomNum(1, 10)];
-        menuTargetPos = [randomNum(0, menuLength[0] - 1), randomNum(0, menuLength[1] - 1), randomNum(0, menuLength[2] - 1)];
+
+        menuLength=[randomNum(2, 10),0,0];//只有一项的菜单毫无意义,最低2项
+        menuTargetPos=[randomNum(0, menuLength[0] - 1),0,0];
+        //generate sub level menu
+        const threshold=4;
+        for(i=1;i<3;++i){
+            var rn= randomNum(1, 13);
+            if(rn<= threshold){//sub level menus are more likely to be null
+                break;
+            }else rn-= threshold-1;//只有一项的菜单毫无意义,最低2项
+            menuLength[i]=rn;
+            menuTargetPos[i]=randomNum(0, menuLength[i] - 1);
+        }
     }
     function regenerateMenu() {
+        if (currentRound > maxRound)return;
         //reset variables
         startPressed = false;
         //delete old menu
@@ -292,7 +325,14 @@
         menuStartBtn.appendChild(firstLevelMenu);
         setMenuStyle(menuWidth, menuHeight, fontSize);
         //update instruction text
-        title.innerHTML = 'Please click <font color="red">Start</font> and select menu item ' + menuTargetPos[0] + '->' + menuTargetPos[1] + '->' + menuTargetPos[2];
+        var insText= menuTargetPos[0];
+        for(k=1;k<menuLength.length;++k){
+            if(menuLength[k]>0)
+                insText+= '->'+menuTargetPos[k];
+            else
+                break;
+        }
+        title.innerHTML = 'Please click <font color="red">Start</font> and select menu item ' + insText;
     }
     function endRound(){
         roundEndTime=new Date();
@@ -332,21 +372,26 @@
     }
     function createMenu(subMenuItemNum,subMenuTarget){
         var lastMenu=null;
+        const menuStyleList=['first-level-menu','sub-level-menu','sub-level-menu'];
+        var realLastMenuLevel=0;
+        for(i=1;i< subMenuItemNum.length;++i){
+            if(subMenuItemNum[i]>0)realLastMenuLevel=i;
+            else break;
+        }
         for(i=subMenuItemNum.length-1;i>=0;--i){
+            //菜单项为0则忽略
+            if(subMenuItemNum[i]<=0)continue;
             //创建新的子菜单
             var currentMenu=document.createElement('ul');
-            if(i==0){
-                currentMenu.setAttribute('class', 'first-level-menu');
-            }else{
-                currentMenu.setAttribute('class', 'sub-level-menu');
-            }
+            currentMenu.setAttribute('class',menuStyleList[i>2?2:i]);
             currentMenu.setAttribute('id', 'menuLevel' + i);
 
             for(j=0;j<subMenuItemNum[i];++j){
                 var item = document.createElement('a');
                 item.setAttribute('href', '#');
-                item.innerHTML = 'item' + j;//item.innerHTML = 'level' + i + ' item' + j;
+                item.innerHTML = 'item' + j;
                 var li = document.createElement('li');
+
                 if(j==subMenuTarget[i]){//目标选项
                     if(lastMenu){//非最后一级菜单的目标选项
                         li.appendChild(item);
@@ -357,14 +402,14 @@
                         item.setAttribute('onclick','endRound()');
                     }
                 }else{//非目标菜单项
-                        if (i == subMenuItemNum.length - 1) {//最后一级菜单的菜单项无需迷惑
+                    if (i == realLastMenuLevel) {//最后一级菜单的菜单项无需迷惑
                         li.appendChild(item);
                     } else {
                         //为非最后一级菜单的菜单项添加迷惑
                         li.appendChild(item);
                         var confuse = document.createElement('ul');
                         confuse.setAttribute('class','sub-level-menu');
-                        confuse.innerHTML = '<li><a href="#">迷惑内容'+j+'</a></li>';
+                        confuse.innerHTML = '<li><a href="#">Item 0'+j+'</a></li>';
                         li.appendChild(confuse);
                     }
                 }
