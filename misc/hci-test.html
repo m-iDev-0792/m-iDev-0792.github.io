@@ -134,37 +134,41 @@
 <body>
 <div class="container" id="main" display="flex">
     <div>
-        <h2>Welcome to HCI menu selection test!</h2>
+        <h2 id="bigtitle">欢迎参加菜单选择测试!</h2>
         <form role="form" class="form-inline">
-            <label>Select Test Rounds</label>&nbsp;&nbsp;
+            <label>选择测试回合</label>&nbsp;&nbsp;
             <select class="form-control-sm" id="roundSelecter">
+                <option>100</option>
                 <option>5</option>
                 <option>10</option>
                 <option>20</option>
                 <option>50</option>
-                <option>100</option>
+                <option>150</option>
+                <option>200</option>
+                <option>300</option>
+                <option>500</option>
             </select>
         </form>
     </div>
     <div>
-        <h4 id="progressText">Current Progress - Test not started</h4>
+        <h4 id="progressText">当前进度 - 测试未开始</h4>
         <div class="progress">
             <div class="progress-bar" id="progressBar" style="width: 100%;">
                 <span class="sr-only" color="red">40% finished</span>
             </div>
         </div>
     </div>
-    <h3 id="title">Please click 'start' button to start test</h3>
+    <h3 id="title">请点击'开始'按钮来开始测试</h3>
     <h4>
-        <font color="red">Tip: Click 'Regenerate' when menu isn't selectable.</font>
+        <font color="red">提示: 当您感觉菜单不合理时,请点击'重新生成'.</font>
     </h4>
     <ul class="menu-switch" id="menuContainer">
         <li><a id="dLabel" text-align="center" href="#">
-                Start<span class="caret"></span>
+                开始<span class="caret"></span>
             </a>
             <!--insert menu here-->
         </li>
-        <li><a id="regenrateBtn" text-align="center" href="#" onclick="regenerateMenu()">Regenerate!</a></li>
+        <li><a id="regenrateBtn" text-align="center" href="#" onclick="regenerateMenu()">重新生成!</a></li>
     </ul>
     
 
@@ -174,7 +178,7 @@
         <div class="panel-heading">
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                    Click to collapse or hide log
+                    点击此处折叠或显示日志
                 </a>
             </h4>
         </div>
@@ -195,15 +199,24 @@
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Congratulations! You have finished all tests!
+                    祝贺!你已经完成了所有测试
                 </h4>
             </div>
             <div class="modal-body">
-                Please click 'Download' button to download test result file and send it to us. Thank you! ;)
+                填写您的相关信息,然后请点击'下载'按钮来下载结果,并把结果发送给我们,谢谢! ;)<br>
+                姓名: <input type="text" class="form-control" id="testerName"><br>
+                性别:
+                <div class="btn-group" id="gender" data-toggle="buttons">
+                    <label class="btn btn-default blue">
+                        <input type="radio" class="toggle" value="m">男
+                    </label>
+                    <label class="btn btn-default blue">
+                        <input type="radio" class="toggle" value="f">女
+                    </label>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="saveResult()">Download</button>
+                <button type="button" class="btn btn-primary" onclick="saveResultAsCSV()">下载</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
@@ -224,6 +237,7 @@
     var startPressed=false;
     var roundStartTime;
     var roundEndTime;
+    var instructText;
     //menu parameters
     var menuWidth = 150;
     var menuHeight = 30;
@@ -232,10 +246,21 @@
     var menuTargetPos= [2, 3, 4];
     //Record parameters and results
     var records=[];
+    //menu item title data
+    var title1 = ['保存','新建','删除','撤销','重做','另存为','导出','导入','粘贴','剪切','复制','查找','替换','关闭','最小化','最大化','全选','反选'];
+    var title2 = ['北京','上海','广州','深圳','大连','厦门','沈阳','武汉','长沙','南昌','哈尔滨','长春','郑州','石家庄','南京','杭州','苏州'];
+    var title3 = ['苹果','香蕉','橘子','桃子','榴莲','西瓜','枣子','葡萄','芒果','柠檬','草莓','椰子','菠萝','荔枝','乌梅','樱桃','甘蔗'];
+    var title4 = ['番茄','青菜','白菜','菠菜','胡萝卜','冬瓜','丝瓜','豆角','包菜','辣椒','韭菜','蒜苗','豆芽','生菜','花菜','山药'];
+    var title5 = ['中国','蒙古','朝鲜','韩国','日本 ','芬兰','瑞典','挪威','冰岛','丹麦','英国','爱尔兰','荷兰','比利时','卢森堡','法国','摩纳哥','加拿大','美国','墨西哥','哥伦比亚','委内瑞拉','意大利','埃及','利比亚','苏丹','突尼斯','阿尔及利亚','摩洛哥','埃塞俄比亚'];
+    var title6 = ['老虎','狼','老鼠','麋鹿','貂','猴子','树懒', '斑马','狗','狐狸','棕熊','大象','豹子','狮子','大熊猫','疣猪','羚羊','驯鹿','考拉','犀牛','穿山甲','长颈鹿','小熊猫','食蚁兽',' 猩猩','海牛','水獭','灵猫','海豚','海象','鸭嘴兽','刺猬','北极狐','无尾熊','北极熊','袋鼠','河马','海豹','鲸鱼'];
+    var title7 = ['自行车', '电动车', '摩托', '公交', '大巴', '出租', '小汽车', '有轨电车', '无轨电车', '地铁', '火车', '客机', '直升机', '邮轮', '帆船', '汽艇', '游船', '游艇', '气垫船', '马车', '三轮车'];
+    var title8 = ['应用化学','天文学','经济学','国际贸易','法律','计算机','现代文学','考古学','天体物理学','材料科学','统计学','环境科学','口腔医学','政治学','电气工程','通信工程','保险学','控制工程'];
+    var title9 = ['霸王别姬','阿甘正传','盗梦空间','星际穿越','无间道','熔炉','怦然心动','遗愿清单','乱世佳人','罗马假日','指环王','天空之城','死亡诗社','教父2','狮子王','黑客帝国','让子弹飞','美国往事','七宗罪','勇敢的心'];
+    var title10 = ['联想','戴尔','惠普','华硕','苹果','三星','华为','微软','小米','微星','外星人','荣耀','神舟','索尼','松下','雷蛇','宏碁','LG','ThinkPad'];
+    var allTitleDatas=[title1, title2, title3, title4, title5, title6, title7, title8, title9, title10];
     window.onload = function () {
         //init global objects
         title = document.getElementById('title');
-        title.innerHTML = 'Please click <font color="red">Start</font> and select menu item 2->3->4';
         logText=document.getElementById('logText');
         menuStartBtn= document.getElementById('dLabel');
         progressBar =document.getElementById('progressBar');
@@ -243,6 +268,7 @@
         //init menu
         firstLevelMenu=createMenu(menuLength,menuTargetPos);
         menuStartBtn.appendChild(firstLevelMenu);
+            title.innerHTML = '请点击<font color="red">开始</font>并选择菜单项 '+instructText;
         //add menu click event response
         document.addEventListener("click", event => {
             var cDom = menuStartBtn;
@@ -268,7 +294,7 @@
             firstPress=false;
         }
         var singleRecord={"width":menuWidth,"height":menuHeight,"fontSize":fontSize,
-        "l1length:":menuLength[0], "l2length:": menuLength[1], "l3length:": menuLength[2],
+        "l1length":menuLength[0], "l2length": menuLength[1], "l3length": menuLength[2],
         "l1target":menuTargetPos[0], "l2target": menuTargetPos[1], "l3target": menuTargetPos[2],
         "time":0};
         // console.log("new parameter"+currentRound);
@@ -295,16 +321,17 @@
         menuWidth = randomNum(50, 300);
         menuHeight = randomNum(10, 60);
         fontSize = randomNum(5, 60);
-        while (fontSize > (menuHeight - 5)) {
+        while (fontSize > menuHeight*0.9 || fontSize < menuHeight * 0.4) {
             fontSize = randomNum(5, 60);
         }
 
         menuLength=[randomNum(2, 10),0,0];//只有一项的菜单毫无意义,最低2项
         menuTargetPos=[randomNum(0, menuLength[0] - 1),0,0];
         //generate sub level menu
-        const threshold=4;
+        const threshold=6;
+        const maxLength=10;
         for(i=1;i<3;++i){
-            var rn= randomNum(1, 13);
+            var rn= randomNum(1, maxLength+threshold-1);
             if(rn<= threshold){//sub level menus are more likely to be null
                 break;
             }else rn-= threshold-1;//只有一项的菜单毫无意义,最低2项
@@ -332,8 +359,9 @@
             else
                 break;
         }
-        title.innerHTML = 'Please click <font color="red">Start</font> and select menu item ' + insText;
+        title.innerHTML = '请点击<font color="red">开始</font>然后选择菜单项 ' + instructText;
     }
+    //目标项点击事件
     function endRound(){
         roundEndTime=new Date();
         var interval=roundEndTime-roundStartTime;
@@ -342,12 +370,14 @@
         logText.innerHTML=logText.innerHTML+ '<br> Parameters:'+ JSON.stringify(records[currentRound-1]);
         var p = currentRound / maxRound * 100;
         progressBar.setAttribute('style', 'width:' + p + '%;');
-        progressText.innerHTML= 'Current Progress - '+currentRound+' / '+maxRound+' finished';
+        progressText.innerHTML= '当前进度 - '+currentRound+' / '+maxRound+' 已完成';
         //reset variables
         ++currentRound;
+        //test is over
         if(currentRound>maxRound){
             startPressed = false;
             $('#myModal').modal('show')
+            document.getElementById('bigtitle').innerHTML="测试结束,要再来一轮测试,请重载本页面!";
             return;
         }
         regenerateMenu();
@@ -358,8 +388,26 @@
             content+= JSON.stringify(records[i])+"\n";
         }
         var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
-        saveAs(blob, "result.txt");
+        var gender = $('#gender input:radio:checked').val();
+        var name = $("#myModal #testerName").val().trim();
+        var t = new Date();
+        var tt = t.getFullYear() + "-" + t.getMonth() + "-" + t.getDate() + "-" + t.getHours() + "-" + t.getMinutes();
+        saveAs(blob, name + "-" + gender + "-" + tt + ".txt");
     }
+    function saveResultAsCSV() {
+            var content = "width,height,font size,L1 length,L2 length,L3 length,L1 target,L2 target,L3 target,time\n";
+            for (i = 0; i < records.length; ++i) {
+                content += records[i].width+','+ records[i].height + ',' + records[i].fontSize + ','
+                + records[i].l1length + ',' + records[i].l2length + ',' + records[i].l3length + ','
+                + records[i].l1target + ',' + records[i].l2target + ',' + records[i].l3target + ',' + records[i].time + "\n";
+            }
+            var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+            var gender = $('#gender input:radio:checked').val();
+            var name= $("#myModal #testerName").val().trim();
+            var t = new Date();
+            var tt=t.getFullYear()+"-"+ t.getMonth() + "-"+ t.getDate() + "-" + t.getHours() + "-" + t.getMinutes();
+            saveAs(blob, name+"-"+gender+"-"+tt+".csv");
+        }
     
     function setMenuStyle(width,height,fontSize){
         document.documentElement.style.setProperty('--menuWidth', width + 'px');
@@ -370,7 +418,18 @@
 
         document.documentElement.style.setProperty('--menuFontSize', fontSize + 'px');
     }
+    //创建菜单
     function createMenu(subMenuItemNum,subMenuTarget){
+        //TODO随机选择三个数据源
+        var menuTitleData= [];
+        //初始化selection
+        var selections = allTitleDatas.concat();
+        for(iii=0;iii<3;++iii){
+            var selected=randomNum(0,selections.length-1);
+            menuTitleData.push(selections[selected].concat());
+            selections.splice(selected, 1);
+        }
+        instructText='';
         var lastMenu=null;
         const menuStyleList=['first-level-menu','sub-level-menu','sub-level-menu'];
         var realLastMenuLevel=0;
@@ -389,10 +448,19 @@
             for(j=0;j<subMenuItemNum[i];++j){
                 var item = document.createElement('a');
                 item.setAttribute('href', '#');
-                item.innerHTML = 'item' + j;
+                //菜单的标题
+                //------------随机选择菜单项标题--------------
+                var ti=randomNum(0,menuTitleData[i].length-1);
+                item.innerHTML= menuTitleData[i][ti];
+                menuTitleData[i].splice(ti,1);
+                //------------随机选择菜单项标题--------------
+                // item.innerHTML = 'item' + j;
                 var li = document.createElement('li');
 
                 if(j==subMenuTarget[i]){//目标选项
+                    //添加目标菜单选择提示
+                    instructText = item.innerHTML + instructText;
+                    if (i > 0) instructText = '->' + instructText;
                     if(lastMenu){//非最后一级菜单的目标选项
                         li.appendChild(item);
                         li.appendChild(lastMenu);//添加上轮建立的菜单
@@ -409,7 +477,12 @@
                         li.appendChild(item);
                         var confuse = document.createElement('ul');
                         confuse.setAttribute('class','sub-level-menu');
-                        confuse.innerHTML = '<li><a href="#">Item 0'+j+'</a></li>';
+                        //------------随机选择菜单项标题--------------
+                        var ti = randomNum(0, menuTitleData[i+1].length - 1);
+                        var temptext = menuTitleData[i+1][ti];
+                        menuTitleData[i].splice(ti, 1);
+                        //------------随机选择菜单项标题--------------
+                        confuse.innerHTML = '<li><a href="#">'+temptext+'</a></li>';
                         li.appendChild(confuse);
                     }
                 }
