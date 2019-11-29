@@ -506,9 +506,6 @@
     }
     //创建菜单
     function createMenu(subMenuItemNum, subMenuTarget) {
-        console.log('----------------------');
-        console.log('subMenuItemNum '+subMenuItemNum);
-        console.log('sumMenuTarget '+subMenuTarget);
         //字体信息
         var fontInfo = 'bold ' + fontSize + 'px Arial, Helvetica, sans-serif';
         maxItemWidth = 0;
@@ -577,10 +574,7 @@
             let li = document.createElement('li');
 
             if (i == subMenuTarget[0]) {//一级菜单目标选项
-                console.log('到达第一级的目标选项了');
-                console.log('第二季菜单数量='+ subMenuItemNum[1]);
                 if (subMenuItemNum[1] > 0) {
-                    console.log('有二级菜单');
                     //在这里添加第二级菜单
                     menuLevel2 = document.createElement('ul');
                     menuLevel2.setAttribute('class', 'sub-level-menu');
@@ -612,7 +606,6 @@
                     li.appendChild(menuLevel2);//添加第二级目标菜单
                     instructText = item.innerText + instructText;
                 }else{//只有一级菜单
-                    console.log('只有一级菜单');
                     item.setAttribute('onclick', 'endRound()');//添加选中触发事件
                     li.appendChild(item);
                     instructText = item.innerText + instructText;
