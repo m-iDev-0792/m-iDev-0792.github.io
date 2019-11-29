@@ -150,6 +150,29 @@
 </head>
 
 <body>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="msgModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h3 class="modal-title">在测试之前...</h3>
+                </div>
+                <div class="modal-body">
+                    为了确保测试结果的正确上传,请允许浏览器运行'不安全的脚本'.<br>
+                    如果您使用的是Chrome浏览器,请在地址栏的右侧点击盾牌图标,允许运行不安全的内容.<br>
+                    如下图所示<br>
+                    <img src="https://m-idev-0792.github.io/misc/hciImg.png"><br>
+                    其他浏览器的设置方法与此类似.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
     <div class="container" id="main" display="flex">
         <div>
             <h2 id="bigtitle">欢迎参加菜单选择测试!</h2>
@@ -217,7 +240,7 @@
                         &times;
                     </button>
                     <h4 class="modal-title" id="myModalLabel">
-                        祝贺!你已经完成了所有测试
+                        祝贺!您已经完成了所有测试
                     </h4>
                 </div>
                 <div class="modal-body">
@@ -243,29 +266,6 @@
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
-        <!-- 模态框（Modal） -->
-        <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <h3 class="modal-title">在测试之前...</h3>
-                    </div>
-                    <div class="modal-body">
-                        为了确保测试结果的正确上传,请运行浏览器运行'不安全的脚本'.<br>
-                        如果您使用的是Chrome浏览器,请在地址栏的右侧点击盾牌图标,允许运行不安全的内容.<br>
-                        如下图的所示<br>
-                        <img src="https://m-idev-0792.github.io/misc/hciImg.png"><br>
-                        其他浏览器您可以找到类似的方法.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
-    </div>
 </body>
 <script>
     //Global objects
@@ -322,7 +322,7 @@
     }
     window.onload = function () {
         $('#msgModal').modal('show');
-        let nothing = new WebSocket('ws://106.13.198.184:8002');
+        let nothing = new WebSocket('ws://106.13.198.184:8002');//fake connection
         //init global objects
         title = document.getElementById('title');
         logText = document.getElementById('logText');
