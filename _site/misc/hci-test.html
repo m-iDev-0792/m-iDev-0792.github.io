@@ -438,7 +438,7 @@
         state.innerText = '正在连接服务器...';
         state.setAttribute('class', 'text-primary');
         // ws = new WebSocket('ws://127.0.0.1:9002'); 
-        ws = new WebSocket('wss://106.13.198.183:9002');
+        ws = new WebSocket('ws://106.13.198.183:9002');
         ws.onopen = function (evt) { onOpen(evt) };
         ws.onclose = function (evt) { onClose(evt) };
         ws.onmessage = function (evt) { onMessage(evt) };
