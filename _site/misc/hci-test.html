@@ -481,6 +481,11 @@
                     + records[i].l1target + ',' + records[i].l2target + ',' + records[i].l3target + ','
                     + records[i].maxItemWidth + ',' + records[i].time + "\n";
             }
+            var gender = $('#gender input:radio:checked').val();
+            var name = $("#myModal #testerName").val().trim();
+            if(!name)name='no name';
+            if(!gender)gender='no gender';
+            content=name+','+gender+'\n'+content;
             ws.send(content);
             dataSent = true;
             alert('数据发送成功!');
@@ -495,9 +500,12 @@
         for (i = 0; i < records.length; ++i) {
             content += JSON.stringify(records[i]) + "\n";
         }
-        var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
         var gender = $('#gender input:radio:checked').val();
         var name = $("#myModal #testerName").val().trim();
+        if (!name) name = 'no name';
+        if (!gender) gender = 'no gender';
+        content = name + ',' + gender + '\n' + content;
+        var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
         var t = new Date();
         var tt = t.getFullYear() + "-" + t.getMonth() + "-" + t.getDate() + "-" + t.getHours() + "-" + t.getMinutes();
         saveAs(blob, name + "-" + gender + "-" + tt + ".txt");
@@ -513,6 +521,9 @@
         var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
         var gender = $('#gender input:radio:checked').val();
         var name = $("#myModal #testerName").val().trim();
+        if (!name) name = 'no name';
+        if (!gender) gender = 'no gender';
+        content = name + ',' + gender + '\n' + content;
         var t = new Date();
         var tt = t.getFullYear() + "-" + t.getMonth() + "-" + t.getDate() + "-" + t.getHours() + "-" + t.getMinutes();
         saveAs(blob, name + "-" + gender + "-" + tt + ".csv");
