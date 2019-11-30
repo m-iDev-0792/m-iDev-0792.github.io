@@ -165,7 +165,7 @@
                     如果您使用的是Chrome浏览器,请在地址栏的右侧点击盾牌图标,允许运行不安全的内容.<br>
                     如下图所示<br>
                     <img src="https://m-idev-0792.github.io/misc/hciImg.png"><br>
-                    其他浏览器的设置方法与此类似.
+                    其他浏览器的设置方法与此类似.请勿使用过于激进的浏览器,如Safari
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
@@ -415,7 +415,7 @@
     // }
     function generateParameters() {
         menuWidth = randomNum(50, 300);
-        menuHeight = randomNum(10, 60);
+        menuHeight = randomNum(20, 60);
         fontSize = randomNum(parseInt(menuHeight * 0.4), parseInt(menuHeight * 0.9));
         menuLength = [randomNum(2, 10), 0, 0];//只有一项的菜单毫无意义,最低2项
         menuTargetPos = [randomNum(0, menuLength[0] - 1), 0, 0];
@@ -649,6 +649,8 @@
             menuLevel1.appendChild(li);
 
         }
+        //menu should not be too wide
+        if(menuWidth>maxItemWidth*2)menuWidth= maxItemWidth * 2;
         return menuLevel1;
     }
     function GetCurrentStrWidth(text, font) {
