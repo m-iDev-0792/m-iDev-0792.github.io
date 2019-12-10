@@ -296,6 +296,9 @@
     //New-----begin
     var l1ItemMoveInTime;
     var l2ItemMoveInTime;
+    var l1ItemMoveInIndex;//最后移入l1项的下标
+    var l2ItemMoveInIndex;//最后移入l2项的下标
+    var selectedIndex;//最后触发选择项的下标
     var trajectory="";
     var menuStartBtnPos;
     var moveOutNum=0;
@@ -381,10 +384,11 @@
             firstPress = false;
         }
         let singleRecord = {
-            "width": menuWidth, "height": menuHeight, "fontSize": fontSize,
+            "width": menuWidth, "height": menuHeight,"maxItemWidth": 0,  "fontSize": fontSize,
             "l1length": menuLength[0], "l2length": menuLength[1], "l3length": menuLength[2],
             "l1target": menuTargetPos[0], "l2target": menuTargetPos[1], "l3target": menuTargetPos[2],
-            "maxItemWidth": 0, "isSuccessful":0,"selectedIndex":0,"l1time":0,"l2time":0,"l3time":0,"time": 0,"trajectory":""
+            "l1selected":-1,"l2selected":-1,"l3selected":-1,"isSuccessful":0,
+            "l1time":0,"l2time":0,"l3time":0,"time": 0,"trajectory":""
         };
         // console.log("new parameter"+currentRound);
         // console.log(singleRecord);
@@ -397,25 +401,38 @@
         l2ItemMoveInTime=null;
     }
     //统一的回合结束函数
-    function endRound2(index) {
+    function endRound1(index) {
         roundEndTime = new Date();
         let interval = roundEndTime - roundStartTime;
         records[currentRound - 1].time = interval;
         records[currentRound - 1].maxItemWidth = maxItemWidth;
         records[currentRound - 1].trajectory=trajectory;
         //本次选择是否成功
-        let lastIndex;
-        for(lastIndex=1;lastIndex<3;++lastIndex){
-            if(menuLength[lastIndex]<=0)break;
+        let isSuccessful=false;
+        let menuLevelNum=0;
+        for(menuLevelNum=2;menuLevelNum>=0;--menuLevelNum){
+            if(menuLength[menuLevelNum]>0)break;
         }
-        if(index==menuTargetPos[--lastIndex]){//选到了目标选项
+        if(menuLevelNum==2){
+            if(menuTargetPos[0]==l1ItemMoveInIndex&&menuTargetPos[1]==l2ItemMoveInIndex&&menuTargetPos[2]==index)isSuccessful=true;
+            records[currentRound -1].l1selected=l1ItemMoveInIndex;
+            records[currentRound -1].l2selected=l2ItemMoveInIndex;
+            records[currentRound -1].l3selected=index;
+        }else if(menuLevelNum==1){
+            if(menuTargetPos[0]==l1ItemMoveInIndex&&menuTargetPos[1]==index)isSuccessful=true;
+            records[currentRound -1].l1selected=l1ItemMoveInIndex;
+            records[currentRound -1].l2selected=index;
+        }else if(menuLevelNum==0){
+            if(menuTargetPos[0]==index)isSuccessful=true;
+            records[currentRound -1].l1selected=index;
+        }
+        if(isSuccessful){//选到了目标选项
             records[currentRound - 1].isSuccessful=1;
             ++sucessNum;
-        }
-        else {//没有选到目标选项
+        }else {//没有选到目标选项
             records[currentRound - 1].isSuccessful=0;
         }
-        records[currentRound -1].selectedIndex=index;//按到了哪个选项
+
         //更新各级菜单的时间
         if(menuLength[2]>0){
             records[currentRound -1].l1time=l1ItemMoveInTime-roundStartTime;
@@ -430,7 +447,6 @@
             records[currentRound -1].l2time=0;
             records[currentRound -1].l3time=0;
         }
-
         //打印日志信息
         logText.innerHTML = logText.innerHTML + '<br>' + '<span style=\"color: red\"; >selection ' + currentRound + ' time:' + interval + "ms </span>";
         let trajectoryBackup=records[currentRound - 1].trajectory;
@@ -456,11 +472,13 @@
         }
         regenerateMenu();
     }
-    function updateL1MoveInTime(){
+    function updateL1MoveInTimeAndIndex(index){
         l1ItemMoveInTime=new Date();
+        l1ItemMoveInIndex=index;
     }
-    function updateL2MoveInTime(){
+    function updateL2MoveInTimeAndIndex(index){
         l2ItemMoveInTime=new Date();
+        l2ItemMoveInIndex=index;
     }
     /////////////////////////////////////////////////////////////////////////////
     //RANDOM MENU PARAMETERS
@@ -468,25 +486,12 @@
     function randomNum(min, max) { // min and max included 
             return Math.floor(Math.random() * (max - min + 1) + min);
     }
-    // function randomNum(minNum, maxNum) {
-    //     switch (arguments.length) {
-    //         case 1:
-    //             return parseInt(Math.random() * minNum + 1, 10);
-    //             break;
-    //         case 2:
-    //             return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
-    //             break;
-    //         default:
-    //             return 0;
-    //             break;
-    //     }
-    // }
     function generateParameters() {
         menuWidth = randomNum(50, 300);
         menuHeight = randomNum(20, 60);
         fontSize = randomNum(parseInt(menuHeight * 0.4), parseInt(menuHeight * 0.9));
         menuLength = [randomNum(2, 10), 0, 0];//只有一项的菜单毫无意义,最低2项
-        menuTargetPos = [randomNum(0, menuLength[0] - 1), 0, 0];
+        menuTargetPos = [randomNum(0, menuLength[0] - 1), -1, -1];
         //generate sub level menu
         const threshold = 5;
         const maxLength = 8;
@@ -558,12 +563,12 @@
     /////////////////////////////////////////////////////////////////////////////
     //SAVE
     function getRecordString() {
-        let content = "width,height,maxItemWidth,font size,L1 length,L2 length,L3 length,L1 target,L2 target,L3 target,isSuccessful,selected index,L1 time,L2 time,L3 time,time,trajectory\n";
+        let content = "width,height,maxItemWidth,font size,L1 length,L2 length,L3 length,L1 target,L2 target,L3 target,L1 selected,L2 selected,L3 selected,isSuccessful,L1 time,L2 time,L3 time,time,trajectory\n";
         for (let i = 0; i < records.length; ++i) {
             content += records[i].width + ',' + records[i].height + ',' + records[i].maxItemWidth+ ',' + records[i].fontSize + ','
                 + records[i].l1length + ',' + records[i].l2length + ',' + records[i].l3length + ','
                 + records[i].l1target + ',' + records[i].l2target + ',' + records[i].l3target + ','
-                + records[i].isSuccessful + ','+records[i].selectedIndex + ','
+                + records[i].l1selected + ',' + records[i].l2selected + ',' + records[i].l3selected + ','+ records[i].isSuccessful +','
                 + records[i].l1time +',' + records[i].l2time + ',' + records[i].l3time + ',' + records[i].time + ','
                 + records[i].trajectory+"\n";
         }
@@ -607,6 +612,37 @@
 
         document.documentElement.style.setProperty('--menuFontSize', fontSize + 'px');
     }
+    //创建最后一级的菜单
+    function createLastLevelMenu(length,target,titleList,style) {
+        let fontInfo = 'bold ' + fontSize + 'px Arial, Helvetica, sans-serif';
+        let menu = document.createElement('ul');
+        let targetText="";
+        menu.dataset.ismenu=1;
+        menu.setAttribute('class', style);
+        for (let i = 0; i < length; ++i) {
+            let item = document.createElement('a');
+            item.dataset.ismenu=1;
+            item.setAttribute('href', '#');
+            //随机选择标题
+            let ti = randomNum(0, titleList.length - 1);
+            item.innerHTML = titleList[ti];//set item title
+            titleList.splice(ti, 1);
+            let itemWidth = GetCurrentStrWidth(item.innerHTML, fontInfo);
+            if (itemWidth > maxItemWidth) maxItemWidth = itemWidth;
+            if (itemWidth + 20 > menuWidth) {//如果菜单宽度太小,改变宽度
+                menuWidth = itemWidth + 20;
+            }
+            let li = document.createElement('li');
+            li.dataset.ismenu=1;
+            li.appendChild(item);
+            item.setAttribute('onclick', 'endRound1('+i+')');//添加选中触发事件
+            if (i == target) {
+                targetText=item.innerHTML;
+            }
+            menu.appendChild(li);
+        }
+        return [menu,targetText];
+    }
     //创建菜单
     function createMenu(subMenuItemNum, subMenuTarget) {
         //字体信息
@@ -620,23 +656,32 @@
         instructText = '';
         let menuLevel1;
         let menuLevel2;
-        let menuLevel3;
-        /////////说明:先创建第三级菜单,再创建一级菜单,创建二级菜单,为目标二级菜单添加之前创建的三级菜单
-        //创建第三级菜单
-        if (subMenuItemNum[2] > 0) {
-            menuLevel3 = document.createElement('ul');
-            menuLevel3.dataset.ismenu=1;
-            menuLevel3.setAttribute('class', 'sub-level-menu');
-            menuLevel3.setAttribute('id', 'menuLevel3');
-            for (let i = 0; i < subMenuItemNum[2]; ++i) {
-                //给第三级添加菜单
+
+        if(menuLength[1]<=0){//只有一级菜单
+            let level1Title=[];
+            for(let i=0;i<selectedDataset.length;++i)level1Title.push(selectedDataset[i].name);
+            let result=createLastLevelMenu(menuLength[0],menuTargetPos[0],level1Title,'first-level-menu');
+            menuLevel1=result[0];
+            instructText=result[1];
+        }else{
+            //有二级菜单
+            //创建第一级菜单
+            menuLevel1 = document.createElement('ul');
+            menuLevel1.dataset.ismenu=1;
+            menuLevel1.setAttribute('class', 'first-level-menu');
+            for (let i = 0; i < menuLength[0]; ++i) {//给第一级添加菜单
                 let item = document.createElement('a');
                 item.dataset.ismenu=1;
                 item.setAttribute('href', '#');
-                //随机选择标题
-                let ttti = randomNum(0, selectedLastLevel.length - 1);
-                item.innerHTML = selectedLastLevel[ttti];//set item title
-                selectedLastLevel.splice(ttti, 1);
+                item.setAttribute('onmouseover','updateL1MoveInTimeAndIndex('+i+')');
+                //菜单的标题
+                //------------随机选择第一级菜单项标题--------------
+                let ti = randomNum(0, selectedDataset.length - 1);
+                item.innerHTML = selectedDataset[ti].name;
+                if(i==menuTargetPos[0])instructText=item.innerHTML;
+                let level2Title = [];//第二季菜单标题列表
+                for (let m = 0; m < selectedDataset[ti].next.length; ++m)level2Title.push(selectedDataset[ti].next[m].name);
+                selectedDataset.splice(ti,1);
                 let itemWidth = GetCurrentStrWidth(item.innerHTML, fontInfo);
                 if (itemWidth > maxItemWidth) maxItemWidth = itemWidth;
                 if (itemWidth + 20 > menuWidth) {//如果菜单宽度太小,改变宽度
@@ -644,58 +689,32 @@
                 }
                 let li = document.createElement('li');
                 li.dataset.ismenu=1;
-                li.appendChild(item);
-                item.setAttribute('onclick', 'endRound2('+i+')');//添加选中触发事件
-                if (i == subMenuTarget[2]) {
-                    instructText = '->' + item.innerHTML;
-                }
-                menuLevel3.appendChild(li);
-            }
-        }
 
-        //创建第一级菜单
-        menuLevel1 = document.createElement('ul');
-        menuLevel1.dataset.ismenu=1;
-        menuLevel1.setAttribute('class', 'first-level-menu');
-        menuLevel1.setAttribute('id', 'menuLevel1');
-        for (let i = 0; i < subMenuItemNum[0]; ++i) {//给第一级添加菜单
-            let item = document.createElement('a');
-            item.dataset.ismenu=1;
-            item.setAttribute('href', '#');
-            //菜单的标题
-            //------------随机选择第一级菜单项标题--------------
-            let ti = randomNum(0, selectedDataset.length - 1);
-            item.innerHTML = selectedDataset[ti].name;//set item title
-            let selectedSecondLevel = [];
-            if (i == subMenuTarget[0]) {//为一级菜单目标添加二级菜单标题选项
-                for (let m = 0; m < selectedDataset[ti].next.length; ++m)
-                    selectedSecondLevel.push(selectedDataset[ti].next[m].name);
-            }
-            //selectedDataset[ti]的删除操作在最后进行
-            let itemWidth = GetCurrentStrWidth(item.innerHTML, fontInfo);
-            if (itemWidth > maxItemWidth) maxItemWidth = itemWidth;
-            if (itemWidth + 20 > menuWidth) {//如果菜单宽度太小,改变宽度
-                menuWidth = itemWidth + 20;
-            }
-            let li = document.createElement('li');
-            li.dataset.ismenu=1;
-
-            if (i == subMenuTarget[0]) {//一级菜单目标选项
-
-                if (subMenuItemNum[1] > 0) {//有二级菜单
+                if(menuLength[2]<=0){//没有三级菜单,自动添加二级菜单
+                    let result2 =[];
+                    if(i==menuTargetPos[0]){//第一级目标菜单
+                        result2 = createLastLevelMenu(menuLength[1],menuTargetPos[1],level2Title,'sub-level-menu');
+                        instructText+='->'+result2[1];
+                    }else{
+                        result2 = createLastLevelMenu(menuLength[1],-1,level2Title,'sub-level-menu');
+                    }
+                    li.appendChild(item);
+                    li.appendChild(result2[0]);
+                }else{//有三级菜单，得手动添加二级菜单了
                     //在这里添加第二级菜单
                     menuLevel2 = document.createElement('ul');
                     menuLevel2.dataset.ismenu=1;
                     menuLevel2.setAttribute('class', 'sub-level-menu');
-                    menuLevel2.setAttribute('id', 'menuLevel2');
-                    for (let j = 0; j < subMenuItemNum[1]; ++j) {
+                    for (let j = 0; j < menuLength[1]; ++j) {
                         let item2 = document.createElement('a');
                         item2.dataset.ismenu=1;
                         item2.setAttribute('href', '#');
+                        item2.setAttribute('onmouseover','updateL2MoveInTimeAndIndex('+j+')');
                         //第二级菜单的标题
-                        let tti = randomNum(0, selectedSecondLevel.length - 1);
-                        item2.innerText = selectedSecondLevel[tti];
-                        selectedSecondLevel.splice(tti, 1);
+                        let tti = randomNum(0, level2Title.length - 1);
+                        item2.innerText = level2Title[tti];
+                        if(j==menuTargetPos[1]&&i==menuTargetPos[0])instructText+='->'+item2.innerHTML;
+                        level2Title.splice(tti, 1);
                         let itemWidth = GetCurrentStrWidth(item2.innerHTML, fontInfo);
                         if (itemWidth > maxItemWidth) maxItemWidth = itemWidth;
                         if (itemWidth + 20 > menuWidth) {//如果菜单宽度太小,改变宽度
@@ -703,65 +722,25 @@
                         }
                         let li2 = document.createElement('li');
                         li2.dataset.ismenu=1;
-                        li2.appendChild(item2);
-
-                        if (j == subMenuTarget[1]) {//如果是二级菜单目标,添加第三级菜单
-                            if (subMenuItemNum[2] > 0) {//有第三级菜单
-                                li2.appendChild(menuLevel3);
-                                item2.setAttribute('onmouseover','updateL2MoveInTime()');
-                            }
-                            else {//没有第三级菜单，添加触发事件
-                                item2.setAttribute('onclick', 'endRound2(' + j + ')');//添加选中触发事件
-                                item2.setAttribute('onmouseover','updateL2MoveInTime()');
-                            }
-                            instructText = '->' + item2.innerHTML + instructText;
+                        let titleList3 = lastLevel[selectedDatasetIndex].concat();
+                        let result3=[];
+                        if(j==menuTargetPos[1]&&i==menuTargetPos[0]){
+                            result3=createLastLevelMenu(menuLength[2],menuTargetPos[2],titleList3,'sub-level-menu');
+                            instructText+='->'+result3[1];
                         }else{
-                            //不是二级目标菜单
-                            if(subMenuItemNum[2]>0){//有三级菜单添加迷惑菜单
-                                let confuse = document.createElement('ul');
-                                confuse.dataset.ismenu=1;
-                                confuse.setAttribute('class', 'sub-level-menu');
-                                let fakeLevel3 = lastLevel[selectedDatasetIndex].concat();
-                                for(let iii=0;iii<subMenuItemNum[2];++iii){
-                                    let ni = randomNum(0, fakeLevel3.length - 1);
-                                    confuse.innerHTML = confuse.innerHTML+'<li data-ismenu="1"><a href="#" data-ismenu="1">' + fakeLevel3[ni] + '</a></li>';
-                                    fakeLevel3.splice(ni, 1);
-                                }
-                                li2.appendChild(confuse);
-                            }else{//没有三级菜单，添加触发事件
-                                item2.setAttribute('onclick', 'endRound2(' + j + ')');//添加选中触发事件
-                            }
+                            result3=createLastLevelMenu(menuLength[2],-1,titleList3,'sub-level-menu');
                         }
+                        li2.appendChild(item2);
+                        li2.appendChild(result3[0]);
                         menuLevel2.appendChild(li2);
                     }
                     li.appendChild(item);
-                    item.setAttribute('onmouseover','updateL1MoveInTime()');
-                    li.appendChild(menuLevel2);//添加第二级目标菜单
-                    instructText = item.innerText + instructText;
-                }else{//只有一级菜单，没有二级菜单
-                    item.setAttribute('onclick', 'endRound2('+i+')');//添加选中触发事件
-                    item.setAttribute('onmouseover','updateL1MoveInTime()');
-                    li.appendChild(item);
-                    instructText = item.innerText + instructText;
-                }
-                //第一级目标菜单项结束。
-            } else {//非第一级目标菜单项
-                li.appendChild(item);
-                if(subMenuItemNum[1]>0){//有二级菜单添加迷惑菜单
-                    let confuse = document.createElement('ul');
-                    confuse.dataset.ismenu=1;
-                    confuse.setAttribute('class', 'sub-level-menu');
-                    for(let ni=0;ni<subMenuItemNum[1];++ni)
-                        confuse.innerHTML = confuse.innerHTML+'<li data-ismenu="1"><a href="#" data-ismenu="1">' + selectedDataset[ti].next[ni].name + '</a></li>';
-                    li.appendChild(confuse);
-                }else{//没有二级菜单，添加触发事件
-                    item.setAttribute('onclick', 'endRound2('+i+')');//添加选中触发事件
-                }
-            }
-            selectedDataset.splice(ti, 1);
-            menuLevel1.appendChild(li);
+                    li.appendChild(menuLevel2);
+                }//给二级菜单添加三级菜单结束
+                menuLevel1.appendChild(li);
+            }//给一级菜单添加菜单项结束
 
-        }
+        }//给一级菜单创建二级菜单结束
         //menu should not be too wide
         if(menuWidth>maxItemWidth*2)menuWidth= maxItemWidth * 2;
         return menuLevel1;
