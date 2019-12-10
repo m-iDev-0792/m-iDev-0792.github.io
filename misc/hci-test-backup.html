@@ -137,9 +137,7 @@
             border-radius: 5px;
 
         }
-        .logDivStyle{
-            word-wrap:break-word;
-        }
+
         /* 当 menu-switch的任意子代li有鼠标移动上去,则显示li的直接后代ul */
         /* .menu-switch li:hover>ul {
             display: inline;
@@ -175,7 +173,6 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
-
     <div class="container" id="main" display="flex">
         <div>
             <h2 id="bigtitle">欢迎参加菜单选择测试!</h2>
@@ -205,11 +202,11 @@
         </div>
         <h3 id="title">请点击'开始'按钮来开始测试</h3>
         <h4>
-            <span style="color: red; ">提示: 当您感觉菜单不合理时,请点击'重新生成'.</span>
+            <font color="red">提示: 当您感觉菜单不合理时,请点击'重新生成'.</font>
         </h4>
         <ul class="menu-switch" id="menuContainer">
-            <li data-ismenu="1"><a id="dLabel" data-ismenu="1" text-align="center" href="#">
-                    开始<span class="caret" data-ismenu="1"></span>
+            <li><a id="dLabel" text-align="center" href="#">
+                    开始<span class="caret"></span>
                 </a>
                 <!--insert menu here-->
             </li>
@@ -228,16 +225,13 @@
                 </h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
-                <div class="panel-body logDivStyle" id="logText">
+                <div class="panel-body" id="logText">
                     Page loaded sucessfully, ready to proceed a test.<br>
                     Please press 'Start' button to start test...
                 </div>
             </div>
         </div>
     </div>
-
-
-
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -251,7 +245,6 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <div id="resultBrief"></div>
                     填写您的相关信息,然后请点击'发送'将结果发送给我们,如果服务器无法连接,请尝试'重连';如果一直无法连接请点击'下载'按钮来下载结果,并把结果发送给我们,谢谢! ;)<br>
                     姓名: <input type="text" class="form-control" id="testerName"><br>
                     性别:
@@ -265,7 +258,6 @@
                     </div>
                     <br>
                     <p class="text-danger" id="connectState">未连接服务器</p>
-                    <p >不小心关闭此界面？按空格键可重新呼出此界面</p>
                 </div>
 
                 <div class="modal-footer">
@@ -275,7 +267,6 @@
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
-    </div>
 </body>
 <script>
     //Global objects
@@ -293,14 +284,6 @@
     var roundStartTime;
     var roundEndTime;
     var instructText;
-    //New-----begin
-    var l1ItemMoveInTime;
-    var l2ItemMoveInTime;
-    var trajectory="";
-    var menuStartBtnPos;
-    var moveOutNum=0;
-    var sucessNum=0;
-    //New-----end
     //menu parameters
     var menuWidth = 150;
     var menuHeight = 30;
@@ -338,21 +321,19 @@
     function onError(evt) {
         console.log('Error occured: ' + evt.data);
     }
-
     window.onload = function () {
         $('#msgModal').modal('show');
-        let nothing = new WebSocket('ws://www.baidu.com:8002');//一个虚假的连接,只为让浏览器弹出不安全的脚本警告
+        let nothing = new WebSocket('ws://106.13.198.184:8002');//fake connection
         //init global objects
         title = document.getElementById('title');
         logText = document.getElementById('logText');
         menuStartBtn = document.getElementById('dLabel');
-        menuStartBtnPos=getPos(menuStartBtn);
         progressBar = document.getElementById('progressBar');
         progressText = document.getElementById('progressText');
         //init menu
         firstLevelMenu = createMenu(menuLength, menuTargetPos);
         menuStartBtn.appendChild(firstLevelMenu);
-        title.innerHTML = '请点击<span style="color: red; ">开始</span>并选择菜单项 <span style="color: red; ">' + instructText + '</span>';
+        title.innerHTML = '请点击<font color="red">开始</font>并选择菜单项 <font color="red">' + instructText + '</font>';
         //add menu click event response
         document.addEventListener("click", event => {
             var cDom = menuStartBtn;
@@ -364,7 +345,6 @@
                 firstLevelMenu.style.display = 'none';
             }
         });
-
     };
     /////////////////////////////////////////////////////////////////////////////
     //CLICK EVENTS
@@ -380,65 +360,27 @@
             progressBar.setAttribute('style', 'width: 0%;');
             firstPress = false;
         }
-        let singleRecord = {
+        var singleRecord = {
             "width": menuWidth, "height": menuHeight, "fontSize": fontSize,
             "l1length": menuLength[0], "l2length": menuLength[1], "l3length": menuLength[2],
             "l1target": menuTargetPos[0], "l2target": menuTargetPos[1], "l3target": menuTargetPos[2],
-            "maxItemWidth": 0, "isSuccessful":0,"selectedIndex":0,"l1time":0,"l2time":0,"l3time":0,"time": 0,"trajectory":""
+            "maxItemWidth": 0, "time": 0
         };
         // console.log("new parameter"+currentRound);
         // console.log(singleRecord);
-        //重置参数
         records[currentRound - 1] = singleRecord;
         startPressed = true;
-        trajectory="";
         roundStartTime = new Date();
-        l1ItemMoveInTime=null;
-        l2ItemMoveInTime=null;
     }
-    //统一的回合结束函数
-    function endRound2(index) {
+    //目标项点击事件
+    function endRound() {
         roundEndTime = new Date();
-        let interval = roundEndTime - roundStartTime;
+        var interval = roundEndTime - roundStartTime;
         records[currentRound - 1].time = interval;
         records[currentRound - 1].maxItemWidth = maxItemWidth;
-        records[currentRound - 1].trajectory=trajectory;
-        //本次选择是否成功
-        let lastIndex;
-        for(lastIndex=1;lastIndex<3;++lastIndex){
-            if(menuLength[lastIndex]<=0)break;
-        }
-        if(index==menuTargetPos[--lastIndex]){//选到了目标选项
-            records[currentRound - 1].isSuccessful=1;
-            ++sucessNum;
-        }
-        else {//没有选到目标选项
-            records[currentRound - 1].isSuccessful=0;
-        }
-        records[currentRound -1].selectedIndex=index;//按到了哪个选项
-        //更新各级菜单的时间
-        if(menuLength[2]>0){
-            records[currentRound -1].l1time=l1ItemMoveInTime-roundStartTime;
-            records[currentRound -1].l2time=l2ItemMoveInTime-l1ItemMoveInTime;
-            records[currentRound -1].l3time=interval-records[currentRound -1].l2time-records[currentRound -1].l1time;
-        }else if(menuLength[1]>0){
-            records[currentRound -1].l1time=l1ItemMoveInTime-roundStartTime;
-            records[currentRound -1].l2time=interval-records[currentRound -1].l1time;
-            records[currentRound -1].l3time=0;
-        }else if(menuLength[0]>0){
-            records[currentRound -1].l1time=interval;
-            records[currentRound -1].l2time=0;
-            records[currentRound -1].l3time=0;
-        }
-
-        //打印日志信息
-        logText.innerHTML = logText.innerHTML + '<br>' + '<span style=\"color: red\"; >selection ' + currentRound + ' time:' + interval + "ms </span>";
-        let trajectoryBackup=records[currentRound - 1].trajectory;
-        records[currentRound - 1].trajectory="a lot of data...";
+        logText.innerHTML = logText.innerHTML + '<br>' + 'selection ' + currentRound + ' time:' + interval + 'ms';
         logText.innerHTML = logText.innerHTML + '<br> Parameters:' + JSON.stringify(records[currentRound - 1]);
-        records[currentRound - 1].trajectory=trajectoryBackup;
-        //update progress
-        let p = currentRound / maxRound * 100;
+        var p = currentRound / maxRound * 100;
         progressBar.setAttribute('style', 'width:' + p + '%;');
         progressText.innerHTML = '当前进度 - ' + currentRound + ' / ' + maxRound + ' 已完成';
         //reset variables
@@ -449,16 +391,9 @@
             connectWS();
             $('#myModal').modal('show');
             document.getElementById('bigtitle').innerHTML = "测试结束,要再来一轮测试,请重载本页面!";
-            document.getElementById('resultBrief').innerHTML="结果小结<br> 正确率："+sucessNum*100.0/currentRound+"%<br> 移出菜单次数："+moveOutNum;
             return;
         }
         regenerateMenu();
-    }
-    function updateL1MoveInTime(){
-        l1ItemMoveInTime=new Date();
-    }
-    function updateL2MoveInTime(){
-        l2ItemMoveInTime=new Date();
     }
     /////////////////////////////////////////////////////////////////////////////
     //RANDOM MENU PARAMETERS
@@ -517,7 +452,7 @@
             else
                 break;
         }
-        title.innerHTML = '请点击<span style="color: red; ">开始</span>并选择菜单项 <span style="color: red; ">' + instructText + '</span>';
+        title.innerHTML = '请点击<font color="red">开始</font>并选择菜单项 <font color="red">' + instructText + '</font>';
     }
 
     /////////////////////////////////////////////////////////////////////////////
@@ -540,12 +475,18 @@
             return;
         }
         if (isConnected) {
-            let content=getRecordString();
-            let gender = $('#gender input:radio:checked').val();
-            let name = $("#myModal #testerName").val().trim();
+            var content = "width,height,font size,L1 length,L2 length,L3 length,L1 target,L2 target,L3 target,maxItemWidth,time\n";
+            for (i = 0; i < records.length; ++i) {
+                content += records[i].width + ',' + records[i].height + ',' + records[i].fontSize + ','
+                    + records[i].l1length + ',' + records[i].l2length + ',' + records[i].l3length + ','
+                    + records[i].l1target + ',' + records[i].l2target + ',' + records[i].l3target + ','
+                    + records[i].maxItemWidth + ',' + records[i].time + "\n";
+            }
+            var gender = $('#gender input:radio:checked').val();
+            var name = $("#myModal #testerName").val().trim();
             if(!name)name='noName';
             if(!gender)gender='noGender';
-            content=name+'-'+gender+"\n"+content;
+            content=name+','+gender+"\n"+content;
             ws.send(content);
             dataSent = true;
             alert('数据发送成功!');
@@ -555,43 +496,39 @@
     }
     /////////////////////////////////////////////////////////////////////////////
     //SAVE
-    function getRecordString() {
-        let content = "width,height,maxItemWidth,font size,L1 length,L2 length,L3 length,L1 target,L2 target,L3 target,isSuccessful,selected index,L1 time,L2 time,L3 time,time,trajectory\n";
-        for (let i = 0; i < records.length; ++i) {
-            content += records[i].width + ',' + records[i].height + ',' + records[i].maxItemWidth+ ',' + records[i].fontSize + ','
-                + records[i].l1length + ',' + records[i].l2length + ',' + records[i].l3length + ','
-                + records[i].l1target + ',' + records[i].l2target + ',' + records[i].l3target + ','
-                + records[i].isSuccessful + ','+records[i].selectedIndex + ','
-                + records[i].l1time +',' + records[i].l2time + ',' + records[i].l3time + ',' + records[i].time + ','
-                + records[i].trajectory+"\n";
-        }
-        return content;
-    }
     function saveResult() {
-        let content = "";
-        for (let i = 0; i < records.length; ++i) {
+        var content = "";
+        for (i = 0; i < records.length; ++i) {
             content += JSON.stringify(records[i]) + "\n";
         }
-        let gender = $('#gender input:radio:checked').val();
-        let name = $("#myModal #testerName").val().trim();
+        var gender = $('#gender input:radio:checked').val();
+        var name = $("#myModal #testerName").val().trim();
         if (!name) name = 'no name';
         if (!gender) gender = 'no gender';
         content = name + ',' + gender + "\n" + content;
-        let blob = new Blob([content], { type: "text/plain;charset=utf-8" });
-        let t = new Date();
-        let tt = t.getFullYear() + "-" + t.getMonth() + "-" + t.getDate() + "-" + t.getHours() + "-" + t.getMinutes();
+        var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+        var t = new Date();
+        var tt = t.getFullYear() + "-" + t.getMonth() + "-" + t.getDate() + "-" + t.getHours() + "-" + t.getMinutes();
         saveAs(blob, name + "-" + gender + "-" + tt + ".txt");
     }
     function saveResultAsCSV() {
-        let content = getRecordString();
-        let gender = $('#gender input:radio:checked').val();
-        let name = $("#myModal #testerName").val().trim();
+        var content = "width,height,font size,L1 length,L2 length,L3 length,L1 target,L2 target,L3 target,maxItemWidth,time\n";
+        for (i = 0; i < records.length; ++i) {
+            content += records[i].width + ',' + records[i].height + ',' + records[i].fontSize + ','
+                + records[i].l1length + ',' + records[i].l2length + ',' + records[i].l3length + ','
+                + records[i].l1target + ',' + records[i].l2target + ',' + records[i].l3target + ','
+                + records[i].maxItemWidth + ',' + records[i].time + "\n";
+        }
+        
+        var gender = $('#gender input:radio:checked').val();
+        var name = $("#myModal #testerName").val().trim();
         if (!name) name = 'no name';
         if (!gender) gender = 'no gender';
         // content = name + ',' + gender + "\n" + content;
-        let t = new Date();
-        let tt = t.getFullYear() + "-" + t.getMonth() + "-" + t.getDate() + "-" + t.getHours() + "-" + t.getMinutes();
-        let blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+        var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+        var t = new Date();
+        var tt = t.getFullYear() + "-" + t.getMonth() + "-" + t.getDate() + "-" + t.getHours() + "-" + t.getMinutes();
+        var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
         saveAs(blob, name + "-" + gender + "-" + tt + ".csv");
     }
     /////////////////////////////////////////////////////////////////////////////
@@ -623,13 +560,11 @@
         //创建第三级菜单
         if (subMenuItemNum[2] > 0) {
             menuLevel3 = document.createElement('ul');
-            menuLevel3.dataset.ismenu=1;
             menuLevel3.setAttribute('class', 'sub-level-menu');
             menuLevel3.setAttribute('id', 'menuLevel3');
             for (let i = 0; i < subMenuItemNum[2]; ++i) {
                 //给第三级添加菜单
                 let item = document.createElement('a');
-                item.dataset.ismenu=1;
                 item.setAttribute('href', '#');
                 //随机选择标题
                 let ttti = randomNum(0, selectedLastLevel.length - 1);
@@ -641,11 +576,12 @@
                     menuWidth = itemWidth + 20;
                 }
                 let li = document.createElement('li');
-                li.dataset.ismenu=1;
-                li.appendChild(item);
-                item.setAttribute('onclick', 'endRound2('+i+')');//添加选中触发事件
                 if (i == subMenuTarget[2]) {
+                    li.appendChild(item);
+                    item.setAttribute('onclick', 'endRound()');//添加选中触发事件
                     instructText = '->' + item.innerHTML;
+                } else {
+                    li.appendChild(item);
                 }
                 menuLevel3.appendChild(li);
             }
@@ -653,12 +589,10 @@
 
         //创建第一级菜单
         menuLevel1 = document.createElement('ul');
-        menuLevel1.dataset.ismenu=1;
         menuLevel1.setAttribute('class', 'first-level-menu');
         menuLevel1.setAttribute('id', 'menuLevel1');
         for (let i = 0; i < subMenuItemNum[0]; ++i) {//给第一级添加菜单
             let item = document.createElement('a');
-            item.dataset.ismenu=1;
             item.setAttribute('href', '#');
             //菜单的标题
             //------------随机选择第一级菜单项标题--------------
@@ -676,19 +610,15 @@
                 menuWidth = itemWidth + 20;
             }
             let li = document.createElement('li');
-            li.dataset.ismenu=1;
 
             if (i == subMenuTarget[0]) {//一级菜单目标选项
-
-                if (subMenuItemNum[1] > 0) {//有二级菜单
+                if (subMenuItemNum[1] > 0) {
                     //在这里添加第二级菜单
                     menuLevel2 = document.createElement('ul');
-                    menuLevel2.dataset.ismenu=1;
                     menuLevel2.setAttribute('class', 'sub-level-menu');
                     menuLevel2.setAttribute('id', 'menuLevel2');
                     for (let j = 0; j < subMenuItemNum[1]; ++j) {
                         let item2 = document.createElement('a');
-                        item2.dataset.ismenu=1;
                         item2.setAttribute('href', '#');
                         //第二级菜单的标题
                         let tti = randomNum(0, selectedSecondLevel.length - 1);
@@ -700,60 +630,33 @@
                             menuWidth = itemWidth + 20;
                         }
                         let li2 = document.createElement('li');
-                        li2.dataset.ismenu=1;
                         li2.appendChild(item2);
-
                         if (j == subMenuTarget[1]) {//如果是二级菜单目标,添加第三级菜单
-                            if (subMenuItemNum[2] > 0) {//有第三级菜单
+                            if (subMenuItemNum[2] > 0)
                                 li2.appendChild(menuLevel3);
-                                item2.setAttribute('onmouseover','updateL2MoveInTime()');
-                            }
-                            else {//没有第三级菜单，添加触发事件
-                                item2.setAttribute('onclick', 'endRound2(' + j + ')');//添加选中触发事件
-                                item2.setAttribute('onmouseover','updateL2MoveInTime()');
-                            }
+                            else
+                                item2.setAttribute('onclick', 'endRound()');//添加选中触发事件
                             instructText = '->' + item2.innerHTML + instructText;
-                        }else{
-                            //不是二级目标菜单
-                            if(subMenuItemNum[2]>0){//有三级菜单添加迷惑菜单
-                                let confuse = document.createElement('ul');
-                                confuse.dataset.ismenu=1;
-                                confuse.setAttribute('class', 'sub-level-menu');
-                                let fakeLevel3 = lastLevel[selectedDatasetIndex].concat();
-                                for(let iii=0;iii<subMenuItemNum[2];++iii){
-                                    let ni = randomNum(0, fakeLevel3.length - 1);
-                                    confuse.innerHTML = confuse.innerHTML+'<li data-ismenu="1"><a href="#" data-ismenu="1">' + fakeLevel3[ni] + '</a></li>';
-                                    fakeLevel3.splice(ni, 1);
-                                }
-                                li2.appendChild(confuse);
-                            }else{//没有三级菜单，添加触发事件
-                                item2.setAttribute('onclick', 'endRound2(' + j + ')');//添加选中触发事件
-                            }
                         }
                         menuLevel2.appendChild(li2);
                     }
                     li.appendChild(item);
-                    item.setAttribute('onmouseover','updateL1MoveInTime()');
                     li.appendChild(menuLevel2);//添加第二级目标菜单
                     instructText = item.innerText + instructText;
-                }else{//只有一级菜单，没有二级菜单
-                    item.setAttribute('onclick', 'endRound2('+i+')');//添加选中触发事件
-                    item.setAttribute('onmouseover','updateL1MoveInTime()');
+                }else{//只有一级菜单
+                    item.setAttribute('onclick', 'endRound()');//添加选中触发事件
                     li.appendChild(item);
                     instructText = item.innerText + instructText;
                 }
-                //第一级目标菜单项结束。
+
             } else {//非第一级目标菜单项
                 li.appendChild(item);
-                if(subMenuItemNum[1]>0){//有二级菜单添加迷惑菜单
+                if(subMenuItemNum[1]>0){
                     let confuse = document.createElement('ul');
-                    confuse.dataset.ismenu=1;
                     confuse.setAttribute('class', 'sub-level-menu');
-                    for(let ni=0;ni<subMenuItemNum[1];++ni)
-                        confuse.innerHTML = confuse.innerHTML+'<li data-ismenu="1"><a href="#" data-ismenu="1">' + selectedDataset[ti].next[ni].name + '</a></li>';
+                    let ni = randomNum(0, selectedDataset[ti].next.length - 1);
+                    confuse.innerHTML = '<li><a href="#">' + selectedDataset[ti].next[ni].name + '</a></li>';
                     li.appendChild(confuse);
-                }else{//没有二级菜单，添加触发事件
-                    item.setAttribute('onclick', 'endRound2('+i+')');//添加选中触发事件
                 }
             }
             selectedDataset.splice(ti, 1);
@@ -770,39 +673,6 @@
         var width = currentObj.width();
         currentObj.remove();
         return width;
-    }
-    /////////////////////////////////////////////////////////////////////////////
-    //Record trajectory
-    function getPos(o){
-        var x = 0, y = 0;
-        do {
-            x += o.offsetLeft;
-            y += o.offsetTop;
-        } while (o = o.offsetParent);
-        return { 'x': x, 'y': y };
-    }
-    document.onmousemove=function recordTrajectory(evt){
-        if(!startPressed)return;
-        //移出菜单重新开始测试
-        if(!evt.toElement.dataset.ismenu){
-            regenerateMenu();
-            ++moveOutNum;
-            return;
-        }else if(evt.toElement.dataset.ismenu!=1){
-            regenerateMenu();
-            ++moveOutNum;
-            return;
-        }
-        let x=evt.pageX - menuStartBtnPos.x;
-        let y=evt.pageY - menuStartBtnPos.y;
-        let t = new Date();
-        let tt = t.getHours() + ":" + t.getMinutes()+":" +t.getMilliseconds();
-        trajectory=trajectory+"#"+x+";"+y+";"+tt;
-    }
-    document.onkeydown=function(evt){
-        if(evt.key==" "&&currentRound>maxRound){
-            $('#myModal').modal('show');
-        }
     }
 </script>
 
