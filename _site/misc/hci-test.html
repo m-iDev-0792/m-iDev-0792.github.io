@@ -449,7 +449,9 @@
             connectWS();
             $('#myModal').modal('show');
             document.getElementById('bigtitle').innerHTML = "测试结束,要再来一轮测试,请重载本页面!";
-            document.getElementById('resultBrief').innerHTML="结果小结<br> 正确率："+sucessNum*100.0/currentRound+"%<br> 移出菜单次数："+moveOutNum;
+            let ratio=sucessNum*100.0/(currentRound-1);
+            ratio=ratio.toFixed(2);
+            document.getElementById('resultBrief').innerHTML="结果小结<br> 正确率："+ratio+"%("+sucessNum+"/"+(currentRound-1)+")<br> 移出菜单次数："+moveOutNum;
             return;
         }
         regenerateMenu();
