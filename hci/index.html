@@ -171,8 +171,6 @@
                 <label>选择测试回合</label>&nbsp;&nbsp;
                 <select class="form-control-sm" id="roundSelecter">
                     <option>100</option>
-                    <option>2</option>
-                    <option>5</option>
                     <option>10</option>
                     <option>20</option>
                     <option>50</option>
@@ -618,12 +616,14 @@
             indices2[level]=i;
             if((i==menuTargetPos[level])&&haveTarget){
                 if(level==0)instructText=item.innerHTML;
-                else instructText+='->'+item.innerHTML;
+                else instructText+='&#x2794'+item.innerHTML;
             }
             if(level==2){//到了第三级，必然要添加触发事件
                 item.setAttribute('onclick', 'endRound2(['+indices2[0]+','+ indices2[1] +','+ indices2[2] +'])');//添加选中触发事件
             }else{//可能还有子代
-                let generateChild=randomNum(0,5)<3;//better than randomNum(0,1)
+                let generateChild=true;
+                if(level==0)generateChild=randomNum(0,9)>2;
+                else generateChild=randomNum(0,5)<3;
                 if(titleList[ti].children&&generateChild){//数据源有子代
                     item.setAttribute('onmouseover','updateL'+(level+1)+'MoveInTimeAndIndex('+i+')');
                     let ht=(i==menuTargetPos[level])&&haveTarget;
