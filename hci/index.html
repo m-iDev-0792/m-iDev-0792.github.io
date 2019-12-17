@@ -131,12 +131,6 @@
             padding: 0px;
         }
     </style>
-    <script>
-        $(function(){
-            var data = $.getJSON("car.json");
-            var i =10;
-        });
-    </script>
 </head>
 
 <body>
@@ -341,7 +335,7 @@
         //init menu
         //TODO. new createMenu test
         let di=randomNum(0,newDataSet.length-1);
-        firstLevelMenu=createMenu2(newDataSet[0].concat(),0,[-1,-1,-1],true);
+        firstLevelMenu=createMenu2(newDataSet[di],0,[-1,-1,-1],true);
 
         menuStartBtn.appendChild(firstLevelMenu);
         title.innerHTML = '请点击<span style="color: red; ">开始</span>并选择菜单项 <span style="color: red; ">' + instructText + '</span>';
@@ -583,25 +577,33 @@
 
         document.documentElement.style.setProperty('--menuFontSize', fontSize + 'px');
     }
+
     function createMenu2(titleList,level,indices,haveTarget) {
         let fontInfo = 'normal ' + fontSize + 'px Arial, Helvetica, sans-serif';
         let menu = document.createElement('ul');
         menu.dataset.ismenu=1;
         menu.setAttribute('class', level==0?'first-level-menu':'sub-level-menu');
-        let randomLenght=randomNum(2, 10);
-        let len=randomLenght>titleList.length?titleList.length:randomLenght;
+        let randomLength=randomNum(3, 10);
+        //有顺序地随机生成菜单
+        while(randomLength < titleList.length ){
+            let i= randomNum(0, titleList.length);
+            titleList.splice(i,1);
+        }
+        let len=randomLength>titleList.length?titleList.length:randomLength;
         if(haveTarget){
-            //生成菜单参数
+            //写入菜单参数
             menuTargetPos[level]=randomNum(0,len-1);
             menuLength[level]=len;
         }
+        let generateChild;
+        if(level==0)generateChild=randomNum(0,2) != 0;
+        else generateChild=randomNum(0,1) != 0;
+
         for(let i=0;i<len;++i){
             let item = document.createElement('a');
             item.dataset.ismenu=1;
             item.setAttribute('href', '#');
-            //随机选择标题
-            let ti = randomNum(0, titleList.length - 1);
-            item.innerHTML = titleList[ti].name;//set item title
+            item.innerHTML = titleList[i].name;//set item title
             let itemWidth = GetCurrentStrWidth(item.innerHTML, fontInfo);
             if (itemWidth > maxItemWidth) maxItemWidth = itemWidth;
             if (itemWidth + 20 > menuWidth) {//如果菜单宽度太小,改变宽度
@@ -616,18 +618,15 @@
             indices2[level]=i;
             if((i==menuTargetPos[level])&&haveTarget){
                 if(level==0)instructText=item.innerHTML;
-                else instructText+='&#x2794'+item.innerHTML;
+                else instructText+=' &#x2794 '+item.innerHTML;
             }
             if(level==2){//到了第三级，必然要添加触发事件
                 item.setAttribute('onclick', 'endRound2(['+indices2[0]+','+ indices2[1] +','+ indices2[2] +'])');//添加选中触发事件
             }else{//可能还有子代
-                let generateChild=true;
-                if(level==0)generateChild=randomNum(0,9)>2;
-                else generateChild=randomNum(0,5)<3;
-                if(titleList[ti].children&&generateChild){//数据源有子代
+                if(titleList[i].children&&generateChild&&(titleList[i].children.length>0)){//数据源有子代
                     item.setAttribute('onmouseover','updateL'+(level+1)+'MoveInTimeAndIndex('+i+')');
                     let ht=(i==menuTargetPos[level])&&haveTarget;
-                    let nextMenu=createMenu2(titleList[ti].children.concat(),level+1,indices2,ht);
+                    let nextMenu=createMenu2(titleList[i].children.concat(),level+1,indices2,ht);
                     li.appendChild(nextMenu);
                 }else{//数据源无子代，或者不想创建子代
                     item.setAttribute('onclick', 'endRound2(['+indices2[0]+','+ indices2[1] +','+ indices2[2] +'])');//添加选中触发事件
@@ -635,8 +634,6 @@
 
             }
             menu.appendChild(li);
-            //菜单项目删除操作放到最后
-            titleList.splice(ti,1);
         }
         return menu;
     }
@@ -680,8 +677,10 @@
     document.onkeydown=function(evt){
         if(evt.key==" "&&currentRound>maxRound){
             $('#myModal').modal('show');
-        }else if(evt.key='r'){
+        }else if(evt.key=='r'){
             regenerateMenu();
+        }else{
+            console.log(firstLevelMenu.outerHTML);
         }
     }
 </script>
