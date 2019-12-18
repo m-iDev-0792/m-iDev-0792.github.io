@@ -23085,3076 +23085,2446 @@ industryData=[
                 ]
             }
         ]
-    },
-    {
-        "name": "国际组织",
-        "code": "T",
-        "children": [
-            {
-                "name": "国际组织",
-                "code": "97",
-                "children": [
-                    {
-                        "name": "国际组织",
-                        "code": "970",
-                        "children": null
-                    }
-                ]
-            }
-        ]
     }
 ];
-subjectData=[
-    {
-        "code": "01",
-        "name": "哲学",
-        "children": [
-            {
-                "code": "0101",
-                "name": "哲学类",
-                "children": [
-                    {
-                        "code": "010101",
-                        "name": "哲学",
-                        "children": null
-                    },
-                    {
-                        "code": "010102",
-                        "name": "逻辑学",
-                        "children": null
-                    },
-                    {
-                        "code": "010103K",
-                        "name": "宗教学",
-                        "children": null
-                    },
-                    {
-                        "code": "020101",
-                        "name": "经济学",
-                        "children": null
-                    },
-                    {
-                        "code": "020102",
-                        "name": "经济统计学",
-                        "children": null
-                    },
-                    {
-                        "code": "020201K",
-                        "name": "财政学",
-                        "children": null
-                    },
-                    {
-                        "code": "020202",
-                        "name": "税收学",
-                        "children": null
-                    },
-                    {
-                        "code": "020301K",
-                        "name": "金融学",
-                        "children": null
-                    },
-                    {
-                        "code": "020302",
-                        "name": "金融工程",
-                        "children": null
-                    },
-                    {
-                        "code": "020303",
-                        "name": "保险学",
-                        "children": null
-                    },
-                    {
-                        "code": "020304",
-                        "name": "投资学",
-                        "children": null
-                    },
-                    {
-                        "code": "020401",
-                        "name": "国际经济与贸易",
-                        "children": null
-                    },
-                    {
-                        "code": "020402",
-                        "name": "贸易经济",
-                        "children": null
-                    },
-                    {
-                        "code": "030101K",
-                        "name": "法学",
-                        "children": null
-                    },
-                    {
-                        "code": "030201",
-                        "name": "政治学与行政学",
-                        "children": null
-                    },
-                    {
-                        "code": "030202",
-                        "name": "国际政治",
-                        "children": null
-                    },
-                    {
-                        "code": "030203",
-                        "name": "外交学",
-                        "children": null
-                    },
-                    {
-                        "code": "030301",
-                        "name": "社会学",
-                        "children": null
-                    },
-                    {
-                        "code": "030302",
-                        "name": "社会工作",
-                        "children": null
-                    },
-                    {
-                        "code": "030401",
-                        "name": "民族学",
-                        "children": null
-                    },
-                    {
-                        "code": "030501",
-                        "name": "科学社会主义",
-                        "children": null
-                    },
-                    {
-                        "code": "030502",
-                        "name": "中国共产党历史",
-                        "children": null
-                    },
-                    {
-                        "code": "030503",
-                        "name": "思想政治教育",
-                        "children": null
-                    },
-                    {
-                        "code": "030601K",
-                        "name": "治安学",
-                        "children": null
-                    },
-                    {
-                        "code": "030602K",
-                        "name": "侦查学",
-                        "children": null
-                    },
-                    {
-                        "code": "030603K",
-                        "name": "边防管理",
-                        "children": null
-                    },
-                    {
-                        "code": "040101",
-                        "name": "教育学",
-                        "children": null
-                    },
-                    {
-                        "code": "040102",
-                        "name": "科学教育",
-                        "children": null
-                    },
-                    {
-                        "code": "040103",
-                        "name": "人文教育",
-                        "children": null
-                    },
-                    {
-                        "code": "040104",
-                        "name": "教育技术学",
-                        "children": null
-                    },
-                    {
-                        "code": "040105",
-                        "name": "艺术教育",
-                        "children": null
-                    },
-                    {
-                        "code": "040106",
-                        "name": "学前教育",
-                        "children": null
-                    },
-                    {
-                        "code": "040107",
-                        "name": "小学教育",
-                        "children": null
-                    },
-                    {
-                        "code": "040108",
-                        "name": "特殊教育",
-                        "children": null
-                    },
-                    {
-                        "code": "040201",
-                        "name": "体育教育",
-                        "children": null
-                    },
-                    {
-                        "code": "040202K",
-                        "name": "运动训练",
-                        "children": null
-                    },
-                    {
-                        "code": "040203",
-                        "name": "社会体育指导与管理",
-                        "children": null
-                    },
-                    {
-                        "code": "040204K",
-                        "name": "武术与民族传统体育",
-                        "children": null
-                    },
-                    {
-                        "code": "040205",
-                        "name": "运动人体科学",
-                        "children": null
-                    },
-                    {
-                        "code": "050101",
-                        "name": "汉语言文学",
-                        "children": null
-                    },
-                    {
-                        "code": "050102",
-                        "name": "汉语言",
-                        "children": null
-                    },
-                    {
-                        "code": "050103",
-                        "name": "汉语国际教育",
-                        "children": null
-                    },
-                    {
-                        "code": "050104",
-                        "name": "中国少数民族语言文学",
-                        "children": null
-                    },
-                    {
-                        "code": "050105",
-                        "name": "古典文献学",
-                        "children": null
-                    },
-                    {
-                        "code": "050201",
-                        "name": "英语",
-                        "children": null
-                    },
-                    {
-                        "code": "050202",
-                        "name": "俄语",
-                        "children": null
-                    },
-                    {
-                        "code": "050203",
-                        "name": "德语",
-                        "children": null
-                    },
-                    {
-                        "code": "050204",
-                        "name": "法语",
-                        "children": null
-                    },
-                    {
-                        "code": "050205",
-                        "name": "西班牙 语",
-                        "children": null
-                    },
-                    {
-                        "code": "050206",
-                        "name": "阿拉伯语",
-                        "children": null
-                    },
-                    {
-                        "code": "050207",
-                        "name": "日语",
-                        "children": null
-                    },
-                    {
-                        "code": "050208",
-                        "name": "波斯语",
-                        "children": null
-                    },
-                    {
-                        "code": "050209",
-                        "name": "朝鲜语",
-                        "children": null
-                    },
-                    {
-                        "code": "050210",
-                        "name": "菲律宾语",
-                        "children": null
-                    },
-                    {
-                        "code": "050211",
-                        "name": "梵语巴利语",
-                        "children": null
-                    },
-                    {
-                        "code": "050212",
-                        "name": "印度尼西亚语",
-                        "children": null
-                    },
-                    {
-                        "code": "050213",
-                        "name": "印地语",
-                        "children": null
-                    },
-                    {
-                        "code": "050214",
-                        "name": "柬埔寨语",
-                        "children": null
-                    },
-                    {
-                        "code": "050215",
-                        "name": "老挝语",
-                        "children": null
-                    },
-                    {
-                        "code": "050216",
-                        "name": "缅甸语",
-                        "children": null
-                    },
-                    {
-                        "code": "050217",
-                        "name": "马来语",
-                        "children": null
-                    },
-                    {
-                        "code": "050218",
-                        "name": "蒙古语",
-                        "children": null
-                    },
-                    {
-                        "code": "050219",
-                        "name": "僧伽罗语",
-                        "children": null
-                    },
-                    {
-                        "code": "050220",
-                        "name": "泰语",
-                        "children": null
-                    },
-                    {
-                        "code": "050221",
-                        "name": "乌尔都语",
-                        "children": null
-                    },
-                    {
-                        "code": "050222",
-                        "name": "希伯来语",
-                        "children": null
-                    },
-                    {
-                        "code": "050223",
-                        "name": "越南语",
-                        "children": null
-                    },
-                    {
-                        "code": "050224",
-                        "name": "豪萨语",
-                        "children": null
-                    },
-                    {
-                        "code": "050225",
-                        "name": "斯瓦希里语",
-                        "children": null
-                    },
-                    {
-                        "code": "050226",
-                        "name": "阿尔巴尼亚语",
-                        "children": null
-                    },
-                    {
-                        "code": "050227",
-                        "name": "保加利亚语",
-                        "children": null
-                    },
-                    {
-                        "code": "050228",
-                        "name": "波兰语",
-                        "children": null
-                    },
-                    {
-                        "code": "050229",
-                        "name": "捷克语",
-                        "children": null
-                    },
-                    {
-                        "code": "050230",
-                        "name": "斯洛伐克语",
-                        "children": null
-                    },
-                    {
-                        "code": "050231",
-                        "name": "罗马尼亚语",
-                        "children": null
-                    },
-                    {
-                        "code": "050232",
-                        "name": "葡萄牙语",
-                        "children": null
-                    },
-                    {
-                        "code": "050233",
-                        "name": "瑞典语",
-                        "children": null
-                    },
-                    {
-                        "code": "050234",
-                        "name": "塞尔维亚语",
-                        "children": null
-                    },
-                    {
-                        "code": "050235",
-                        "name": "土耳其语",
-                        "children": null
-                    },
-                    {
-                        "code": "050236",
-                        "name": "希腊语",
-                        "children": null
-                    },
-                    {
-                        "code": "050237",
-                        "name": "匈牙利语",
-                        "children": null
-                    },
-                    {
-                        "code": "050238",
-                        "name": "意大利语",
-                        "children": null
-                    },
-                    {
-                        "code": "050239",
-                        "name": "泰米尔语",
-                        "children": null
-                    },
-                    {
-                        "code": "050240",
-                        "name": "普什图语",
-                        "children": null
-                    },
-                    {
-                        "code": "050241",
-                        "name": "世界语",
-                        "children": null
-                    },
-                    {
-                        "code": "050242",
-                        "name": "孟加拉语",
-                        "children": null
-                    },
-                    {
-                        "code": "050243",
-                        "name": "尼泊尔语",
-                        "children": null
-                    },
-                    {
-                        "code": "050244",
-                        "name": "克罗地亚语",
-                        "children": null
-                    },
-                    {
-                        "code": "050245",
-                        "name": "荷兰语",
-                        "children": null
-                    },
-                    {
-                        "code": "050246",
-                        "name": "芬兰语",
-                        "children": null
-                    },
-                    {
-                        "code": "050247",
-                        "name": "乌克兰语",
-                        "children": null
-                    },
-                    {
-                        "code": "050248",
-                        "name": "挪威语",
-                        "children": null
-                    },
-                    {
-                        "code": "050249",
-                        "name": "丹麦语",
-                        "children": null
-                    },
-                    {
-                        "code": "050250",
-                        "name": "冰岛语",
-                        "children": null
-                    },
-                    {
-                        "code": "050251",
-                        "name": "爱尔兰语",
-                        "children": null
-                    },
-                    {
-                        "code": "050252",
-                        "name": "拉脱维亚语",
-                        "children": null
-                    },
-                    {
-                        "code": "050253",
-                        "name": "立陶宛语",
-                        "children": null
-                    },
-                    {
-                        "code": "050254",
-                        "name": "斯洛文尼亚语",
-                        "children": null
-                    },
-                    {
-                        "code": "050255",
-                        "name": "爱沙尼亚语",
-                        "children": null
-                    },
-                    {
-                        "code": "050256",
-                        "name": "马耳他语",
-                        "children": null
-                    },
-                    {
-                        "code": "050257",
-                        "name": "哈萨克语",
-                        "children": null
-                    },
-                    {
-                        "code": "050258",
-                        "name": "乌兹别克语",
-                        "children": null
-                    },
-                    {
-                        "code": "050259",
-                        "name": "祖鲁语",
-                        "children": null
-                    },
-                    {
-                        "code": "050260",
-                        "name": "拉丁语",
-                        "children": null
-                    },
-                    {
-                        "code": "050261",
-                        "name": "翻译",
-                        "children": null
-                    },
-                    {
-                        "code": "050262",
-                        "name": "商务英语",
-                        "children": null
-                    },
-                    {
-                        "code": "050301",
-                        "name": "新闻学",
-                        "children": null
-                    },
-                    {
-                        "code": "050302",
-                        "name": "广播电视学",
-                        "children": null
-                    },
-                    {
-                        "code": "050303",
-                        "name": "广告学",
-                        "children": null
-                    },
-                    {
-                        "code": "050304",
-                        "name": "传播学",
-                        "children": null
-                    },
-                    {
-                        "code": "050305",
-                        "name": "编辑出版学",
-                        "children": null
-                    },
-                    {
-                        "code": "060101",
-                        "name": "历史学",
-                        "children": null
-                    },
-                    {
-                        "code": "060102",
-                        "name": "世界史",
-                        "children": null
-                    },
-                    {
-                        "code": "060103",
-                        "name": "考古学",
-                        "children": null
-                    },
-                    {
-                        "code": "060104",
-                        "name": "文物与博物馆学",
-                        "children": null
-                    },
-                    {
-                        "code": "070101",
-                        "name": "数学与应用数学",
-                        "children": null
-                    },
-                    {
-                        "code": "070102",
-                        "name": "信息与计算科学",
-                        "children": null
-                    },
-                    {
-                        "code": "070201",
-                        "name": "物理学",
-                        "children": null
-                    },
-                    {
-                        "code": "070202",
-                        "name": "应用物理学",
-                        "children": null
-                    },
-                    {
-                        "code": "070203",
-                        "name": "核物理",
-                        "children": null
-                    },
-                    {
-                        "code": "070301",
-                        "name": "化学",
-                        "children": null
-                    },
-                    {
-                        "code": "070302",
-                        "name": "应用化学",
-                        "children": null
-                    },
-                    {
-                        "code": "070401",
-                        "name": "天文学",
-                        "children": null
-                    },
-                    {
-                        "code": "070501",
-                        "name": "地理科学",
-                        "children": null
-                    },
-                    {
-                        "code": "070502",
-                        "name": "自然地理与资源环境",
-                        "children": null
-                    },
-                    {
-                        "code": "070503",
-                        "name": "人文地理与城乡规划",
-                        "children": null
-                    },
-                    {
-                        "code": "070504",
-                        "name": "地理信息科学",
-                        "children": null
-                    },
-                    {
-                        "code": "070601",
-                        "name": "大气科学",
-                        "children": null
-                    },
-                    {
-                        "code": "070602",
-                        "name": "应用气象学",
-                        "children": null
-                    },
-                    {
-                        "code": "070701",
-                        "name": "海洋科学",
-                        "children": null
-                    },
-                    {
-                        "code": "070702",
-                        "name": "海洋技术",
-                        "children": null
-                    },
-                    {
-                        "code": "070801",
-                        "name": "地球物理学",
-                        "children": null
-                    },
-                    {
-                        "code": "070802",
-                        "name": "空间科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "070901",
-                        "name": "地质学",
-                        "children": null
-                    },
-                    {
-                        "code": "070902",
-                        "name": "地球化学",
-                        "children": null
-                    },
-                    {
-                        "code": "071001",
-                        "name": "生物科学",
-                        "children": null
-                    },
-                    {
-                        "code": "071002",
-                        "name": "生物技术",
-                        "children": null
-                    },
-                    {
-                        "code": "071003",
-                        "name": "生物信息学",
-                        "children": null
-                    },
-                    {
-                        "code": "071004",
-                        "name": "生态学",
-                        "children": null
-                    },
-                    {
-                        "code": "071101",
-                        "name": "心理学",
-                        "children": null
-                    },
-                    {
-                        "code": "071102",
-                        "name": "应用心理学",
-                        "children": null
-                    },
-                    {
-                        "code": "071201",
-                        "name": "统计学",
-                        "children": null
-                    },
-                    {
-                        "code": "071202",
-                        "name": "应用统计学",
-                        "children": null
-                    },
-                    {
-                        "code": "080101",
-                        "name": "理论与应用力学",
-                        "children": null
-                    },
-                    {
-                        "code": "080102",
-                        "name": "工程力学",
-                        "children": null
-                    },
-                    {
-                        "code": "080201",
-                        "name": "机械工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080202",
-                        "name": "机械设计制造及其自动化",
-                        "children": null
-                    },
-                    {
-                        "code": "080203",
-                        "name": "材料成型及控制工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080204",
-                        "name": "机械电子工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080205",
-                        "name": "工业设计",
-                        "children": null
-                    },
-                    {
-                        "code": "080206",
-                        "name": "过程装备与控制工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080207",
-                        "name": "车辆工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080208",
-                        "name": "汽车服务工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080301",
-                        "name": "测控技术与仪器",
-                        "children": null
-                    },
-                    {
-                        "code": "080401",
-                        "name": "材料科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080402",
-                        "name": "材料物理",
-                        "children": null
-                    },
-                    {
-                        "code": "080403",
-                        "name": "材料化学",
-                        "children": null
-                    },
-                    {
-                        "code": "080404",
-                        "name": "冶金工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080405",
-                        "name": "金属材料工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080406",
-                        "name": "无机非金属材料工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080407",
-                        "name": "高分子材料与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080408",
-                        "name": "复合材料与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080501",
-                        "name": "能源与动力工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080601",
-                        "name": "电气工程及其自动化",
-                        "children": null
-                    },
-                    {
-                        "code": "080701",
-                        "name": "电子信息工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080702",
-                        "name": "电子科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "080703",
-                        "name": "通信工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080704",
-                        "name": "微电子科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080705",
-                        "name": "光电信息科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080706",
-                        "name": "信息工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080801",
-                        "name": "自动化",
-                        "children": null
-                    },
-                    {
-                        "code": "080901",
-                        "name": "计算机科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "080902",
-                        "name": "软件工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080903",
-                        "name": "网络工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080904K",
-                        "name": "信息安全",
-                        "children": null
-                    },
-                    {
-                        "code": "080905",
-                        "name": "物联网工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080906",
-                        "name": "数字媒体技术",
-                        "children": null
-                    },
-                    {
-                        "code": "081001",
-                        "name": "土木工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081002",
-                        "name": "建筑环境与能源应用工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081003",
-                        "name": "给排水科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081004",
-                        "name": "建筑电气与智能化",
-                        "children": null
-                    },
-                    {
-                        "code": "081101",
-                        "name": "水利水电工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081102",
-                        "name": "水文与水资源工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081103",
-                        "name": "港口航道与海岸工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081201",
-                        "name": "测绘工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081202",
-                        "name": "遥感科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "081301",
-                        "name": "化学工程与工艺",
-                        "children": null
-                    },
-                    {
-                        "code": "081302",
-                        "name": "制药工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081401",
-                        "name": "地质工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081402",
-                        "name": "勘查技术与工 程",
-                        "children": null
-                    },
-                    {
-                        "code": "081403",
-                        "name": "资源勘查工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081501",
-                        "name": "采矿工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081502",
-                        "name": "石油工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081503",
-                        "name": "矿物加工工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081504",
-                        "name": "油气储运工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081601",
-                        "name": "纺织工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081602",
-                        "name": "服装设计与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081701",
-                        "name": "轻化工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081702",
-                        "name": "包装工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081703",
-                        "name": "印刷工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081801",
-                        "name": "交通运输",
-                        "children": null
-                    },
-                    {
-                        "code": "081802",
-                        "name": "交通工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081803K",
-                        "name": "航海技术",
-                        "children": null
-                    },
-                    {
-                        "code": "081804K",
-                        "name": "轮机工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081805K",
-                        "name": "飞行技术",
-                        "children": null
-                    },
-                    {
-                        "code": "081901",
-                        "name": "船舶与海洋工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082001",
-                        "name": "航空航天工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082002",
-                        "name": "飞行器设计与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082003",
-                        "name": "飞行器制造工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082004",
-                        "name": " 飞行器动力工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082005",
-                        "name": "飞行器环境与生命保障工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082101",
-                        "name": "武器系统与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082102",
-                        "name": "武器发射工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082103",
-                        "name": "探测制导与控制技术",
-                        "children": null
-                    },
-                    {
-                        "code": "082104",
-                        "name": "弹药工程与爆炸技术",
-                        "children": null
-                    },
-                    {
-                        "code": "082105",
-                        "name": "特种能源技术与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082106",
-                        "name": "装甲车辆工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082107",
-                        "name": "信息对抗技术",
-                        "children": null
-                    },
-                    {
-                        "code": "082201",
-                        "name": "核工程与核技术",
-                        "children": null
-                    },
-                    {
-                        "code": "082202",
-                        "name": "辐射防护与核安全",
-                        "children": null
-                    },
-                    {
-                        "code": "082203",
-                        "name": "工程物理",
-                        "children": null
-                    },
-                    {
-                        "code": "082204",
-                        "name": "核化工与核燃料工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082301",
-                        "name": "农业工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082302",
-                        "name": "农业机械化及其自动化",
-                        "children": null
-                    },
-                    {
-                        "code": "082303",
-                        "name": "农业电气化",
-                        "children": null
-                    },
-                    {
-                        "code": "082304",
-                        "name": "农业建筑环境与能源工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082305",
-                        "name": "农业水利工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082401",
-                        "name": "森林工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082402",
-                        "name": "木材科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082403",
-                        "name": "林产化工",
-                        "children": null
-                    },
-                    {
-                        "code": "082501",
-                        "name": "环境科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082502",
-                        "name": "环境工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082503",
-                        "name": "环境科学",
-                        "children": null
-                    },
-                    {
-                        "code": "082504",
-                        "name": "环境生态工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082601",
-                        "name": "生物医学工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082701",
-                        "name": "食品科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082702",
-                        "name": "食品质量与安全",
-                        "children": null
-                    },
-                    {
-                        "code": "082703",
-                        "name": "粮食工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082704",
-                        "name": "乳品工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082705",
-                        "name": "酿酒工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082801",
-                        "name": "建筑学",
-                        "children": null
-                    },
-                    {
-                        "code": "082802",
-                        "name": "城乡规划",
-                        "children": null
-                    },
-                    {
-                        "code": "082803",
-                        "name": "风景园林",
-                        "children": null
-                    },
-                    {
-                        "code": "082901",
-                        "name": "安全工程",
-                        "children": null
-                    },
-                    {
-                        "code": "083001",
-                        "name": "生物工程",
-                        "children": null
-                    },
-                    {
-                        "code": "083101K",
-                        "name": "刑事科学技 术",
-                        "children": null
-                    },
-                    {
-                        "code": "083102K",
-                        "name": "消防工程",
-                        "children": null
-                    },
-                    {
-                        "code": "090101",
-                        "name": "农学",
-                        "children": null
-                    },
-                    {
-                        "code": "090102",
-                        "name": "园艺",
-                        "children": null
-                    },
-                    {
-                        "code": "090103",
-                        "name": "植物保护",
-                        "children": null
-                    },
-                    {
-                        "code": "090104",
-                        "name": "植物科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "090105",
-                        "name": "种子科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "090106",
-                        "name": "设施农业科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "090201",
-                        "name": "农业资源与环境",
-                        "children": null
-                    },
-                    {
-                        "code": "090202",
-                        "name": "野生动物与自然保护区管理",
-                        "children": null
-                    },
-                    {
-                        "code": "090203",
-                        "name": "水土保持与荒漠化防治",
-                        "children": null
-                    },
-                    {
-                        "code": "090301",
-                        "name": "动物科学",
-                        "children": null
-                    },
-                    {
-                        "code": "090401",
-                        "name": "动物医学",
-                        "children": null
-                    },
-                    {
-                        "code": "090402",
-                        "name": " 动物药学",
-                        "children": null
-                    },
-                    {
-                        "code": "090501",
-                        "name": "林学",
-                        "children": null
-                    },
-                    {
-                        "code": "090502",
-                        "name": "园林",
-                        "children": null
-                    },
-                    {
-                        "code": "090503",
-                        "name": "森林保护",
-                        "children": null
-                    },
-                    {
-                        "code": "090601",
-                        "name": "水产养殖学",
-                        "children": null
-                    },
-                    {
-                        "code": "090602",
-                        "name": "海洋渔业科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "090701",
-                        "name": "草业科学",
-                        "children": null
-                    },
-                    {
-                        "code": "100101K",
-                        "name": "基础医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100201K",
-                        "name": "临床医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100301K",
-                        "name": "口腔 医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100401K",
-                        "name": "预防医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100402",
-                        "name": "食品卫生与营养学",
-                        "children": null
-                    },
-                    {
-                        "code": "100501K",
-                        "name": "中医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100502K",
-                        "name": "针灸推拿学",
-                        "children": null
-                    },
-                    {
-                        "code": "100503K",
-                        "name": "藏医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100504K",
-                        "name": "蒙医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100505K",
-                        "name": "维医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100506K",
-                        "name": "壮医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100507K",
-                        "name": "哈医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100601K",
-                        "name": "中西医临床医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100701",
-                        "name": "药学",
-                        "children": null
-                    },
-                    {
-                        "code": "100702",
-                        "name": "药物制剂",
-                        "children": null
-                    },
-                    {
-                        "code": "100801",
-                        "name": "中药学",
-                        "children": null
-                    },
-                    {
-                        "code": "100802",
-                        "name": "中药资源与开发",
-                        "children": null
-                    },
-                    {
-                        "code": "100901K",
-                        "name": "法医学",
-                        "children": null
-                    },
-                    {
-                        "code": "101001",
-                        "name": "医学检验技术",
-                        "children": null
-                    },
-                    {
-                        "code": "101002",
-                        "name": "医学实验技术",
-                        "children": null
-                    },
-                    {
-                        "code": "101003",
-                        "name": "医学影像技术",
-                        "children": null
-                    },
-                    {
-                        "code": "101004",
-                        "name": "眼视光学",
-                        "children": null
-                    },
-                    {
-                        "code": "101005",
-                        "name": "康复治疗学",
-                        "children": null
-                    },
-                    {
-                        "code": "101006",
-                        "name": "口腔医学技术",
-                        "children": null
-                    },
-                    {
-                        "code": "101007",
-                        "name": "卫生检验与检疫",
-                        "children": null
-                    },
-                    {
-                        "code": "101101",
-                        "name": "护理学",
-                        "children": null
-                    },
-                    {
-                        "code": "120101",
-                        "name": "管理科学",
-                        "children": null
-                    },
-                    {
-                        "code": "120102",
-                        "name": "信息管理与信息系统",
-                        "children": null
-                    },
-                    {
-                        "code": "120103",
-                        "name": "工程管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120104",
-                        "name": "房地产开发与管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120105",
-                        "name": "工程造价",
-                        "children": null
-                    },
-                    {
-                        "code": "120201K",
-                        "name": "工 商管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120202",
-                        "name": "市场营销",
-                        "children": null
-                    },
-                    {
-                        "code": "120203K",
-                        "name": "会计学",
-                        "children": null
-                    },
-                    {
-                        "code": "120204",
-                        "name": "财务管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120205",
-                        "name": "国际商务",
-                        "children": null
-                    },
-                    {
-                        "code": "120206",
-                        "name": "人力资源管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120207",
-                        "name": "审计学",
-                        "children": null
-                    },
-                    {
-                        "code": "120208",
-                        "name": "资产评估",
-                        "children": null
-                    },
-                    {
-                        "code": "120209",
-                        "name": "物业管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120210",
-                        "name": "文化产业管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120301",
-                        "name": "农林经济管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120302",
-                        "name": "农村区域发展",
-                        "children": null
-                    },
-                    {
-                        "code": "120401",
-                        "name": "公共事业管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120402",
-                        "name": "行政管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120403",
-                        "name": "劳动与社会保障",
-                        "children": null
-                    },
-                    {
-                        "code": "120404",
-                        "name": "土地资源管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120405",
-                        "name": "城市管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120501",
-                        "name": "图书馆学",
-                        "children": null
-                    },
-                    {
-                        "code": "120502",
-                        "name": "档案学",
-                        "children": null
-                    },
-                    {
-                        "code": "120503",
-                        "name": "信息资源管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120601",
-                        "name": "物流管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120602",
-                        "name": "物流工程",
-                        "children": null
-                    },
-                    {
-                        "code": "120701",
-                        "name": "工业工程",
-                        "children": null
-                    },
-                    {
-                        "code": "120801",
-                        "name": "电子商务",
-                        "children": null
-                    },
-                    {
-                        "code": "120901K",
-                        "name": "旅游管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120902",
-                        "name": "酒店管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120903",
-                        "name": "会展经济与管理",
-                        "children": null
-                    },
-                    {
-                        "code": "130101",
-                        "name": "艺术史论",
-                        "children": null
-                    },
-                    {
-                        "code": "130201",
-                        "name": "音乐表演",
-                        "children": null
-                    },
-                    {
-                        "code": "130202",
-                        "name": "音乐学",
-                        "children": null
-                    },
-                    {
-                        "code": "130203",
-                        "name": "作曲与作曲技术理论",
-                        "children": null
-                    },
-                    {
-                        "code": "130204",
-                        "name": "舞蹈表演",
-                        "children": null
-                    },
-                    {
-                        "code": "130205",
-                        "name": "舞蹈学",
-                        "children": null
-                    },
-                    {
-                        "code": "130206",
-                        "name": "舞蹈编导",
-                        "children": null
-                    },
-                    {
-                        "code": "130301",
-                        "name": "表演",
-                        "children": null
-                    },
-                    {
-                        "code": "130302",
-                        "name": "戏剧学",
-                        "children": null
-                    },
-                    {
-                        "code": "130303",
-                        "name": "电影学",
-                        "children": null
-                    },
-                    {
-                        "code": "130304",
-                        "name": "戏剧影视文学",
-                        "children": null
-                    },
-                    {
-                        "code": "130305",
-                        "name": "广播电视编导",
-                        "children": null
-                    },
-                    {
-                        "code": "130306",
-                        "name": "戏剧影视导演",
-                        "children": null
-                    },
-                    {
-                        "code": "130307",
-                        "name": "戏剧影视美术设计",
-                        "children": null
-                    },
-                    {
-                        "code": "130308",
-                        "name": "录音艺术",
-                        "children": null
-                    },
-                    {
-                        "code": "130309",
-                        "name": "播音与主持艺术",
-                        "children": null
-                    },
-                    {
-                        "code": "130310",
-                        "name": "动画",
-                        "children": null
-                    },
-                    {
-                        "code": "130401",
-                        "name": "美术学",
-                        "children": null
-                    },
-                    {
-                        "code": "130402",
-                        "name": "绘画",
-                        "children": null
-                    },
-                    {
-                        "code": "130403",
-                        "name": "雕塑",
-                        "children": null
-                    },
-                    {
-                        "code": "130404",
-                        "name": "摄影",
-                        "children": null
-                    },
-                    {
-                        "code": "130501",
-                        "name": "艺术设计学",
-                        "children": null
-                    },
-                    {
-                        "code": "130502",
-                        "name": "视觉传达设计",
-                        "children": null
-                    },
-                    {
-                        "code": "130503",
-                        "name": "环境设计",
-                        "children": null
-                    },
-                    {
-                        "code": "130504",
-                        "name": "产品设计",
-                        "children": null
-                    },
-                    {
-                        "code": "130505",
-                        "name": "服装与服饰设计",
-                        "children": null
-                    },
-                    {
-                        "code": "130506",
-                        "name": "公共艺术",
-                        "children": null
-                    },
-                    {
-                        "code": "130507",
-                        "name": "工艺美术",
-                        "children": null
-                    },
-                    {
-                        "code": "130508",
-                        "name": "数字媒体艺术",
-                        "children": null
-                    },
-                    {
-                        "code": "010104T",
-                        "name": "伦理学",
-                        "children": null
-                    },
-                    {
-                        "code": "020103T",
-                        "name": "国民经济管理",
-                        "children": null
-                    },
-                    {
-                        "code": "020104T",
-                        "name": "资源与环境经济学",
-                        "children": null
-                    },
-                    {
-                        "code": "020105T",
-                        "name": "商务经济学",
-                        "children": null
-                    },
-                    {
-                        "code": "020106T",
-                        "name": "能源经济",
-                        "children": null
-                    },
-                    {
-                        "code": "020305T",
-                        "name": "金融数学",
-                        "children": null
-                    },
-                    {
-                        "code": "020306T",
-                        "name": "信用管理",
-                        "children": null
-                    },
-                    {
-                        "code": "020307T",
-                        "name": "经济与金融",
-                        "children": null
-                    },
-                    {
-                        "code": "030102T",
-                        "name": "知识产权",
-                        "children": null
-                    },
-                    {
-                        "code": "030103T",
-                        "name": "监狱学",
-                        "children": null
-                    },
-                    {
-                        "code": "030204T",
-                        "name": "国际事务与国际关系",
-                        "children": null
-                    },
-                    {
-                        "code": "030205T",
-                        "name": "政治学、经济学与哲学",
-                        "children": null
-                    },
-                    {
-                        "code": "030303T",
-                        "name": "人类学",
-                        "children": null
-                    },
-                    {
-                        "code": "030304T",
-                        "name": "女性学",
-                        "children": null
-                    },
-                    {
-                        "code": "030305T",
-                        "name": "家政学",
-                        "children": null
-                    },
-                    {
-                        "code": "030604TK",
-                        "name": "禁毒学",
-                        "children": null
-                    },
-                    {
-                        "code": "030605TK",
-                        "name": "警犬技术",
-                        "children": null
-                    },
-                    {
-                        "code": "030606TK",
-                        "name": "经济犯罪侦查",
-                        "children": null
-                    },
-                    {
-                        "code": "030607TK",
-                        "name": "边 防指挥",
-                        "children": null
-                    },
-                    {
-                        "code": "030608TK",
-                        "name": "消防指挥",
-                        "children": null
-                    },
-                    {
-                        "code": "030609TK",
-                        "name": "警卫学",
-                        "children": null
-                    },
-                    {
-                        "code": "030610TK",
-                        "name": "公安情报学",
-                        "children": null
-                    },
-                    {
-                        "code": "030611TK",
-                        "name": "犯罪学",
-                        "children": null
-                    },
-                    {
-                        "code": "030612TK",
-                        "name": "公安管理学",
-                        "children": null
-                    },
-                    {
-                        "code": "030613TK",
-                        "name": "涉外警务",
-                        "children": null
-                    },
-                    {
-                        "code": "030614TK",
-                        "name": "国内安全保卫",
-                        "children": null
-                    },
-                    {
-                        "code": "030615TK",
-                        "name": "警务指挥与战术",
-                        "children": null
-                    },
-                    {
-                        "code": "040109T",
-                        "name": "华文教育",
-                        "children": null
-                    },
-                    {
-                        "code": "040206T",
-                        "name": "运动康复",
-                        "children": null
-                    },
-                    {
-                        "code": "040207T",
-                        "name": " 休闲体育",
-                        "children": null
-                    },
-                    {
-                        "code": "050106T",
-                        "name": "应用语言学",
-                        "children": null
-                    },
-                    {
-                        "code": "050107T",
-                        "name": "秘书学",
-                        "children": null
-                    },
-                    {
-                        "code": "050306T",
-                        "name": "网络与新媒体",
-                        "children": null
-                    },
-                    {
-                        "code": "050307T",
-                        "name": "数字出版",
-                        "children": null
-                    },
-                    {
-                        "code": "060105T",
-                        "name": "文物保护技术",
-                        "children": null
-                    },
-                    {
-                        "code": "060106T",
-                        "name": "外国语言与外国历史",
-                        "children": null
-                    },
-                    {
-                        "code": "070103T",
-                        "name": "数理基础科学",
-                        "children": null
-                    },
-                    {
-                        "code": "070204T",
-                        "name": "声学",
-                        "children": null
-                    },
-                    {
-                        "code": "070303T",
-                        "name": "化学生物学",
-                        "children": null
-                    },
-                    {
-                        "code": "070304T",
-                        "name": "分子科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "070703T",
-                        "name": "海洋资源与环境",
-                        "children": null
-                    },
-                    {
-                        "code": "070704T",
-                        "name": "军事海洋学",
-                        "children": null
-                    },
-                    {
-                        "code": "070903T",
-                        "name": "地球信息科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "070904T",
-                        "name": "古生物学",
-                        "children": null
-                    },
-                    {
-                        "code": "080209T",
-                        "name": " 机械工艺技术",
-                        "children": null
-                    },
-                    {
-                        "code": "080210T",
-                        "name": "微机电系统工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080211T",
-                        "name": "机电技术教育",
-                        "children": null
-                    },
-                    {
-                        "code": "080212T",
-                        "name": "汽车维修工程教育",
-                        "children": null
-                    },
-                    {
-                        "code": "080409T",
-                        "name": "粉体材料科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080410T",
-                        "name": "宝石及材料工艺学",
-                        "children": null
-                    },
-                    {
-                        "code": "080411T",
-                        "name": "焊接技术与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080412T",
-                        "name": "功能材料",
-                        "children": null
-                    },
-                    {
-                        "code": "080413T",
-                        "name": "纳米材料与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "080414T",
-                        "name": "新能源材料与器件",
-                        "children": null
-                    },
-                    {
-                        "code": "080502T",
-                        "name": "能源与环境系统工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080503T",
-                        "name": "新能源科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080602T",
-                        "name": "智能电网信息工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080603T",
-                        "name": "光源与照明",
-                        "children": null
-                    },
-                    {
-                        "code": "080604T",
-                        "name": "电气工程与智能控制",
-                        "children": null
-                    },
-                    {
-                        "code": "080707T",
-                        "name": "广播电视工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080708T",
-                        "name": "水声工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080709T",
-                        "name": "电子封装技术",
-                        "children": null
-                    },
-                    {
-                        "code": "080710T",
-                        "name": "集成电路设计与集成系统",
-                        "children": null
-                    },
-                    {
-                        "code": "080711T",
-                        "name": "医学信息工程",
-                        "children": null
-                    },
-                    {
-                        "code": "080712T",
-                        "name": "电磁场与无线技术",
-                        "children": null
-                    },
-                    {
-                        "code": "080713T",
-                        "name": "电波传播与天线",
-                        "children": null
-                    },
-                    {
-                        "code": "080714T",
-                        "name": "电子信息科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "080715T",
-                        "name": "电信工程及管理",
-                        "children": null
-                    },
-                    {
-                        "code": "080716T",
-                        "name": "应用电子技术教育",
-                        "children": null
-                    },
-                    {
-                        "code": "080802T",
-                        "name": "轨道交通信号与控制",
-                        "children": null
-                    },
-                    {
-                        "code": "080907T",
-                        "name": "智能科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "080908T",
-                        "name": "空间信息与数字技术",
-                        "children": null
-                    },
-                    {
-                        "code": "080909T",
-                        "name": "电子与计算机工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081005T",
-                        "name": "城市地下空间工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081006T",
-                        "name": "道路桥梁与渡河工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081104T",
-                        "name": "水务工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081203T",
-                        "name": "导航工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081204T",
-                        "name": "地理国情监测",
-                        "children": null
-                    },
-                    {
-                        "code": "081303T",
-                        "name": "资源循环科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081304T",
-                        "name": "能源化学工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081305T",
-                        "name": "化学工程与工业生物工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081404T",
-                        "name": "地下水科学与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081505T",
-                        "name": "矿物资源工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081506T",
-                        "name": "海洋油气工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081603T",
-                        "name": "非织造材料与工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081604T",
-                        "name": "服装设计与工艺教育",
-                        "children": null
-                    },
-                    {
-                        "code": "081806T",
-                        "name": "交通设备与控制工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081807T",
-                        "name": "救助与打捞工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081808TK",
-                        "name": "船舶电子电 气工程",
-                        "children": null
-                    },
-                    {
-                        "code": "081902T",
-                        "name": "海洋工程与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "081903T",
-                        "name": "海洋资源开发技术",
-                        "children": null
-                    },
-                    {
-                        "code": "082006T",
-                        "name": "飞行器质量与可靠性",
-                        "children": null
-                    },
-                    {
-                        "code": "082007T",
-                        "name": "飞行器适航技术",
-                        "children": null
-                    },
-                    {
-                        "code": "082505T",
-                        "name": "环保设备工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082506T",
-                        "name": "资源环境科学",
-                        "children": null
-                    },
-                    {
-                        "code": "082507T",
-                        "name": "水质科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "082602T",
-                        "name": "假肢矫形工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082706T",
-                        "name": "葡萄与葡萄酒工程",
-                        "children": null
-                    },
-                    {
-                        "code": "082707T",
-                        "name": "食品营养与检验教育",
-                        "children": null
-                    },
-                    {
-                        "code": "082708T",
-                        "name": "烹饪与营养教育",
-                        "children": null
-                    },
-                    {
-                        "code": "082804T",
-                        "name": "历史建筑保护工程",
-                        "children": null
-                    },
-                    {
-                        "code": "083002T",
-                        "name": "生物制药",
-                        "children": null
-                    },
-                    {
-                        "code": "083103TK",
-                        "name": "交通管理工程",
-                        "children": null
-                    },
-                    {
-                        "code": "083104TK",
-                        "name": "安全防范工程",
-                        "children": null
-                    },
-                    {
-                        "code": "083105TK",
-                        "name": "公安视听技术",
-                        "children": null
-                    },
-                    {
-                        "code": "083106TK",
-                        "name": "抢险救援指挥与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "083107TK",
-                        "name": "火灾勘查",
-                        "children": null
-                    },
-                    {
-                        "code": "083108TK",
-                        "name": "网络安全与执法",
-                        "children": null
-                    },
-                    {
-                        "code": "083109TK",
-                        "name": "核生化消防",
-                        "children": null
-                    },
-                    {
-                        "code": "090107T",
-                        "name": "茶学",
-                        "children": null
-                    },
-                    {
-                        "code": "090108T",
-                        "name": "烟草",
-                        "children": null
-                    },
-                    {
-                        "code": "090109T",
-                        "name": "应用生物科学",
-                        "children": null
-                    },
-                    {
-                        "code": "090110T",
-                        "name": "农艺教育",
-                        "children": null
-                    },
-                    {
-                        "code": "090111T",
-                        "name": "园艺教育",
-                        "children": null
-                    },
-                    {
-                        "code": "090302T",
-                        "name": "蚕学",
-                        "children": null
-                    },
-                    {
-                        "code": "090303T",
-                        "name": "蜂学",
-                        "children": null
-                    },
-                    {
-                        "code": "090403T",
-                        "name": "动植物检疫",
-                        "children": null
-                    },
-                    {
-                        "code": "090603T",
-                        "name": "水族科学与技术",
-                        "children": null
-                    },
-                    {
-                        "code": "100202TK",
-                        "name": "麻醉学",
-                        "children": null
-                    },
-                    {
-                        "code": "100203TK",
-                        "name": "医学影像学",
-                        "children": null
-                    },
-                    {
-                        "code": "100204TK",
-                        "name": "眼视光医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100205TK",
-                        "name": "精神医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100206TK",
-                        "name": "放射医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100403TK",
-                        "name": "妇幼保健医学",
-                        "children": null
-                    },
-                    {
-                        "code": "100404TK",
-                        "name": "卫生监督",
-                        "children": null
-                    },
-                    {
-                        "code": "100405TK",
-                        "name": "全球健康学",
-                        "children": null
-                    },
-                    {
-                        "code": "100703TK",
-                        "name": "临床药学",
-                        "children": null
-                    },
-                    {
-                        "code": "100704T",
-                        "name": "药事管理",
-                        "children": null
-                    },
-                    {
-                        "code": "100705T",
-                        "name": "药物分析",
-                        "children": null
-                    },
-                    {
-                        "code": "100706T",
-                        "name": "药物化学",
-                        "children": null
-                    },
-                    {
-                        "code": "100707T",
-                        "name": "海洋药学",
-                        "children": null
-                    },
-                    {
-                        "code": "100803T",
-                        "name": "藏药学",
-                        "children": null
-                    },
-                    {
-                        "code": "100804T",
-                        "name": "蒙药学",
-                        "children": null
-                    },
-                    {
-                        "code": "100805T",
-                        "name": "中药制药",
-                        "children": null
-                    },
-                    {
-                        "code": "100806T",
-                        "name": "中草药栽培与鉴定",
-                        "children": null
-                    },
-                    {
-                        "code": "101008T",
-                        "name": "听力与言语康复学",
-                        "children": null
-                    },
-                    {
-                        "code": "120106TK",
-                        "name": "保密管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120211T",
-                        "name": "劳动关系",
-                        "children": null
-                    },
-                    {
-                        "code": "120212T",
-                        "name": "体育经济与管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120213T",
-                        "name": "财务会计教育",
-                        "children": null
-                    },
-                    {
-                        "code": "120214T",
-                        "name": "市场营销教育",
-                        "children": null
-                    },
-                    {
-                        "code": "120406TK",
-                        "name": "海关管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120407T",
-                        "name": "交通管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120408T",
-                        "name": "海事管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120409T",
-                        "name": "公共关系学",
-                        "children": null
-                    },
-                    {
-                        "code": "120603T",
-                        "name": "采购管理",
-                        "children": null
-                    },
-                    {
-                        "code": "120702T",
-                        "name": "标准化工程",
-                        "children": null
-                    },
-                    {
-                        "code": "120703T",
-                        "name": "质量管理工程",
-                        "children": null
-                    },
-                    {
-                        "code": "120802T",
-                        "name": "电子商务及法律",
-                        "children": null
-                    },
-                    {
-                        "code": "120904T",
-                        "name": "旅游管理与服务教育",
-                        "children": null
-                    },
-                    {
-                        "code": "130311T",
-                        "name": "影视摄影与制作",
-                        "children": null
-                    },
-                    {
-                        "code": "130405T",
-                        "name": "书法学",
-                        "children": null
-                    },
-                    {
-                        "code": "130406T",
-                        "name": "中国画",
-                        "children": null
-                    },
-                    {
-                        "code": "130509T",
-                        "name": "艺术与科技",
-                        "children": null
-                    }
-                ]
-            },
-            {
-                "code": "0201",
-                "name": "经济学类",
-                "children": null
-            },
-            {
-                "code": "0202",
-                "name": "财政学类",
-                "children": null
-            },
-            {
-                "code": "0203",
-                "name": "金融学类",
-                "children": null
-            },
-            {
-                "code": "0204",
-                "name": "经济与贸 易类",
-                "children": null
-            },
-            {
-                "code": "0301",
-                "name": "法学类",
-                "children": null
-            },
-            {
-                "code": "0302",
-                "name": "政治学类",
-                "children": null
-            },
-            {
-                "code": "0303",
-                "name": "社会学类",
-                "children": null
-            },
-            {
-                "code": "0304",
-                "name": "民族学类",
-                "children": null
-            },
-            {
-                "code": "0305",
-                "name": "马克思主义理论类",
-                "children": null
-            },
-            {
-                "code": "0306",
-                "name": "公安学类",
-                "children": null
-            },
-            {
-                "code": "0401",
-                "name": "教育学类",
-                "children": null
-            },
-            {
-                "code": "0402",
-                "name": "体育学类",
-                "children": null
-            },
-            {
-                "code": "0501",
-                "name": "中国语言文学类",
-                "children": null
-            },
-            {
-                "code": "0502",
-                "name": "外国语言文学类",
-                "children": null
-            },
-            {
-                "code": "0503",
-                "name": "新闻传播学类",
-                "children": null
-            },
-            {
-                "code": "0601",
-                "name": "历史学类",
-                "children": null
-            },
-            {
-                "code": "0701",
-                "name": "数学类",
-                "children": null
-            },
-            {
-                "code": "0702",
-                "name": "物理学类",
-                "children": null
-            },
-            {
-                "code": "0703",
-                "name": "化学类",
-                "children": null
-            },
-            {
-                "code": "0704",
-                "name": "天文学类",
-                "children": null
-            },
-            {
-                "code": "0705",
-                "name": "地理科学类",
-                "children": null
-            },
-            {
-                "code": "0706",
-                "name": "大气科学类",
-                "children": null
-            },
-            {
-                "code": "0707",
-                "name": "海洋科学类",
-                "children": null
-            },
-            {
-                "code": "0708",
-                "name": "地球物理学类",
-                "children": null
-            },
-            {
-                "code": "0709",
-                "name": "地质学类",
-                "children": null
-            },
-            {
-                "code": "0710",
-                "name": "生物科学类",
-                "children": null
-            },
-            {
-                "code": "0711",
-                "name": "心理学类",
-                "children": null
-            },
-            {
-                "code": "0712",
-                "name": "统计学类",
-                "children": null
-            },
-            {
-                "code": "0801",
-                "name": "力学类",
-                "children": null
-            },
-            {
-                "code": "0802",
-                "name": "机械类",
-                "children": null
-            },
-            {
-                "code": "0803",
-                "name": "仪器类",
-                "children": null
-            },
-            {
-                "code": "0804",
-                "name": "材料类",
-                "children": null
-            },
-            {
-                "code": "0805",
-                "name": "能源动力类",
-                "children": null
-            },
-            {
-                "code": "0806",
-                "name": "电气类",
-                "children": null
-            },
-            {
-                "code": "0807",
-                "name": "电子信息类",
-                "children": null
-            },
-            {
-                "code": "0808",
-                "name": "自动化类",
-                "children": null
-            },
-            {
-                "code": "0809",
-                "name": "计算机类",
-                "children": null
-            },
-            {
-                "code": "0810",
-                "name": "土木类",
-                "children": null
-            },
-            {
-                "code": "0811",
-                "name": "水利类",
-                "children": null
-            },
-            {
-                "code": "0812",
-                "name": "测绘类",
-                "children": null
-            },
-            {
-                "code": "0813",
-                "name": "化工与制药类",
-                "children": null
-            },
-            {
-                "code": "0814",
-                "name": "地质类",
-                "children": null
-            },
-            {
-                "code": "0815",
-                "name": "矿业类",
-                "children": null
-            },
-            {
-                "code": "0816",
-                "name": "纺织类",
-                "children": null
-            },
-            {
-                "code": "0817",
-                "name": "轻工类",
-                "children": null
-            },
-            {
-                "code": "0818",
-                "name": "交通运输类",
-                "children": null
-            },
-            {
-                "code": "0819",
-                "name": "海洋工程类",
-                "children": null
-            },
-            {
-                "code": "0820",
-                "name": "航空航天类",
-                "children": null
-            },
-            {
-                "code": "0821",
-                "name": "兵器类",
-                "children": null
-            },
-            {
-                "code": "0822",
-                "name": "核工程类",
-                "children": null
-            },
-            {
-                "code": "0823",
-                "name": "农业工程类",
-                "children": null
-            },
-            {
-                "code": "0824",
-                "name": "林业工程类",
-                "children": null
-            },
-            {
-                "code": "0825",
-                "name": "环境科学与工程类",
-                "children": null
-            },
-            {
-                "code": "0826",
-                "name": "生物医学工程类",
-                "children": null
-            },
-            {
-                "code": "0827",
-                "name": "食品科学与工程类",
-                "children": null
-            },
-            {
-                "code": "0828",
-                "name": "建筑类",
-                "children": null
-            },
-            {
-                "code": "0829",
-                "name": "安全科学与工程类",
-                "children": null
-            },
-            {
-                "code": "0830",
-                "name": "生物工程类",
-                "children": null
-            },
-            {
-                "code": "0831",
-                "name": "公安技术类",
-                "children": null
-            },
-            {
-                "code": "0901",
-                "name": "植物生产类",
-                "children": null
-            },
-            {
-                "code": "0902",
-                "name": "自然保护与环境生态类",
-                "children": null
-            },
-            {
-                "code": "0903",
-                "name": "动物生产类",
-                "children": null
-            },
-            {
-                "code": "0904",
-                "name": "动物医学类",
-                "children": null
-            },
-            {
-                "code": "0905",
-                "name": "林学类",
-                "children": null
-            },
-            {
-                "code": "0906",
-                "name": "水产类",
-                "children": null
-            },
-            {
-                "code": "0907",
-                "name": "草学类",
-                "children": null
-            },
-            {
-                "code": "1001",
-                "name": "基础医学类",
-                "children": null
-            },
-            {
-                "code": "1002",
-                "name": "临床医学类",
-                "children": null
-            },
-            {
-                "code": "1003",
-                "name": "口腔医学类",
-                "children": null
-            },
-            {
-                "code": "1004",
-                "name": "公共卫生与预防医学类",
-                "children": null
-            },
-            {
-                "code": "1005",
-                "name": "中医学类",
-                "children": null
-            },
-            {
-                "code": "1006",
-                "name": "中西医结合类",
-                "children": null
-            },
-            {
-                "code": "1007",
-                "name": "药学类",
-                "children": null
-            },
-            {
-                "code": "1008",
-                "name": "中药学类",
-                "children": null
-            },
-            {
-                "code": "1009",
-                "name": "法医学类",
-                "children": null
-            },
-            {
-                "code": "1010",
-                "name": "医学技术类",
-                "children": null
-            },
-            {
-                "code": "1011",
-                "name": "护理学类",
-                "children": null
-            },
-            {
-                "code": "1201",
-                "name": "管理科学与工程类",
-                "children": null
-            },
-            {
-                "code": "1202",
-                "name": "工商管理类",
-                "children": null
-            },
-            {
-                "code": "1203",
-                "name": "农业经济管理类",
-                "children": null
-            },
-            {
-                "code": "1204",
-                "name": "公共管理类",
-                "children": null
-            },
-            {
-                "code": "1205",
-                "name": "图书情报与档案管理类",
-                "children": null
-            },
-            {
-                "code": "1206",
-                "name": "物流管理与工程类",
-                "children": null
-            },
-            {
-                "code": "1207",
-                "name": "工业工程类",
-                "children": null
-            },
-            {
-                "code": "1208",
-                "name": "电子商务类",
-                "children": null
-            },
-            {
-                "code": "1209",
-                "name": "旅游管理类",
-                "children": null
-            },
-            {
-                "code": "1301",
-                "name": "艺术学理论类",
-                "children": null
-            },
-            {
-                "code": "1302",
-                "name": "音乐与舞蹈学类",
-                "children": null
-            },
-            {
-                "code": "1303",
-                "name": "戏剧与影视学类",
-                "children": null
-            },
-            {
-                "code": "1304",
-                "name": "美术学类",
-                "children": null
-            },
-            {
-                "code": "1305",
-                "name": "设计学类",
-                "children": null
-            }
-        ]
-    },
-    {
-        "code": "02",
-        "name": "经济学",
-        "children": null
-    },
-    {
-        "code": "03",
-        "name": "法学",
-        "children": null
-    },
-    {
-        "code": "04",
-        "name": "教育学",
-        "children": null
-    },
-    {
-        "code": "05",
-        "name": "文学",
-        "children": null
-    },
-    {
-        "code": "06",
-        "name": "历史学",
-        "children": null
-    },
-    {
-        "code": "07",
-        "name": "理学",
-        "children": null
-    },
-    {
-        "code": "08",
-        "name": "工学",
-        "children": null
-    },
-    {
-        "code": "09",
-        "name": "农学",
-        "children": null
-    },
-    {
-        "code": "10",
-        "name": "医学",
-        "children": null
-    },
-    {
-        "code": "12",
-        "name": "管理学",
-        "children": null
-    },
-    {
-        "code": "13",
-        "name": "艺术学",
-        "children": null
-    }
-];
+subjectData=[{
+	"code": "01",
+	"name": "哲学",
+	"children": [{
+		"code": "0101",
+		"name": "哲学类",
+		"children": [{
+			"code": "010101",
+			"name": "哲学",
+			"children": null
+		}, {
+			"code": "010102",
+			"name": "逻辑学",
+			"children": null
+		}, {
+			"code": "010103K",
+			"name": "宗教学",
+			"children": null
+		}, {
+			"code": "010104T",
+			"name": "伦理学",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "02",
+	"name": "经济学",
+	"children": [{
+		"code": "0201",
+		"name": "经济学类",
+		"children": [{
+			"code": "020101",
+			"name": "经济学",
+			"children": null
+		}, {
+			"code": "020102",
+			"name": "经济统计学",
+			"children": null
+		}, {
+			"code": "020103T",
+			"name": "国民经济管理",
+			"children": null
+		}, {
+			"code": "020104T",
+			"name": "资源与环境经济学",
+			"children": null
+		}, {
+			"code": "020105T",
+			"name": "商务经济学",
+			"children": null
+		}, {
+			"code": "020106T",
+			"name": "能源经济",
+			"children": null
+		}]
+	}, {
+		"code": "0202",
+		"name": "财政学类",
+		"children": [{
+			"code": "020201K",
+			"name": "财政学",
+			"children": null
+		}, {
+			"code": "020202",
+			"name": "税收学",
+			"children": null
+		}]
+	}, {
+		"code": "0203",
+		"name": "金融学类",
+		"children": [{
+			"code": "020301K",
+			"name": "金融学",
+			"children": null
+		}, {
+			"code": "020302",
+			"name": "金融工程",
+			"children": null
+		}, {
+			"code": "020303",
+			"name": "保险学",
+			"children": null
+		}, {
+			"code": "020304",
+			"name": "投资学",
+			"children": null
+		}, {
+			"code": "020305T",
+			"name": "金融数学",
+			"children": null
+		}, {
+			"code": "020306T",
+			"name": "信用管理",
+			"children": null
+		}, {
+			"code": "020307T",
+			"name": "经济与金融",
+			"children": null
+		}]
+	}, {
+		"code": "0204",
+		"name": "经济与贸易类",
+		"children": [{
+			"code": "020401",
+			"name": "国际经济与贸易",
+			"children": null
+		}, {
+			"code": "020402",
+			"name": "贸易经济",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "03",
+	"name": "法学",
+	"children": [{
+		"code": "0301",
+		"name": "法学类",
+		"children": [{
+			"code": "030101K",
+			"name": "法学",
+			"children": null
+		}, {
+			"code": "030102T",
+			"name": "知识产权",
+			"children": null
+		}, {
+			"code": "030103T",
+			"name": "监狱学",
+			"children": null
+		}]
+	}, {
+		"code": "0302",
+		"name": "政治学类",
+		"children": [{
+			"code": "030201",
+			"name": "政治学与行政学",
+			"children": null
+		}, {
+			"code": "030202",
+			"name": "国际政治",
+			"children": null
+		}, {
+			"code": "030203",
+			"name": "外交学",
+			"children": null
+		}, {
+			"code": "030204T",
+			"name": "国际事务与国际关系",
+			"children": null
+		}, {
+			"code": "030205T",
+			"name": "政治学、经济学与哲学",
+			"children": null
+		}]
+	}, {
+		"code": "0303",
+		"name": "社会学类",
+		"children": [{
+			"code": "030301",
+			"name": "社会学",
+			"children": null
+		}, {
+			"code": "030302",
+			"name": "社会工作",
+			"children": null
+		}, {
+			"code": "030303T",
+			"name": "人类学",
+			"children": null
+		}, {
+			"code": "030304T",
+			"name": "女性学",
+			"children": null
+		}, {
+			"code": "030305T",
+			"name": "家政学",
+			"children": null
+		}]
+	}, {
+		"code": "0304",
+		"name": "民族学类",
+		"children": [{
+			"code": "030401",
+			"name": "民族学",
+			"children": null
+		}]
+	}, {
+		"code": "0305",
+		"name": "马克思主义理论类",
+		"children": [{
+			"code": "030501",
+			"name": "科学社会主义",
+			"children": null
+		}, {
+			"code": "030502",
+			"name": "中国共产党历史",
+			"children": null
+		}, {
+			"code": "030503",
+			"name": "思想政治教育",
+			"children": null
+		}]
+	}, {
+		"code": "0306",
+		"name": "公安学类",
+		"children": [{
+			"code": "030601K",
+			"name": "治安学",
+			"children": null
+		}, {
+			"code": "030602K",
+			"name": "侦查学",
+			"children": null
+		}, {
+			"code": "030603K",
+			"name": "边防管理",
+			"children": null
+		}, {
+			"code": "030604TK",
+			"name": "禁毒学",
+			"children": null
+		}, {
+			"code": "030605TK",
+			"name": "警犬技术",
+			"children": null
+		}, {
+			"code": "030606TK",
+			"name": "经济犯罪侦查",
+			"children": null
+		}, {
+			"code": "030607TK",
+			"name": "边防指挥",
+			"children": null
+		}, {
+			"code": "030608TK",
+			"name": "消防指挥",
+			"children": null
+		}, {
+			"code": "030609TK",
+			"name": "警卫学",
+			"children": null
+		}, {
+			"code": "030610TK",
+			"name": "公安情报学",
+			"children": null
+		}, {
+			"code": "030611TK",
+			"name": "犯罪学",
+			"children": null
+		}, {
+			"code": "030612TK",
+			"name": "公安管理学",
+			"children": null
+		}, {
+			"code": "030613TK",
+			"name": "涉外警务",
+			"children": null
+		}, {
+			"code": "030614TK",
+			"name": "国内安全保卫",
+			"children": null
+		}, {
+			"code": "030615TK",
+			"name": "警务指挥与战术",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "04",
+	"name": "教育学",
+	"children": [{
+		"code": "0401",
+		"name": "教育学类",
+		"children": [{
+			"code": "040101",
+			"name": "教育学",
+			"children": null
+		}, {
+			"code": "040102",
+			"name": "科学教育",
+			"children": null
+		}, {
+			"code": "040103",
+			"name": "人文教育",
+			"children": null
+		}, {
+			"code": "040104",
+			"name": "教育技术学",
+			"children": null
+		}, {
+			"code": "040105",
+			"name": "艺术教育",
+			"children": null
+		}, {
+			"code": "040106",
+			"name": "学前教育",
+			"children": null
+		}, {
+			"code": "040107",
+			"name": "小学教育",
+			"children": null
+		}, {
+			"code": "040108",
+			"name": "特殊教育",
+			"children": null
+		}, {
+			"code": "040109T",
+			"name": "华文教育",
+			"children": null
+		}]
+	}, {
+		"code": "0402",
+		"name": "体育学类",
+		"children": [{
+			"code": "040201",
+			"name": "体育教育",
+			"children": null
+		}, {
+			"code": "040202K",
+			"name": "运动训练",
+			"children": null
+		}, {
+			"code": "040203",
+			"name": "社会体育指导与管理",
+			"children": null
+		}, {
+			"code": "040204K",
+			"name": "武术与民族传统体育",
+			"children": null
+		}, {
+			"code": "040205",
+			"name": "运动人体科学",
+			"children": null
+		}, {
+			"code": "040206T",
+			"name": "运动康复",
+			"children": null
+		}, {
+			"code": "040207T",
+			"name": "休闲体育",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "05",
+	"name": "文学",
+	"children": [{
+		"code": "0501",
+		"name": "中国语言文学类",
+		"children": [{
+			"code": "050101",
+			"name": "汉语言文学",
+			"children": null
+		}, {
+			"code": "050102",
+			"name": "汉语言",
+			"children": null
+		}, {
+			"code": "050103",
+			"name": "汉语国际教育",
+			"children": null
+		}, {
+			"code": "050104",
+			"name": "中国少数民族语言文学",
+			"children": null
+		}, {
+			"code": "050105",
+			"name": "古典文献学",
+			"children": null
+		}, {
+			"code": "050106T",
+			"name": "应用语言学",
+			"children": null
+		}, {
+			"code": "050107T",
+			"name": "秘书学",
+			"children": null
+		}]
+	}, {
+		"code": "0502",
+		"name": "外国语言文学类",
+		"children": [{
+			"code": "050201",
+			"name": "英语",
+			"children": null
+		}, {
+			"code": "050202",
+			"name": "俄语",
+			"children": null
+		}, {
+			"code": "050203",
+			"name": "德语",
+			"children": null
+		}, {
+			"code": "050204",
+			"name": "法语",
+			"children": null
+		}, {
+			"code": "050205",
+			"name": "西班牙语",
+			"children": null
+		}, {
+			"code": "050206",
+			"name": "阿拉伯语",
+			"children": null
+		}, {
+			"code": "050207",
+			"name": "日语",
+			"children": null
+		}, {
+			"code": "050208",
+			"name": "波斯语",
+			"children": null
+		}, {
+			"code": "050209",
+			"name": "朝鲜语",
+			"children": null
+		}, {
+			"code": "050210",
+			"name": "菲律宾语",
+			"children": null
+		}, {
+			"code": "050211",
+			"name": "梵语巴利语",
+			"children": null
+		}, {
+			"code": "050212",
+			"name": "印度尼西亚语",
+			"children": null
+		}, {
+			"code": "050213",
+			"name": "印地语",
+			"children": null
+		}, {
+			"code": "050214",
+			"name": "柬埔寨语",
+			"children": null
+		}, {
+			"code": "050215",
+			"name": "老挝语",
+			"children": null
+		}, {
+			"code": "050216",
+			"name": "缅甸语",
+			"children": null
+		}, {
+			"code": "050217",
+			"name": "马来语",
+			"children": null
+		}, {
+			"code": "050218",
+			"name": "蒙古语",
+			"children": null
+		}, {
+			"code": "050219",
+			"name": "僧伽罗语",
+			"children": null
+		}, {
+			"code": "050220",
+			"name": "泰语",
+			"children": null
+		}, {
+			"code": "050221",
+			"name": "乌尔都语",
+			"children": null
+		}, {
+			"code": "050222",
+			"name": "希伯来语",
+			"children": null
+		}, {
+			"code": "050223",
+			"name": "越南语",
+			"children": null
+		}, {
+			"code": "050224",
+			"name": "豪萨语",
+			"children": null
+		}, {
+			"code": "050225",
+			"name": "斯瓦希里语",
+			"children": null
+		}, {
+			"code": "050226",
+			"name": "阿尔巴尼亚语",
+			"children": null
+		}, {
+			"code": "050227",
+			"name": "保加利亚语",
+			"children": null
+		}, {
+			"code": "050228",
+			"name": "波兰语",
+			"children": null
+		}, {
+			"code": "050229",
+			"name": "捷克语",
+			"children": null
+		}, {
+			"code": "050230",
+			"name": "斯洛伐克语",
+			"children": null
+		}, {
+			"code": "050231",
+			"name": "罗马尼亚语",
+			"children": null
+		}, {
+			"code": "050232",
+			"name": "葡萄牙语",
+			"children": null
+		}, {
+			"code": "050233",
+			"name": "瑞典语",
+			"children": null
+		}, {
+			"code": "050234",
+			"name": "塞尔维亚语",
+			"children": null
+		}, {
+			"code": "050235",
+			"name": "土耳其语",
+			"children": null
+		}, {
+			"code": "050236",
+			"name": "希腊语",
+			"children": null
+		}, {
+			"code": "050237",
+			"name": "匈牙利语",
+			"children": null
+		}, {
+			"code": "050238",
+			"name": "意大利语",
+			"children": null
+		}, {
+			"code": "050239",
+			"name": "泰米尔语",
+			"children": null
+		}, {
+			"code": "050240",
+			"name": "普什图语",
+			"children": null
+		}, {
+			"code": "050241",
+			"name": "世界语",
+			"children": null
+		}, {
+			"code": "050242",
+			"name": "孟加拉语",
+			"children": null
+		}, {
+			"code": "050243",
+			"name": "尼泊尔语",
+			"children": null
+		}, {
+			"code": "050244",
+			"name": "克罗地亚语",
+			"children": null
+		}, {
+			"code": "050245",
+			"name": "荷兰语",
+			"children": null
+		}, {
+			"code": "050246",
+			"name": "芬兰语",
+			"children": null
+		}, {
+			"code": "050247",
+			"name": "乌克兰语",
+			"children": null
+		}, {
+			"code": "050248",
+			"name": "挪威语",
+			"children": null
+		}, {
+			"code": "050249",
+			"name": "丹麦语",
+			"children": null
+		}, {
+			"code": "050250",
+			"name": "冰岛语",
+			"children": null
+		}, {
+			"code": "050251",
+			"name": "爱尔兰语",
+			"children": null
+		}, {
+			"code": "050252",
+			"name": "拉脱维亚语",
+			"children": null
+		}, {
+			"code": "050253",
+			"name": "立陶宛语",
+			"children": null
+		}, {
+			"code": "050254",
+			"name": "斯洛文尼亚语",
+			"children": null
+		}, {
+			"code": "050255",
+			"name": "爱沙尼亚语",
+			"children": null
+		}, {
+			"code": "050256",
+			"name": "马耳他语",
+			"children": null
+		}, {
+			"code": "050257",
+			"name": "哈萨克语",
+			"children": null
+		}, {
+			"code": "050258",
+			"name": "乌兹别克语",
+			"children": null
+		}, {
+			"code": "050259",
+			"name": "祖鲁语",
+			"children": null
+		}, {
+			"code": "050260",
+			"name": "拉丁语",
+			"children": null
+		}, {
+			"code": "050261",
+			"name": "翻译",
+			"children": null
+		}, {
+			"code": "050262",
+			"name": "商务英语",
+			"children": null
+		}]
+	}, {
+		"code": "0503",
+		"name": "新闻传播学类",
+		"children": [{
+			"code": "050301",
+			"name": "新闻学",
+			"children": null
+		}, {
+			"code": "050302",
+			"name": "广播电视学",
+			"children": null
+		}, {
+			"code": "050303",
+			"name": "广告学",
+			"children": null
+		}, {
+			"code": "050304",
+			"name": "传播学",
+			"children": null
+		}, {
+			"code": "050305",
+			"name": "编辑出版学",
+			"children": null
+		}, {
+			"code": "050306T",
+			"name": "网络与新媒体",
+			"children": null
+		}, {
+			"code": "050307T",
+			"name": "数字出版",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "06",
+	"name": "历史学",
+	"children": [{
+		"code": "0601",
+		"name": "历史学类",
+		"children": [{
+			"code": "060101",
+			"name": "历史学",
+			"children": null
+		}, {
+			"code": "060102",
+			"name": "世界史",
+			"children": null
+		}, {
+			"code": "060103",
+			"name": "考古学",
+			"children": null
+		}, {
+			"code": "060104",
+			"name": "文物与博物馆学",
+			"children": null
+		}, {
+			"code": "060105T",
+			"name": "文物保护技术",
+			"children": null
+		}, {
+			"code": "060106T",
+			"name": "外国语言与外国历史",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "07",
+	"name": "理学",
+	"children": [{
+		"code": "0701",
+		"name": "数学类",
+		"children": [{
+			"code": "070101",
+			"name": "数学与应用数学",
+			"children": null
+		}, {
+			"code": "070102",
+			"name": "信息与计算科学",
+			"children": null
+		}, {
+			"code": "070103T",
+			"name": "数理基础科学",
+			"children": null
+		}]
+	}, {
+		"code": "0702",
+		"name": "物理学类",
+		"children": [{
+			"code": "070201",
+			"name": "物理学",
+			"children": null
+		}, {
+			"code": "070202",
+			"name": "应用物理学",
+			"children": null
+		}, {
+			"code": "070203",
+			"name": "核物理",
+			"children": null
+		}, {
+			"code": "070204T",
+			"name": "声学",
+			"children": null
+		}]
+	}, {
+		"code": "0703",
+		"name": "化学类",
+		"children": [{
+			"code": "070301",
+			"name": "化学",
+			"children": null
+		}, {
+			"code": "070302",
+			"name": "应用化学",
+			"children": null
+		}, {
+			"code": "070303T",
+			"name": "化学生物学",
+			"children": null
+		}, {
+			"code": "070304T",
+			"name": "分子科学与工程",
+			"children": null
+		}]
+	}, {
+		"code": "0704",
+		"name": "天文学类",
+		"children": [{
+			"code": "070401",
+			"name": "天文学",
+			"children": null
+		}]
+	}, {
+		"code": "0705",
+		"name": "地理科学类",
+		"children": [{
+			"code": "070501",
+			"name": "地理科学",
+			"children": null
+		}, {
+			"code": "070502",
+			"name": "自然地理与资源环境",
+			"children": null
+		}, {
+			"code": "070503",
+			"name": "人文地理与城乡规划",
+			"children": null
+		}, {
+			"code": "070504",
+			"name": "地理信息科学",
+			"children": null
+		}]
+	}, {
+		"code": "0706",
+		"name": "大气科学类",
+		"children": [{
+			"code": "070601",
+			"name": "大气科学",
+			"children": null
+		}, {
+			"code": "070602",
+			"name": "应用气象学",
+			"children": null
+		}]
+	}, {
+		"code": "0707",
+		"name": "海洋科学类",
+		"children": [{
+			"code": "070701",
+			"name": "海洋科学",
+			"children": null
+		}, {
+			"code": "070702",
+			"name": "海洋技术",
+			"children": null
+		}, {
+			"code": "070703T",
+			"name": "海洋资源与环境",
+			"children": null
+		}, {
+			"code": "070704T",
+			"name": "军事海洋学",
+			"children": null
+		}]
+	}, {
+		"code": "0708",
+		"name": "地球物理学类",
+		"children": [{
+			"code": "070801",
+			"name": "地球物理学",
+			"children": null
+		}, {
+			"code": "070802",
+			"name": "空间科学与技术",
+			"children": null
+		}]
+	}, {
+		"code": "0709",
+		"name": "地质学类",
+		"children": [{
+			"code": "070901",
+			"name": "地质学",
+			"children": null
+		}, {
+			"code": "070902",
+			"name": "地球化学",
+			"children": null
+		}, {
+			"code": "070903T",
+			"name": "地球信息科学与技术",
+			"children": null
+		}, {
+			"code": "070904T",
+			"name": "古生物学",
+			"children": null
+		}]
+	}, {
+		"code": "0710",
+		"name": "生物科学类",
+		"children": [{
+			"code": "071001",
+			"name": "生物科学",
+			"children": null
+		}, {
+			"code": "071002",
+			"name": "生物技术",
+			"children": null
+		}, {
+			"code": "071003",
+			"name": "生物信息学",
+			"children": null
+		}, {
+			"code": "071004",
+			"name": "生态学",
+			"children": null
+		}]
+	}, {
+		"code": "0711",
+		"name": "心理学类",
+		"children": [{
+			"code": "071101",
+			"name": "心理学",
+			"children": null
+		}, {
+			"code": "071102",
+			"name": "应用心理学",
+			"children": null
+		}]
+	}, {
+		"code": "0712",
+		"name": "统计学类",
+		"children": [{
+			"code": "071201",
+			"name": "统计学",
+			"children": null
+		}, {
+			"code": "071202",
+			"name": "应用统计学",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "08",
+	"name": "工学",
+	"children": [{
+		"code": "0801",
+		"name": "力学类",
+		"children": [{
+			"code": "080101",
+			"name": "理论与应用力学",
+			"children": null
+		}, {
+			"code": "080102",
+			"name": "工程力学",
+			"children": null
+		}]
+	}, {
+		"code": "0802",
+		"name": "机械类",
+		"children": [{
+			"code": "080201",
+			"name": "机械工程",
+			"children": null
+		}, {
+			"code": "080202",
+			"name": "机械设计制造及其自动化",
+			"children": null
+		}, {
+			"code": "080203",
+			"name": "材料成型及控制工程",
+			"children": null
+		}, {
+			"code": "080204",
+			"name": "机械电子工程",
+			"children": null
+		}, {
+			"code": "080205",
+			"name": "工业设计",
+			"children": null
+		}, {
+			"code": "080206",
+			"name": "过程装备与控制工程",
+			"children": null
+		}, {
+			"code": "080207",
+			"name": "车辆工程",
+			"children": null
+		}, {
+			"code": "080208",
+			"name": "汽车服务工程",
+			"children": null
+		}, {
+			"code": "080209T",
+			"name": "机械工艺技术",
+			"children": null
+		}, {
+			"code": "080210T",
+			"name": "微机电系统工程",
+			"children": null
+		}, {
+			"code": "080211T",
+			"name": "机电技术教育",
+			"children": null
+		}, {
+			"code": "080212T",
+			"name": "汽车维修工程教育",
+			"children": null
+		}]
+	}, {
+		"code": "0803",
+		"name": "仪器类",
+		"children": [{
+			"code": "080301",
+			"name": "测控技术与仪器",
+			"children": null
+		}]
+	}, {
+		"code": "0804",
+		"name": "材料类",
+		"children": [{
+			"code": "080401",
+			"name": "材料科学与工程",
+			"children": null
+		}, {
+			"code": "080402",
+			"name": "材料物理",
+			"children": null
+		}, {
+			"code": "080403",
+			"name": "材料化学",
+			"children": null
+		}, {
+			"code": "080404",
+			"name": "冶金工程",
+			"children": null
+		}, {
+			"code": "080405",
+			"name": "金属材料工程",
+			"children": null
+		}, {
+			"code": "080406",
+			"name": "无机非金属材料工程",
+			"children": null
+		}, {
+			"code": "080407",
+			"name": "高分子材料与工程",
+			"children": null
+		}, {
+			"code": "080408",
+			"name": "复合材料与工程",
+			"children": null
+		}, {
+			"code": "080409T",
+			"name": "粉体材料科学与工程",
+			"children": null
+		}, {
+			"code": "080410T",
+			"name": "宝石及材料工艺学",
+			"children": null
+		}, {
+			"code": "080411T",
+			"name": "焊接技术与工程",
+			"children": null
+		}, {
+			"code": "080412T",
+			"name": "功能材料",
+			"children": null
+		}, {
+			"code": "080413T",
+			"name": "纳米材料与技术",
+			"children": null
+		}, {
+			"code": "080414T",
+			"name": "新能源材料与器件",
+			"children": null
+		}]
+	}, {
+		"code": "0805",
+		"name": "能源动力类",
+		"children": [{
+			"code": "080501",
+			"name": "能源与动力工程",
+			"children": null
+		}, {
+			"code": "080502T",
+			"name": "能源与环境系统工程",
+			"children": null
+		}, {
+			"code": "080503T",
+			"name": "新能源科学与工程",
+			"children": null
+		}]
+	}, {
+		"code": "0806",
+		"name": "电气类",
+		"children": [{
+			"code": "080601",
+			"name": "电气工程及其自动化",
+			"children": null
+		}, {
+			"code": "080602T",
+			"name": "智能电网信息工程",
+			"children": null
+		}, {
+			"code": "080603T",
+			"name": "光源与照明",
+			"children": null
+		}, {
+			"code": "080604T",
+			"name": "电气工程与智能控制",
+			"children": null
+		}]
+	}, {
+		"code": "0807",
+		"name": "电子信息类",
+		"children": [{
+			"code": "080701",
+			"name": "电子信息工程",
+			"children": null
+		}, {
+			"code": "080702",
+			"name": "电子科学与技术",
+			"children": null
+		}, {
+			"code": "080703",
+			"name": "通信工程",
+			"children": null
+		}, {
+			"code": "080704",
+			"name": "微电子科学与工程",
+			"children": null
+		}, {
+			"code": "080705",
+			"name": "光电信息科学与工程",
+			"children": null
+		}, {
+			"code": "080706",
+			"name": "信息工程",
+			"children": null
+		}, {
+			"code": "080707T",
+			"name": "广播电视工程",
+			"children": null
+		}, {
+			"code": "080708T",
+			"name": "水声工程",
+			"children": null
+		}, {
+			"code": "080709T",
+			"name": "电子封装技术",
+			"children": null
+		}, {
+			"code": "080710T",
+			"name": "集成电路设计与集成系统",
+			"children": null
+		}, {
+			"code": "080711T",
+			"name": "医学信息工程",
+			"children": null
+		}, {
+			"code": "080712T",
+			"name": "电磁场与无线技术",
+			"children": null
+		}, {
+			"code": "080713T",
+			"name": "电波传播与天线",
+			"children": null
+		}, {
+			"code": "080714T",
+			"name": "电子信息科学与技术",
+			"children": null
+		}, {
+			"code": "080715T",
+			"name": "电信工程及管理",
+			"children": null
+		}, {
+			"code": "080716T",
+			"name": "应用电子技术教育",
+			"children": null
+		}]
+	}, {
+		"code": "0808",
+		"name": "自动化类",
+		"children": [{
+			"code": "080801",
+			"name": "自动化",
+			"children": null
+		}, {
+			"code": "080802T",
+			"name": "轨道交通信号与控制",
+			"children": null
+		}]
+	}, {
+		"code": "0809",
+		"name": "计算机类",
+		"children": [{
+			"code": "080901",
+			"name": "计算机科学与技术",
+			"children": null
+		}, {
+			"code": "080902",
+			"name": "软件工程",
+			"children": null
+		}, {
+			"code": "080903",
+			"name": "网络工程",
+			"children": null
+		}, {
+			"code": "080904K",
+			"name": "信息安全",
+			"children": null
+		}, {
+			"code": "080905",
+			"name": "物联网工程",
+			"children": null
+		}, {
+			"code": "080906",
+			"name": "数字媒体技术",
+			"children": null
+		}, {
+			"code": "080907T",
+			"name": "智能科学与技术",
+			"children": null
+		}, {
+			"code": "080908T",
+			"name": "空间信息与数字技术",
+			"children": null
+		}, {
+			"code": "080909T",
+			"name": "电子与计算机工程",
+			"children": null
+		}]
+	}, {
+		"code": "0810",
+		"name": "土木类",
+		"children": [{
+			"code": "081001",
+			"name": "土木工程",
+			"children": null
+		}, {
+			"code": "081002",
+			"name": "建筑环境与能源应用工程",
+			"children": null
+		}, {
+			"code": "081003",
+			"name": "给排水科学与工程",
+			"children": null
+		}, {
+			"code": "081004",
+			"name": "建筑电气与智能化",
+			"children": null
+		}, {
+			"code": "081005T",
+			"name": "城市地下空间工程",
+			"children": null
+		}, {
+			"code": "081006T",
+			"name": "道路桥梁与渡河工程",
+			"children": null
+		}]
+	}, {
+		"code": "0811",
+		"name": "水利类",
+		"children": [{
+			"code": "081101",
+			"name": "水利水电工程",
+			"children": null
+		}, {
+			"code": "081102",
+			"name": "水文与水资源工程",
+			"children": null
+		}, {
+			"code": "081103",
+			"name": "港口航道与海岸工程",
+			"children": null
+		}, {
+			"code": "081104T",
+			"name": "水务工程",
+			"children": null
+		}]
+	}, {
+		"code": "0812",
+		"name": "测绘类",
+		"children": [{
+			"code": "081201",
+			"name": "测绘工程",
+			"children": null
+		}, {
+			"code": "081202",
+			"name": "遥感科学与技术",
+			"children": null
+		}, {
+			"code": "081203T",
+			"name": "导航工程",
+			"children": null
+		}, {
+			"code": "081204T",
+			"name": "地理国情监测",
+			"children": null
+		}]
+	}, {
+		"code": "0813",
+		"name": "化工与制药类",
+		"children": [{
+			"code": "081301",
+			"name": "化学工程与工艺",
+			"children": null
+		}, {
+			"code": "081302",
+			"name": "制药工程",
+			"children": null
+		}, {
+			"code": "081303T",
+			"name": "资源循环科学与工程",
+			"children": null
+		}, {
+			"code": "081304T",
+			"name": "能源化学工程",
+			"children": null
+		}, {
+			"code": "081305T",
+			"name": "化学工程与工业生物工程",
+			"children": null
+		}]
+	}, {
+		"code": "0814",
+		"name": "地质类",
+		"children": [{
+			"code": "081401",
+			"name": "地质工程",
+			"children": null
+		}, {
+			"code": "081402",
+			"name": "勘查技术与工程",
+			"children": null
+		}, {
+			"code": "081403",
+			"name": "资源勘查工程",
+			"children": null
+		}, {
+			"code": "081404T",
+			"name": "地下水科学与工程",
+			"children": null
+		}]
+	}, {
+		"code": "0815",
+		"name": "矿业类",
+		"children": [{
+			"code": "081501",
+			"name": "采矿工程",
+			"children": null
+		}, {
+			"code": "081502",
+			"name": "石油工程",
+			"children": null
+		}, {
+			"code": "081503",
+			"name": "矿物加工工程",
+			"children": null
+		}, {
+			"code": "081504",
+			"name": "油气储运工程",
+			"children": null
+		}, {
+			"code": "081505T",
+			"name": "矿物资源工程",
+			"children": null
+		}, {
+			"code": "081506T",
+			"name": "海洋油气工程",
+			"children": null
+		}]
+	}, {
+		"code": "0816",
+		"name": "纺织类",
+		"children": [{
+			"code": "081601",
+			"name": "纺织工程",
+			"children": null
+		}, {
+			"code": "081602",
+			"name": "服装设计与工程",
+			"children": null
+		}, {
+			"code": "081603T",
+			"name": "非织造材料与工程",
+			"children": null
+		}, {
+			"code": "081604T",
+			"name": "服装设计与工艺教育",
+			"children": null
+		}]
+	}, {
+		"code": "0817",
+		"name": "轻工类",
+		"children": [{
+			"code": "081701",
+			"name": "轻化工程",
+			"children": null
+		}, {
+			"code": "081702",
+			"name": "包装工程",
+			"children": null
+		}, {
+			"code": "081703",
+			"name": "印刷工程",
+			"children": null
+		}]
+	}, {
+		"code": "0818",
+		"name": "交通运输类",
+		"children": [{
+			"code": "081801",
+			"name": "交通运输",
+			"children": null
+		}, {
+			"code": "081802",
+			"name": "交通工程",
+			"children": null
+		}, {
+			"code": "081803K",
+			"name": "航海技术",
+			"children": null
+		}, {
+			"code": "081804K",
+			"name": "轮机工程",
+			"children": null
+		}, {
+			"code": "081805K",
+			"name": "飞行技术",
+			"children": null
+		}, {
+			"code": "081806T",
+			"name": "交通设备与控制工程",
+			"children": null
+		}, {
+			"code": "081807T",
+			"name": "救助与打捞工程",
+			"children": null
+		}, {
+			"code": "081808TK",
+			"name": "船舶电子电气工程",
+			"children": null
+		}]
+	}, {
+		"code": "0819",
+		"name": "海洋工程类",
+		"children": [{
+			"code": "081901",
+			"name": "船舶与海洋工程",
+			"children": null
+		}, {
+			"code": "081902T",
+			"name": "海洋工程与技术",
+			"children": null
+		}, {
+			"code": "081903T",
+			"name": "海洋资源开发技术",
+			"children": null
+		}]
+	}, {
+		"code": "0820",
+		"name": "航空航天类",
+		"children": [{
+			"code": "082001",
+			"name": "航空航天工程",
+			"children": null
+		}, {
+			"code": "082002",
+			"name": "飞行器设计与工程",
+			"children": null
+		}, {
+			"code": "082003",
+			"name": "飞行器制造工程",
+			"children": null
+		}, {
+			"code": "082004",
+			"name": "飞行器动力工程",
+			"children": null
+		}, {
+			"code": "082005",
+			"name": "飞行器环境与生命保障工程",
+			"children": null
+		}, {
+			"code": "082006T",
+			"name": "飞行器质量与可靠性",
+			"children": null
+		}, {
+			"code": "082007T",
+			"name": "飞行器适航技术",
+			"children": null
+		}]
+	}, {
+		"code": "0821",
+		"name": "兵器类",
+		"children": [{
+			"code": "082101",
+			"name": "武器系统与工程",
+			"children": null
+		}, {
+			"code": "082102",
+			"name": "武器发射工程",
+			"children": null
+		}, {
+			"code": "082103",
+			"name": "探测制导与控制技术",
+			"children": null
+		}, {
+			"code": "082104",
+			"name": "弹药工程与爆炸技术",
+			"children": null
+		}, {
+			"code": "082105",
+			"name": "特种能源技术与工程",
+			"children": null
+		}, {
+			"code": "082106",
+			"name": "装甲车辆工程",
+			"children": null
+		}, {
+			"code": "082107",
+			"name": "信息对抗技术",
+			"children": null
+		}]
+	}, {
+		"code": "0822",
+		"name": "核工程类",
+		"children": [{
+			"code": "082201",
+			"name": "核工程与核技术",
+			"children": null
+		}, {
+			"code": "082202",
+			"name": "辐射防护与核安全",
+			"children": null
+		}, {
+			"code": "082203",
+			"name": "工程物理",
+			"children": null
+		}, {
+			"code": "082204",
+			"name": "核化工与核燃料工程",
+			"children": null
+		}]
+	}, {
+		"code": "0823",
+		"name": "农业工程类",
+		"children": [{
+			"code": "082301",
+			"name": "农业工程",
+			"children": null
+		}, {
+			"code": "082302",
+			"name": "农业机械化及其自动化",
+			"children": null
+		}, {
+			"code": "082303",
+			"name": "农业电气化",
+			"children": null
+		}, {
+			"code": "082304",
+			"name": "农业建筑环境与能源工程",
+			"children": null
+		}, {
+			"code": "082305",
+			"name": "农业水利工程",
+			"children": null
+		}]
+	}, {
+		"code": "0824",
+		"name": "林业工程类",
+		"children": [{
+			"code": "082401",
+			"name": "森林工程",
+			"children": null
+		}, {
+			"code": "082402",
+			"name": "木材科学与工程",
+			"children": null
+		}, {
+			"code": "082403",
+			"name": "林产化工",
+			"children": null
+		}]
+	}, {
+		"code": "0825",
+		"name": "环境科学与工程类",
+		"children": [{
+			"code": "082501",
+			"name": "环境科学与工程",
+			"children": null
+		}, {
+			"code": "082502",
+			"name": "环境工程",
+			"children": null
+		}, {
+			"code": "082503",
+			"name": "环境科学",
+			"children": null
+		}, {
+			"code": "082504",
+			"name": "环境生态工程",
+			"children": null
+		}, {
+			"code": "082505T",
+			"name": "环保设备工程",
+			"children": null
+		}, {
+			"code": "082506T",
+			"name": "资源环境科学",
+			"children": null
+		}, {
+			"code": "082507T",
+			"name": "水质科学与技术",
+			"children": null
+		}]
+	}, {
+		"code": "0826",
+		"name": "生物医学工程类",
+		"children": [{
+			"code": "082601",
+			"name": "生物医学工程",
+			"children": null
+		}, {
+			"code": "082602T",
+			"name": "假肢矫形工程",
+			"children": null
+		}]
+	}, {
+		"code": "0827",
+		"name": "食品科学与工程类",
+		"children": [{
+			"code": "082701",
+			"name": "食品科学与工程",
+			"children": null
+		}, {
+			"code": "082702",
+			"name": "食品质量与安全",
+			"children": null
+		}, {
+			"code": "082703",
+			"name": "粮食工程",
+			"children": null
+		}, {
+			"code": "082704",
+			"name": "乳品工程",
+			"children": null
+		}, {
+			"code": "082705",
+			"name": "酿酒工程",
+			"children": null
+		}, {
+			"code": "082706T",
+			"name": "葡萄与葡萄酒工程",
+			"children": null
+		}, {
+			"code": "082707T",
+			"name": "食品营养与检验教育",
+			"children": null
+		}, {
+			"code": "082708T",
+			"name": "烹饪与营养教育",
+			"children": null
+		}]
+	}, {
+		"code": "0828",
+		"name": "建筑类",
+		"children": [{
+			"code": "082801",
+			"name": "建筑学",
+			"children": null
+		}, {
+			"code": "082802",
+			"name": "城乡规划",
+			"children": null
+		}, {
+			"code": "082803",
+			"name": "风景园林",
+			"children": null
+		}, {
+			"code": "082804T",
+			"name": "历史建筑保护工程",
+			"children": null
+		}]
+	}, {
+		"code": "0829",
+		"name": "安全科学与工程类",
+		"children": [{
+			"code": "082901",
+			"name": "安全工程",
+			"children": null
+		}]
+	}, {
+		"code": "0830",
+		"name": "生物工程类",
+		"children": [{
+			"code": "083001",
+			"name": "生物工程",
+			"children": null
+		}, {
+			"code": "083002T",
+			"name": "生物制药",
+			"children": null
+		}]
+	}, {
+		"code": "0831",
+		"name": "公安技术类",
+		"children": [{
+			"code": "083101K",
+			"name": "刑事科学技术",
+			"children": null
+		}, {
+			"code": "083102K",
+			"name": "消防工程",
+			"children": null
+		}, {
+			"code": "083103TK",
+			"name": "交通管理工程",
+			"children": null
+		}, {
+			"code": "083104TK",
+			"name": "安全防范工程",
+			"children": null
+		}, {
+			"code": "083105TK",
+			"name": "公安视听技术",
+			"children": null
+		}, {
+			"code": "083106TK",
+			"name": "抢险救援指挥与技术",
+			"children": null
+		}, {
+			"code": "083107TK",
+			"name": "火灾勘查",
+			"children": null
+		}, {
+			"code": "083108TK",
+			"name": "网络安全与执法",
+			"children": null
+		}, {
+			"code": "083109TK",
+			"name": "核生化消防",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "09",
+	"name": "农学",
+	"children": [{
+		"code": "0901",
+		"name": "植物生产类",
+		"children": [{
+			"code": "090101",
+			"name": "农学",
+			"children": null
+		}, {
+			"code": "090102",
+			"name": "园艺",
+			"children": null
+		}, {
+			"code": "090103",
+			"name": "植物保护",
+			"children": null
+		}, {
+			"code": "090104",
+			"name": "植物科学与技术",
+			"children": null
+		}, {
+			"code": "090105",
+			"name": "种子科学与工程",
+			"children": null
+		}, {
+			"code": "090106",
+			"name": "设施农业科学与工程",
+			"children": null
+		}, {
+			"code": "090107T",
+			"name": "茶学",
+			"children": null
+		}, {
+			"code": "090108T",
+			"name": "烟草",
+			"children": null
+		}, {
+			"code": "090109T",
+			"name": "应用生物科学",
+			"children": null
+		}, {
+			"code": "090110T",
+			"name": "农艺教育",
+			"children": null
+		}, {
+			"code": "090111T",
+			"name": "园艺教育",
+			"children": null
+		}]
+	}, {
+		"code": "0902",
+		"name": "自然保护与环境生态类",
+		"children": [{
+			"code": "090201",
+			"name": "农业资源与环境",
+			"children": null
+		}, {
+			"code": "090202",
+			"name": "野生动物与自然保护区管理",
+			"children": null
+		}, {
+			"code": "090203",
+			"name": "水土保持与荒漠化防治",
+			"children": null
+		}]
+	}, {
+		"code": "0903",
+		"name": "动物生产类",
+		"children": [{
+			"code": "090301",
+			"name": "动物科学",
+			"children": null
+		}, {
+			"code": "090302T",
+			"name": "蚕学",
+			"children": null
+		}, {
+			"code": "090303T",
+			"name": "蜂学",
+			"children": null
+		}]
+	}, {
+		"code": "0904",
+		"name": "动物医学类",
+		"children": [{
+			"code": "090401",
+			"name": "动物医学",
+			"children": null
+		}, {
+			"code": "090402",
+			"name": "动物药学",
+			"children": null
+		}, {
+			"code": "090403T",
+			"name": "动植物检疫",
+			"children": null
+		}]
+	}, {
+		"code": "0905",
+		"name": "林学类",
+		"children": [{
+			"code": "090501",
+			"name": "林学",
+			"children": null
+		}, {
+			"code": "090502",
+			"name": "园林",
+			"children": null
+		}, {
+			"code": "090503",
+			"name": "森林保护",
+			"children": null
+		}]
+	}, {
+		"code": "0906",
+		"name": "水产类",
+		"children": [{
+			"code": "090601",
+			"name": "水产养殖学",
+			"children": null
+		}, {
+			"code": "090602",
+			"name": "海洋渔业科学与技术",
+			"children": null
+		}, {
+			"code": "090603T",
+			"name": "水族科学与技术",
+			"children": null
+		}]
+	}, {
+		"code": "0907",
+		"name": "草学类",
+		"children": [{
+			"code": "090701",
+			"name": "草业科学",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "10",
+	"name": "医学",
+	"children": [{
+		"code": "1001",
+		"name": "基础医学类",
+		"children": [{
+			"code": "100101K",
+			"name": "基础医学",
+			"children": null
+		}]
+	}, {
+		"code": "1002",
+		"name": "临床医学类",
+		"children": [{
+			"code": "100201K",
+			"name": "临床医学",
+			"children": null
+		}, {
+			"code": "100202TK",
+			"name": "麻醉学",
+			"children": null
+		}, {
+			"code": "100203TK",
+			"name": "医学影像学",
+			"children": null
+		}, {
+			"code": "100204TK",
+			"name": "眼视光医学",
+			"children": null
+		}, {
+			"code": "100205TK",
+			"name": "精神医学",
+			"children": null
+		}, {
+			"code": "100206TK",
+			"name": "放射医学",
+			"children": null
+		}]
+	}, {
+		"code": "1003",
+		"name": "口腔医学类",
+		"children": [{
+			"code": "100301K",
+			"name": "口腔医学",
+			"children": null
+		}]
+	}, {
+		"code": "1004",
+		"name": "公共卫生与预防医学类",
+		"children": [{
+			"code": "100401K",
+			"name": "预防医学",
+			"children": null
+		}, {
+			"code": "100402",
+			"name": "食品卫生与营养学",
+			"children": null
+		}, {
+			"code": "100403TK",
+			"name": "妇幼保健医学",
+			"children": null
+		}, {
+			"code": "100404TK",
+			"name": "卫生监督",
+			"children": null
+		}, {
+			"code": "100405TK",
+			"name": "全球健康学",
+			"children": null
+		}]
+	}, {
+		"code": "1005",
+		"name": "中医学类",
+		"children": [{
+			"code": "100501K",
+			"name": "中医学",
+			"children": null
+		}, {
+			"code": "100502K",
+			"name": "针灸推拿学",
+			"children": null
+		}, {
+			"code": "100503K",
+			"name": "藏医学",
+			"children": null
+		}, {
+			"code": "100504K",
+			"name": "蒙医学",
+			"children": null
+		}, {
+			"code": "100505K",
+			"name": "维医学",
+			"children": null
+		}, {
+			"code": "100506K",
+			"name": "壮医学",
+			"children": null
+		}, {
+			"code": "100507K",
+			"name": "哈医学",
+			"children": null
+		}]
+	}, {
+		"code": "1006",
+		"name": "中西医结合类",
+		"children": [{
+			"code": "100601K",
+			"name": "中西医临床医学",
+			"children": null
+		}]
+	}, {
+		"code": "1007",
+		"name": "药学类",
+		"children": [{
+			"code": "100701",
+			"name": "药学",
+			"children": null
+		}, {
+			"code": "100702",
+			"name": "药物制剂",
+			"children": null
+		}, {
+			"code": "100703TK",
+			"name": "临床药学",
+			"children": null
+		}, {
+			"code": "100704T",
+			"name": "药事管理",
+			"children": null
+		}, {
+			"code": "100705T",
+			"name": "药物分析",
+			"children": null
+		}, {
+			"code": "100706T",
+			"name": "药物化学",
+			"children": null
+		}, {
+			"code": "100707T",
+			"name": "海洋药学",
+			"children": null
+		}]
+	}, {
+		"code": "1008",
+		"name": "中药学类",
+		"children": [{
+			"code": "100801",
+			"name": "中药学",
+			"children": null
+		}, {
+			"code": "100802",
+			"name": "中药资源与开发",
+			"children": null
+		}, {
+			"code": "100803T",
+			"name": "藏药学",
+			"children": null
+		}, {
+			"code": "100804T",
+			"name": "蒙药学",
+			"children": null
+		}, {
+			"code": "100805T",
+			"name": "中药制药",
+			"children": null
+		}, {
+			"code": "100806T",
+			"name": "中草药栽培与鉴定",
+			"children": null
+		}]
+	}, {
+		"code": "1009",
+		"name": "法医学类",
+		"children": [{
+			"code": "100901K",
+			"name": "法医学",
+			"children": null
+		}]
+	}, {
+		"code": "1010",
+		"name": "医学技术类",
+		"children": [{
+			"code": "101001",
+			"name": "医学检验技术",
+			"children": null
+		}, {
+			"code": "101002",
+			"name": "医学实验技术",
+			"children": null
+		}, {
+			"code": "101003",
+			"name": "医学影像技术",
+			"children": null
+		}, {
+			"code": "101004",
+			"name": "眼视光学",
+			"children": null
+		}, {
+			"code": "101005",
+			"name": "康复治疗学",
+			"children": null
+		}, {
+			"code": "101006",
+			"name": "口腔医学技术",
+			"children": null
+		}, {
+			"code": "101007",
+			"name": "卫生检验与检疫",
+			"children": null
+		}, {
+			"code": "101008T",
+			"name": "听力与言语康复学",
+			"children": null
+		}]
+	}, {
+		"code": "1011",
+		"name": "护理学类",
+		"children": [{
+			"code": "101101",
+			"name": "护理学",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "12",
+	"name": "管理学",
+	"children": [{
+		"code": "1201",
+		"name": "管理科学与工程类",
+		"children": [{
+			"code": "120101",
+			"name": "管理科学",
+			"children": null
+		}, {
+			"code": "120102",
+			"name": "信息管理与信息系统",
+			"children": null
+		}, {
+			"code": "120103",
+			"name": "工程管理",
+			"children": null
+		}, {
+			"code": "120104",
+			"name": "房地产开发与管理",
+			"children": null
+		}, {
+			"code": "120105",
+			"name": "工程造价",
+			"children": null
+		}, {
+			"code": "120106TK",
+			"name": "保密管理",
+			"children": null
+		}]
+	}, {
+		"code": "1202",
+		"name": "工商管理类",
+		"children": [{
+			"code": "120201K",
+			"name": "工商管理",
+			"children": null
+		}, {
+			"code": "120202",
+			"name": "市场营销",
+			"children": null
+		}, {
+			"code": "120203K",
+			"name": "会计学",
+			"children": null
+		}, {
+			"code": "120204",
+			"name": "财务管理",
+			"children": null
+		}, {
+			"code": "120205",
+			"name": "国际商务",
+			"children": null
+		}, {
+			"code": "120206",
+			"name": "人力资源管理",
+			"children": null
+		}, {
+			"code": "120207",
+			"name": "审计学",
+			"children": null
+		}, {
+			"code": "120208",
+			"name": "资产评估",
+			"children": null
+		}, {
+			"code": "120209",
+			"name": "物业管理",
+			"children": null
+		}, {
+			"code": "120210",
+			"name": "文化产业管理",
+			"children": null
+		}, {
+			"code": "120211T",
+			"name": "劳动关系",
+			"children": null
+		}, {
+			"code": "120212T",
+			"name": "体育经济与管理",
+			"children": null
+		}, {
+			"code": "120213T",
+			"name": "财务会计教育",
+			"children": null
+		}, {
+			"code": "120214T",
+			"name": "市场营销教育",
+			"children": null
+		}]
+	}, {
+		"code": "1203",
+		"name": "农业经济管理类",
+		"children": [{
+			"code": "120301",
+			"name": "农林经济管理",
+			"children": null
+		}, {
+			"code": "120302",
+			"name": "农村区域发展",
+			"children": null
+		}]
+	}, {
+		"code": "1204",
+		"name": "公共管理类",
+		"children": [{
+			"code": "120401",
+			"name": "公共事业管理",
+			"children": null
+		}, {
+			"code": "120402",
+			"name": "行政管理",
+			"children": null
+		}, {
+			"code": "120403",
+			"name": "劳动与社会保障",
+			"children": null
+		}, {
+			"code": "120404",
+			"name": "土地资源管理",
+			"children": null
+		}, {
+			"code": "120405",
+			"name": "城市管理",
+			"children": null
+		}, {
+			"code": "120406TK",
+			"name": "海关管理",
+			"children": null
+		}, {
+			"code": "120407T",
+			"name": "交通管理",
+			"children": null
+		}, {
+			"code": "120408T",
+			"name": "海事管理",
+			"children": null
+		}, {
+			"code": "120409T",
+			"name": "公共关系学",
+			"children": null
+		}]
+	}, {
+		"code": "1205",
+		"name": "图书情报与档案管理类",
+		"children": [{
+			"code": "120501",
+			"name": "图书馆学",
+			"children": null
+		}, {
+			"code": "120502",
+			"name": "档案学",
+			"children": null
+		}, {
+			"code": "120503",
+			"name": "信息资源管理",
+			"children": null
+		}]
+	}, {
+		"code": "1206",
+		"name": "物流管理与工程类",
+		"children": [{
+			"code": "120601",
+			"name": "物流管理",
+			"children": null
+		}, {
+			"code": "120602",
+			"name": "物流工程",
+			"children": null
+		}, {
+			"code": "120603T",
+			"name": "采购管理",
+			"children": null
+		}]
+	}, {
+		"code": "1207",
+		"name": "工业工程类",
+		"children": [{
+			"code": "120701",
+			"name": "工业工程",
+			"children": null
+		}, {
+			"code": "120702T",
+			"name": "标准化工程",
+			"children": null
+		}, {
+			"code": "120703T",
+			"name": "质量管理工程",
+			"children": null
+		}]
+	}, {
+		"code": "1208",
+		"name": "电子商务类",
+		"children": [{
+			"code": "120801",
+			"name": "电子商务",
+			"children": null
+		}, {
+			"code": "120802T",
+			"name": "电子商务及法律",
+			"children": null
+		}]
+	}, {
+		"code": "1209",
+		"name": "旅游管理类",
+		"children": [{
+			"code": "120901K",
+			"name": "旅游管理",
+			"children": null
+		}, {
+			"code": "120902",
+			"name": "酒店管理",
+			"children": null
+		}, {
+			"code": "120903",
+			"name": "会展经济与管理",
+			"children": null
+		}, {
+			"code": "120904T",
+			"name": "旅游管理与服务教育",
+			"children": null
+		}]
+	}]
+}, {
+	"code": "13",
+	"name": "艺术学",
+	"children": [{
+		"code": "1301",
+		"name": "艺术学理论类",
+		"children": [{
+			"code": "130101",
+			"name": "艺术史论",
+			"children": null
+		}]
+	}, {
+		"code": "1302",
+		"name": "音乐与舞蹈学类",
+		"children": [{
+			"code": "130201",
+			"name": "音乐表演",
+			"children": null
+		}, {
+			"code": "130202",
+			"name": "音乐学",
+			"children": null
+		}, {
+			"code": "130203",
+			"name": "作曲与作曲技术理论",
+			"children": null
+		}, {
+			"code": "130204",
+			"name": "舞蹈表演",
+			"children": null
+		}, {
+			"code": "130205",
+			"name": "舞蹈学",
+			"children": null
+		}, {
+			"code": "130206",
+			"name": "舞蹈编导",
+			"children": null
+		}]
+	}, {
+		"code": "1303",
+		"name": "戏剧与影视学类",
+		"children": [{
+			"code": "130301",
+			"name": "表演",
+			"children": null
+		}, {
+			"code": "130302",
+			"name": "戏剧学",
+			"children": null
+		}, {
+			"code": "130303",
+			"name": "电影学",
+			"children": null
+		}, {
+			"code": "130304",
+			"name": "戏剧影视文学",
+			"children": null
+		}, {
+			"code": "130305",
+			"name": "广播电视编导",
+			"children": null
+		}, {
+			"code": "130306",
+			"name": "戏剧影视导演",
+			"children": null
+		}, {
+			"code": "130307",
+			"name": "戏剧影视美术设计",
+			"children": null
+		}, {
+			"code": "130308",
+			"name": "录音艺术",
+			"children": null
+		}, {
+			"code": "130309",
+			"name": "播音与主持艺术",
+			"children": null
+		}, {
+			"code": "130310",
+			"name": "动画",
+			"children": null
+		}, {
+			"code": "130311T",
+			"name": "影视摄影与制作",
+			"children": null
+		}]
+	}, {
+		"code": "1304",
+		"name": "美术学类",
+		"children": [{
+			"code": "130401",
+			"name": "美术学",
+			"children": null
+		}, {
+			"code": "130402",
+			"name": "绘画",
+			"children": null
+		}, {
+			"code": "130403",
+			"name": "雕塑",
+			"children": null
+		}, {
+			"code": "130404",
+			"name": "摄影",
+			"children": null
+		}, {
+			"code": "130405T",
+			"name": "书法学",
+			"children": null
+		}, {
+			"code": "130406T",
+			"name": "中国画",
+			"children": null
+		}]
+	}, {
+		"code": "1305",
+		"name": "设计学类",
+		"children": [{
+			"code": "130501",
+			"name": "艺术设计学",
+			"children": null
+		}, {
+			"code": "130502",
+			"name": "视觉传达设计",
+			"children": null
+		}, {
+			"code": "130503",
+			"name": "环境设计",
+			"children": null
+		}, {
+			"code": "130504",
+			"name": "产品设计",
+			"children": null
+		}, {
+			"code": "130505",
+			"name": "服装与服饰设计",
+			"children": null
+		}, {
+			"code": "130506",
+			"name": "公共艺术",
+			"children": null
+		}, {
+			"code": "130507",
+			"name": "工艺美术",
+			"children": null
+		}, {
+			"code": "130508",
+			"name": "数字媒体艺术",
+			"children": null
+		}, {
+			"code": "130509T",
+			"name": "艺术与科技",
+			"children": null
+		}]
+	}]
+}];
