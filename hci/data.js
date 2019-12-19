@@ -19894,7 +19894,7 @@ cityData=[
     },
     {
         "code": "710000",
-        "name": "台湾省",
+        "name": "台湾",
         "children": null
     },
     {

@@ -143,6 +143,10 @@
         .logDivStyle {
             word-wrap: break-word;
         }
+        #title {
+            word-wrap: break-word;
+            font-size:22px;
+        }
 
         /* 当 menu-switch的任意子代li有鼠标移动上去,则显示li的直接后代ul */
         /* .menu-switch li:hover>ul {
@@ -311,8 +315,9 @@
     //New-----end
     //menu parameters
     var menuWidth = 150;
+    const menuMinWidth=150;
     var menuHeight = 30;
-    var fontSize = 14;
+    var fontSize = 16;
     var menuLength = [0, 0, 0];//[4, 5, 6];
     var menuTargetPos = [-1, -1, -1];//[2, 3, 4];
     var maxItemWidth = 0;
@@ -481,7 +486,7 @@
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
     function generateParameters() {
-        menuWidth = randomNum(120, 300);
+        menuWidth = randomNum(menuMinWidth, 300);
         //We don't need change fontSize now so we comment following 2 lines
         // menuHeight = randomNum(20, 60);
         // fontSize = randomNum(parseInt(menuHeight * 0.4), parseInt(menuHeight * 0.9));
@@ -631,10 +636,12 @@
             if (itemWidth > maxItemWidth) maxItemWidth = itemWidth;
             if (itemWidth + 20 > menuWidth) {//如果菜单宽度太小,改变宽度
                 menuWidth = itemWidth + 20;
-            } else if (menuWidth > 2 * maxItemWidth) {
-                menuWidth = 2 * maxItemWidth;
+            } else if (menuWidth > 1.5 * maxItemWidth) {
+                menuWidth = parseInt(1.5 * maxItemWidth);
+
             }
-            menuWidth = menuWidth > liMaxLength ? liMaxLength : menuWidth;
+            if(menuWidth<menuMinWidth)menuWidth=menuMinWidth;
+            else if(menuWidth>liMaxLength)menuWidth=liMaxLength;
             let li = document.createElement('li');
             li.dataset.ismenu = 1;
             li.appendChild(item);
