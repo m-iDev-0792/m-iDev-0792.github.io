@@ -482,8 +482,11 @@
     }
     function generateParameters() {
         menuWidth = randomNum(120, 300);
-        menuHeight = randomNum(20, 60);
-        fontSize = randomNum(parseInt(menuHeight * 0.4), parseInt(menuHeight * 0.9));
+        //We don't need change fontSize now so we comment following 2 lines
+        // menuHeight = randomNum(20, 60);
+        // fontSize = randomNum(parseInt(menuHeight * 0.4), parseInt(menuHeight * 0.9));
+        fontSize=16;
+        menuHeight = parseInt(randomNum(12, 30)/10.0*16);
 
         menuLength = [0, 0, 0];//只有一项的菜单毫无意义,最低2项
         menuTargetPos = [-1, -1, -1];
@@ -548,9 +551,9 @@
     /////////////////////////////////////////////////////////////////////////////
     //SAVE
     function getRecordString() {
-        let content = "width,height,maxItemWidth,font size,L1 length,L2 length,L3 length,L1 target,L2 target,L3 target,L1 selected,L2 selected,L3 selected,isSuccessful,L1 time,L2 time,L3 time,time,trajectory\n";
+        let content = "width,height,maxItemWidth,L1 length,L2 length,L3 length,L1 target,L2 target,L3 target,L1 selected,L2 selected,L3 selected,isSuccessful,L1 time,L2 time,L3 time,time,trajectory\n";
         for (let i = 0; i < records.length; ++i) {
-            content += records[i].width + ',' + records[i].height + ',' + records[i].maxItemWidth + ',' + records[i].fontSize + ','
+            content += records[i].width + ',' + records[i].height + ',' + records[i].maxItemWidth + ','
                 + records[i].l1length + ',' + records[i].l2length + ',' + records[i].l3length + ','
                 + records[i].l1target + ',' + records[i].l2target + ',' + records[i].l3target + ','
                 + records[i].l1selected + ',' + records[i].l2selected + ',' + records[i].l3selected + ',' + records[i].isSuccessful + ','
