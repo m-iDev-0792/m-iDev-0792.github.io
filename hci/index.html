@@ -24,6 +24,10 @@
             --menuLiHoverColor: #CCCCCC;
         }
 
+        h3{
+            font-size: 22px;
+        }
+
 
         #title>span{
             color: red;
@@ -34,10 +38,12 @@
         }
 
         li a {
+            font-size: 16px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             max-width: 370px;
+            font-weight: bold;
         }
 
         #menuContainer ul li{
@@ -59,12 +65,11 @@
 
         .sub-level-menu>li {
             height: var(--menuHeight);
-            background: #999999;
-
+            background: grey;
         }
 
         .sub-level-menu>li:hover {
-            background: #CCCCCC;
+            background:cornflowerblue;
         }
 
         /* 第一级 */
@@ -83,11 +88,11 @@
         .first-level-menu>li {
             position: relative;
             height: var(--menuHeight);
-            background: #999999;
+            background: grey;
         }
 
         .first-level-menu>li:hover {
-            background: #CCCCCC;
+            background:cornflowerblue;
         }
 
         .first-level-menu li:hover>ul {
@@ -107,7 +112,7 @@
             text-align: left;
         }
 
-        .first-level-menu a:hover {
+        .first-level-menu a:hover{
             color: #000000;
         }
 
@@ -143,19 +148,12 @@
         .logDivStyle {
             word-wrap: break-word;
         }
-        #title {
-            word-wrap: break-word;
-            font-size:22px;
-        }
 
         /* 当 menu-switch的任意子代li有鼠标移动上去,则显示li的直接后代ul */
         /* .menu-switch li:hover>ul {
             display: inline;
         } */
-        #zero {
-            margin: 0px;
-            padding: 0px;
-        }
+
     </style>
 </head>
 
@@ -508,6 +506,7 @@
         let di = randomNum(0, newDataSet.length - 1);
         firstLevelMenu = createMenu2(newDataSet[di].concat(), 0, [-1, -1, -1], true);
         menuStartBtn.appendChild(firstLevelMenu);
+
         setMenuStyle(menuWidth, menuHeight, fontSize);
         //update instruction text
         var insText = menuTargetPos[0];
