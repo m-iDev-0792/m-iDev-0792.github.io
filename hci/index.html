@@ -169,10 +169,11 @@
                     <h3 class="modal-title">在测试之前...</h3>
                 </div>
                 <div class="modal-body">
+                    <span id="testTips">
                     为了确保测试结果的正确上传,请允许浏览器运行'不安全的脚本'.<br>
                     如果您使用的是Chrome浏览器,请在地址栏的右侧点击盾牌图标,允许运行不安全的内容.<br>
-                    如下图所示<br>
-                    <img src="https://m-idev-0792.github.io/misc/hciImg.png"><br>
+                    如下图所示<br></span>
+                    <img id="tipImg" src="https://m-idev-0792.github.io/misc/hciImg.png"><br>
                     其他浏览器的设置方法与此类似.请勿使用过于激进的浏览器,如Safari
                 </div>
                 <div class="modal-footer">
@@ -350,6 +351,13 @@
     }
 
     window.onload = function () {
+        let userAgent = navigator.userAgent;
+        if(userAgent.indexOf("Firefox") > -1){
+            document.getElementById('tipImg').setAttribute('src','https://m-idev-0792.github.io/misc/hciImg-firefox.png');
+            document.getElementById('testTips').innerText="为了确保测试结果的正确上传,请允许浏览器运行'不安全的脚本'.<br>" +
+                "如果您使用的是Firefox浏览器,请在地址栏输入about.config,查找WebSocket选项，允许https连接下使用WebSocket<br>" +
+                "如下图所示<br>";
+        }
         $('#msgModal').modal('show');
         let nothing = new WebSocket('ws://www.baidu.com:8002');//一个虚假的连接,只为让浏览器弹出不安全的脚本警告
         //init global objects
@@ -489,7 +497,7 @@
         // menuHeight = randomNum(20, 60);
         // fontSize = randomNum(parseInt(menuHeight * 0.4), parseInt(menuHeight * 0.9));
         fontSize=16;
-        menuHeight = parseInt(randomNum(12, 30)/10.0*16);
+        menuHeight = parseInt(randomNum(16, 40)/10.0*16);
 
         menuLength = [0, 0, 0];//只有一项的菜单毫无意义,最低2项
         menuTargetPos = [-1, -1, -1];
