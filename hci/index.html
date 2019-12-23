@@ -354,7 +354,7 @@
         let userAgent = navigator.userAgent;
         if(userAgent.indexOf("Firefox") > -1){
             document.getElementById('tipImg').setAttribute('src','https://m-idev-0792.github.io/misc/hciImg-firefox.png');
-            document.getElementById('testTips').innerText="您使用的是Firefox浏览器,请在地址栏输入about.config,查找WebSocket选项，允许https连接下使用WebSocket\n" +
+            document.getElementById('testTips').innerText="您使用的是Firefox浏览器,请在地址栏输入about:config,查找WebSocket选项，允许https连接下使用WebSocket\n" +
                 "如下图所示\n";
         }
         $('#msgModal').modal('show');
