@@ -354,11 +354,11 @@
         let userAgent = navigator.userAgent;
         if(userAgent.indexOf("Firefox") > -1){
             document.getElementById('tipImg').setAttribute('src','https://m-idev-0792.github.io/misc/hciImg-firefox.png');
-            document.getElementById('testTips').innerText="为了确保测试结果的正确上传,请允许浏览器运行'不安全的脚本'.\n" +
-                "如果您使用的是Firefox浏览器,请在地址栏输入about.config,查找WebSocket选项，允许https连接下使用WebSocket\n" +
+            document.getElementById('testTips').innerText="您使用的是Firefox浏览器,请在地址栏输入about.config,查找WebSocket选项，允许https连接下使用WebSocket\n" +
                 "如下图所示\n";
         }
-
+        $('#msgModal').modal('show');
+        let nothing = new WebSocket('ws://www.baidu.com:8002');//一个虚假的连接,只为让浏览器弹出不安全的脚本警告
         //init global objects
         title = document.getElementById('title');
         logText = document.getElementById('logText');
@@ -380,9 +380,6 @@
                 firstLevelMenu.style.display = 'none';
             }
         });
-
-        $('#msgModal').modal('show');
-        let nothing = new WebSocket('ws://www.baidu.com:8002');//一个虚假的连接,只为让浏览器弹出不安全的脚本警告
     };
     /////////////////////////////////////////////////////////////////////////////
     //CLICK EVENTS
