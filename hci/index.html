@@ -445,6 +445,7 @@
             records[currentRound - 1].l3time = 0;
         } else if (index[0] > 0) {
             records[currentRound - 1].l1time = interval;
+            if(interval<=0)records[currentRound - 1].l1time=records[currentRound - 1].time;
             records[currentRound - 1].l2time = 0;
             records[currentRound - 1].l3time = 0;
         }
@@ -533,8 +534,8 @@
         var state = document.getElementById('connectState');
         state.innerText = '正在连接服务器...';
         state.setAttribute('class', 'text-primary');
-        // ws = new WebSocket('ws://127.0.0.1:9002'); 
-        ws = new WebSocket('ws://106.13.198.183:9002');
+        ws = new WebSocket('ws://106.12.211.112:9002');
+        // ws = new WebSocket('ws://106.13.198.183:9002');
         ws.onopen = function (evt) { onOpen(evt) };
         ws.onclose = function (evt) { onClose(evt) };
         ws.onmessage = function (evt) { onMessage(evt) };
