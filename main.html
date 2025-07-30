@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光线色散物理模拟</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        #canvas {
+            display: block;
+            background: radial-gradient(ellipse at center, #0f0f23 0%, #000000 100%);
+        }
+
+        .controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            z-index: 100;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input[type="range"] {
+            width: 200px;
+        }
+
+        .info {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script src="dispersion.js"></script>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // 设置画布大小
+        function resizeCanvas() {
+            const enableHighDPR = true;
+            if (enableHighDPR)
+            {
+                const dpr = window.devicePixelRatio || 1;
+                canvas.width = window.innerWidth * dpr;
+                canvas.height = window.innerHeight * dpr;
+                canvas.style.width = `${window.innerWidth}px`;
+                canvas.style.height = `${window.innerHeight}px`;
+                ctx.scale(dpr, dpr);
+            }else
+            {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }    
+            animate(ctx);
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        function handleMouseMove(event) {
+            // let ScreenCenterY = window.innerHeight / 2;
+            // const offsetY = (event.clientY - ScreenCenterY) / ScreenCenterY;
+            const offsetY = event.clientY / window.innerHeight;
+            updateByRatio(offsetY);
+        }
+        document.addEventListener('mousemove', handleMouseMove);
+        // 开始动画
+        animate();
+    </script>
+</body>
+
+</html>
