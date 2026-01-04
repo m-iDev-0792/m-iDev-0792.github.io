@@ -1,0 +1,9 @@
+Privacy Policy for [Scholar Reference Exporter]
+
+Data Collection: This extension does not collect, store, or transmit any personal information or browsing data.
+
+Third Parties: We do not share any data with third parties.
+
+Permissions: This extension only uses the permissions required for its core functionality (e.g., retrieving abstracts via API).
+
+Contact: If you have any questions, please contact m.idev.0792@gmail.com.
