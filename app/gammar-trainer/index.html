@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Drill Trainer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1 class="logo">
+          <span class="logo-icon">📝</span>
+          Grammar Trainer
+        </h1>
+        <p class="tagline">Master English grammar through practice</p>
+      </div>
+    </header>
+
+    <!-- Global mic selector -->
+    <div class="global-mic-select" id="mic-select-wrapper">
+      <label for="mic-select">Microphone</label>
+      <select id="mic-select" class="select-input mic-select">
+        <option>Loading...</option>
+      </select>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Settings Panel -->
+      <section id="settings-panel" class="panel settings-panel">
+        <div class="panel-header">
+          <h2>Configure Your Session</h2>
+          <p>Choose your training options and begin practicing</p>
+        </div>
+
+        <div class="settings-grid">
+          <div class="setting-group">
+            <label for="category-select">Training Category</label>
+            <select id="category-select" class="select-input">
+              <option value="all">All Categories</option>
+              <option value="tense">Tense</option>
+              <option value="singular_plural">Singular / Plural</option>
+              <option value="person_agreement">Person & Verb Agreement</option>
+            </select>
+          </div>
+
+          <div class="setting-group">
+            <label for="dataset-select">Dataset</label>
+            <select id="dataset-select" class="select-input">
+              <option value="data/person_agreement.json">Person & Agreement</option>
+              <option value="data/tense_basic.json">Tense Practice</option>
+            </select>
+          </div>
+
+          <div class="setting-group">
+            <label for="question-count">Number of Questions</label>
+            <input type="number" id="question-count" class="number-input" value="10" min="1" max="100">
+          </div>
+
+          <div class="setting-group toggle-group">
+            <label for="auto-next">Auto-advance to next question</label>
+            <label class="toggle-switch">
+              <input type="checkbox" id="auto-next">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <button id="start-btn" class="btn btn-primary btn-large">
+          <span class="btn-icon">▶</span>
+          Start Training
+        </button>
+
+        <div id="settings-error" class="error-message hidden"></div>
+      </section>
+
+      <!-- Quiz Panel -->
+      <section id="quiz-panel" class="panel quiz-panel hidden">
+        <div class="quiz-header">
+          <div class="progress-info">
+            <span id="progress-text">Question 1 / 10</span>
+            <div class="progress-bar">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+          </div>
+          <div class="quiz-controls-top">
+            <button id="back-to-settings" class="btn btn-ghost btn-small">
+              ← Back to Settings
+            </button>
+          </div>
+        </div>
+
+        <div class="question-container">
+          <div class="question-timer-row">
+            <span class="timer-label">Time on this question</span>
+            <span id="question-timer" class="timer-value">00:00</span>
+          </div>
+          <div class="question-type-badge" id="question-type-badge">MCQ</div>
+          <p id="question-text" class="question-text">Loading question...</p>
+        </div>
+
+        <!-- MCQ Options -->
+        <div id="mcq-options" class="options-container">
+          <!-- Options will be dynamically inserted -->
+        </div>
+
+        <!-- Speak Controls -->
+        <div id="speak-controls" class="speak-container hidden">
+          <div class="speak-answer-preview">
+            <span class="answer-label">Answer:</span>
+            <span id="speak-answer" class="answer-text"></span>
+          </div>
+          
+          <div class="record-section">
+            <button id="record-btn" class="btn btn-record">
+              <span class="record-icon">🎤</span>
+              <span class="record-text">Hold to Record</span>
+            </button>
+            <p id="record-status" class="record-status"></p>
+
+            <div id="mic-visualization" class="mic-visualization hidden">
+              <div class="mic-visualization-header">
+                <span class="mic-label">Current mic:</span>
+                <span id="current-mic-name" class="mic-name">System default microphone</span>
+              </div>
+              <div id="mic-level-bars" class="mic-level-bars">
+                <span class="mic-level-bar"></span>
+                <span class="mic-level-bar"></span>
+                <span class="mic-level-bar"></span>
+                <span class="mic-level-bar"></span>
+                <span class="mic-level-bar"></span>
+                <span class="mic-level-bar"></span>
+                <span class="mic-level-bar"></span>
+                <span class="mic-level-bar"></span>
+              </div>
+            </div>
+          </div>
+
+          <div id="playback-section" class="playback-section hidden">
+            <audio id="audio-playback" controls></audio>
+          </div>
+
+          <p id="mic-error" class="mic-error hidden">
+            🎤 Microphone not available. You can still read and say the sentence aloud.
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="quiz-navigation">
+          <button id="prev-btn" class="btn btn-secondary" disabled>
+            ← Previous
+          </button>
+          <button id="next-btn" class="btn btn-secondary">
+            Next →
+          </button>
+        </div>
+      </section>
+
+      <!-- Results Panel -->
+      <section id="results-panel" class="panel results-panel hidden">
+        <div class="results-content">
+          <div class="results-icon">🎉</div>
+          <h2>Session Complete!</h2>
+          
+          <div class="score-card">
+            <div class="score-main">
+              <span id="score-correct" class="score-number">0</span>
+              <span class="score-divider">/</span>
+              <span id="score-total" class="score-number">0</span>
+            </div>
+            <div class="score-label">MCQ Questions Correct</div>
+            <div id="score-percentage" class="score-percentage">0%</div>
+          </div>
+
+          <div class="time-summary">
+            <div class="time-item">
+              <span class="time-label">Total time</span>
+              <span id="total-time" class="time-value">00:00</span>
+            </div>
+            <div class="time-item">
+              <span class="time-label">Average per question</span>
+              <span id="avg-time" class="time-value">00:00</span>
+            </div>
+          </div>
+
+          <div class="results-message" id="results-message">
+            Great job practicing your grammar!
+          </div>
+
+          <div class="results-actions">
+            <button id="review-btn" class="btn btn-secondary">
+              ← Review Questions
+            </button>
+            <button id="restart-btn" class="btn btn-primary">
+              Start New Session
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Practice makes perfect! Keep training to improve your grammar skills.</p>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

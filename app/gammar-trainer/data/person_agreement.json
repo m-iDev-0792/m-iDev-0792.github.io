@@ -1,0 +1,162 @@
+[
+  {
+    "id": "q1",
+    "question": "He _ a dog called Lily.",
+    "options": ["has", "have", "had"],
+    "answer": "has",
+    "type": "MCQ",
+    "tags": ["present_simple", "3rd_person"]
+  },
+  {
+    "id": "q2",
+    "question": "They _ to the park yesterday.",
+    "options": ["go", "went", "gone"],
+    "answer": "went",
+    "type": "MCQ",
+    "tags": ["past_simple"]
+  },
+  {
+    "id": "q3",
+    "question": "She _ very hard during the exam.",
+    "options": ["tried", "tries", "try"],
+    "answer": "tried",
+    "type": "Speak",
+    "tags": ["past_simple"]
+  },
+  {
+    "id": "q4",
+    "question": "The children _ playing in the garden.",
+    "options": ["is", "are", "was"],
+    "answer": "are",
+    "type": "MCQ",
+    "tags": ["present_continuous", "plural"]
+  },
+  {
+    "id": "q5",
+    "question": "My sister _ three languages fluently.",
+    "options": ["speak", "speaks", "speaking"],
+    "answer": "speaks",
+    "type": "MCQ",
+    "tags": ["present_simple", "3rd_person"]
+  },
+  {
+    "id": "q6",
+    "question": "We _ finished our homework yet.",
+    "options": ["hasn't", "haven't", "didn't"],
+    "answer": "haven't",
+    "type": "MCQ",
+    "tags": ["present_perfect", "plural"]
+  },
+  {
+    "id": "q7",
+    "question": "The cat _ on the sofa right now.",
+    "options": ["sleep", "sleeps", "is sleeping"],
+    "answer": "is sleeping",
+    "type": "Speak",
+    "tags": ["present_continuous", "3rd_person"]
+  },
+  {
+    "id": "q8",
+    "question": "Tom and Jerry _ best friends.",
+    "options": ["is", "are", "was"],
+    "answer": "are",
+    "type": "MCQ",
+    "tags": ["present_simple", "plural"]
+  },
+  {
+    "id": "q9",
+    "question": "She _ to music every morning.",
+    "options": ["listen", "listens", "listening"],
+    "answer": "listens",
+    "type": "MCQ",
+    "tags": ["present_simple", "3rd_person"]
+  },
+  {
+    "id": "q10",
+    "question": "The students _ their books at home.",
+    "options": ["forgot", "forgets", "forget"],
+    "answer": "forgot",
+    "type": "MCQ",
+    "tags": ["past_simple", "plural"]
+  },
+  {
+    "id": "q11",
+    "question": "He _ never _ to Japan before.",
+    "options": ["has, been", "have, been", "had, went"],
+    "answer": "has, been",
+    "type": "MCQ",
+    "tags": ["present_perfect", "3rd_person"]
+  },
+  {
+    "id": "q12",
+    "question": "My parents _ in London since 2010.",
+    "options": ["lives", "live", "have lived"],
+    "answer": "have lived",
+    "type": "Speak",
+    "tags": ["present_perfect", "plural"]
+  },
+  {
+    "id": "q13",
+    "question": "The dog _ loudly at strangers.",
+    "options": ["bark", "barks", "barking"],
+    "answer": "barks",
+    "type": "MCQ",
+    "tags": ["present_simple", "3rd_person"]
+  },
+  {
+    "id": "q14",
+    "question": "Everyone _ excited about the trip.",
+    "options": ["is", "are", "were"],
+    "answer": "is",
+    "type": "MCQ",
+    "tags": ["present_simple", "singular"]
+  },
+  {
+    "id": "q15",
+    "question": "Neither of the answers _ correct.",
+    "options": ["is", "are", "were"],
+    "answer": "is",
+    "type": "MCQ",
+    "tags": ["present_simple", "singular"]
+  },
+  {
+    "id": "q16",
+    "question": "The news _ very surprising.",
+    "options": ["is", "are", "were"],
+    "answer": "is",
+    "type": "MCQ",
+    "tags": ["present_simple", "uncountable"]
+  },
+  {
+    "id": "q17",
+    "question": "She _ her grandmother every weekend.",
+    "options": ["visit", "visits", "visiting"],
+    "answer": "visits",
+    "type": "Speak",
+    "tags": ["present_simple", "3rd_person"]
+  },
+  {
+    "id": "q18",
+    "question": "The team _ won the championship.",
+    "options": ["has", "have", "had"],
+    "answer": "has",
+    "type": "MCQ",
+    "tags": ["present_perfect", "collective"]
+  },
+  {
+    "id": "q19",
+    "question": "Physics _ my favorite subject.",
+    "options": ["is", "are", "were"],
+    "answer": "is",
+    "type": "MCQ",
+    "tags": ["present_simple", "singular"]
+  },
+  {
+    "id": "q20",
+    "question": "The flowers _ beautiful in spring.",
+    "options": ["look", "looks", "looking"],
+    "answer": "look",
+    "type": "MCQ",
+    "tags": ["present_simple", "plural"]
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "t1",
+    "question": "I _ breakfast at 7 AM every day.",
+    "options": ["eat", "ate", "eaten"],
+    "answer": "eat",
+    "type": "MCQ",
+    "tags": ["present_simple", "routine"]
+  },
+  {
+    "id": "t2",
+    "question": "She _ to the cinema last night.",
+    "options": ["goes", "went", "gone"],
+    "answer": "went",
+    "type": "MCQ",
+    "tags": ["past_simple"]
+  },
+  {
+    "id": "t3",
+    "question": "We _ our project by tomorrow.",
+    "options": ["finish", "will finish", "finished"],
+    "answer": "will finish",
+    "type": "MCQ",
+    "tags": ["future_simple"]
+  },
+  {
+    "id": "t4",
+    "question": "They _ soccer when it started raining.",
+    "options": ["play", "played", "were playing"],
+    "answer": "were playing",
+    "type": "Speak",
+    "tags": ["past_continuous"]
+  },
+  {
+    "id": "t5",
+    "question": "He _ already _ the movie.",
+    "options": ["has, seen", "have, seen", "had, saw"],
+    "answer": "has, seen",
+    "type": "MCQ",
+    "tags": ["present_perfect"]
+  },
+  {
+    "id": "t6",
+    "question": "By next year, I _ here for five years.",
+    "options": ["work", "will have worked", "worked"],
+    "answer": "will have worked",
+    "type": "MCQ",
+    "tags": ["future_perfect"]
+  },
+  {
+    "id": "t7",
+    "question": "She _ dinner when the phone rang.",
+    "options": ["cooks", "was cooking", "cooked"],
+    "answer": "was cooking",
+    "type": "MCQ",
+    "tags": ["past_continuous"]
+  },
+  {
+    "id": "t8",
+    "question": "The sun _ in the east.",
+    "options": ["rise", "rises", "rose"],
+    "answer": "rises",
+    "type": "MCQ",
+    "tags": ["present_simple", "fact"]
+  },
+  {
+    "id": "t9",
+    "question": "I _ my keys. Can you help me find them?",
+    "options": ["lose", "lost", "have lost"],
+    "answer": "have lost",
+    "type": "MCQ",
+    "tags": ["present_perfect"]
+  },
+  {
+    "id": "t10",
+    "question": "We _ to Paris three times.",
+    "options": ["go", "went", "have been"],
+    "answer": "have been",
+    "type": "Speak",
+    "tags": ["present_perfect"]
+  },
+  {
+    "id": "t11",
+    "question": "She _ at this company since 2015.",
+    "options": ["works", "worked", "has worked"],
+    "answer": "has worked",
+    "type": "MCQ",
+    "tags": ["present_perfect"]
+  },
+  {
+    "id": "t12",
+    "question": "By the time you arrive, I _ dinner.",
+    "options": ["cook", "will cook", "will have cooked"],
+    "answer": "will have cooked",
+    "type": "MCQ",
+    "tags": ["future_perfect"]
+  },
+  {
+    "id": "t13",
+    "question": "Look! The baby _ to walk.",
+    "options": ["tries", "is trying", "tried"],
+    "answer": "is trying",
+    "type": "MCQ",
+    "tags": ["present_continuous"]
+  },
+  {
+    "id": "t14",
+    "question": "I _ him at the party yesterday.",
+    "options": ["see", "saw", "have seen"],
+    "answer": "saw",
+    "type": "MCQ",
+    "tags": ["past_simple"]
+  },
+  {
+    "id": "t15",
+    "question": "They _ for two hours before the bus came.",
+    "options": ["wait", "waited", "had been waiting"],
+    "answer": "had been waiting",
+    "type": "Speak",
+    "tags": ["past_perfect_continuous"]
+  }
+]
