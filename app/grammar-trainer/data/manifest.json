@@ -4,7 +4,9 @@
       "id": "person_agreement",
       "name": "Person & Agreement",
       "path": "data/person_agreement.json",
-      "categories": ["person_agreement"]
+      "categories": [
+        "person_agreement"
+      ]
     },
     {
       "id": "person_agreement_inter_daily_100",
@@ -12,6 +14,14 @@
       "path": "data/person_agree_inter_daily_100.json",
       "categories": [
         "person_agreement"
+      ]
+    },
+    {
+      "id": "singular_plural_inter_daily_100",
+      "name": "Singular & Plural Intermediate 100",
+      "path": "data/singular_plural_inter_daily_100.json",
+      "categories": [
+        "singular_plural"
       ]
     },
     {

@@ -1,0 +1,1518 @@
+[
+    {
+        "id": "q1",
+        "question": "The _ are playing in the park.",
+        "options": [
+            "child",
+            "children",
+            "childs"
+        ],
+        "answer": "children",
+        "type": "MCQ",
+        "tags": [
+            "present_continuous",
+            "plural",
+            "agreement"
+        ]
+    },
+    {
+        "id": "q2",
+        "question": "I need to buy some new _ for my kitchen.",
+        "options": [
+            "knife",
+            "knives",
+            "knifes"
+        ],
+        "answer": "knives",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q3",
+        "question": "How many _ did you see at the farm?",
+        "options": [
+            "sheep",
+            "sheeps",
+            "sheepes"
+        ],
+        "answer": "sheep",
+        "type": "MCQ",
+        "tags": [
+            "past_simple",
+            "plural",
+            "fact"
+        ]
+    },
+    {
+        "id": "q4",
+        "question": "The _ is sitting on the roof.",
+        "options": [
+            "bird",
+            "birds",
+            "birdes"
+        ],
+        "answer": "bird",
+        "type": "Speak",
+        "tags": [
+            "present_continuous",
+            "singular",
+            "3rd_person"
+        ]
+    },
+    {
+        "id": "q5",
+        "question": "My _ hurt after the long hike yesterday.",
+        "options": [
+            "foot",
+            "feets",
+            "feet"
+        ],
+        "answer": "feet",
+        "type": "MCQ",
+        "tags": [
+            "past_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q6",
+        "question": "There are several _ in the lobby.",
+        "options": [
+            "woman",
+            "women",
+            "womans"
+        ],
+        "answer": "women",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q7",
+        "question": "The _ in this restaurant is very delicious.",
+        "options": [
+            "food",
+            "foods",
+            "foodes"
+        ],
+        "answer": "food",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "uncountable",
+            "singular"
+        ]
+    },
+    {
+        "id": "q8",
+        "question": "Did you brush your _ this morning?",
+        "options": [
+            "tooth",
+            "teeth",
+            "tooths"
+        ],
+        "answer": "teeth",
+        "type": "Speak",
+        "tags": [
+            "past_simple",
+            "plural",
+            "routine"
+        ]
+    },
+    {
+        "id": "q9",
+        "question": "A _ of wolves was seen in the forest.",
+        "options": [
+            "pack",
+            "packs",
+            "packes"
+        ],
+        "answer": "pack",
+        "type": "MCQ",
+        "tags": [
+            "past_simple",
+            "collective",
+            "singular"
+        ]
+    },
+    {
+        "id": "q10",
+        "question": "Most _ enjoy going to the beach in summer.",
+        "options": [
+            "person",
+            "people",
+            "persons"
+        ],
+        "answer": "people",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q11",
+        "question": "We have too much _ in the living room.",
+        "options": [
+            "furniture",
+            "furnitures",
+            "furnituring"
+        ],
+        "answer": "furniture",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "uncountable"
+        ]
+    },
+    {
+        "id": "q12",
+        "question": "The _ are waiting for the bus.",
+        "options": [
+            "man",
+            "men",
+            "mans"
+        ],
+        "answer": "men",
+        "type": "MCQ",
+        "tags": [
+            "present_continuous",
+            "plural"
+        ]
+    },
+    {
+        "id": "q13",
+        "question": "I saw two _ crossing the road.",
+        "options": [
+            "deer",
+            "deers",
+            "deeres"
+        ],
+        "answer": "deer",
+        "type": "MCQ",
+        "tags": [
+            "past_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q14",
+        "question": "She has three _.",
+        "options": [
+            "son-in-laws",
+            "sons-in-law",
+            "son-in-law"
+        ],
+        "answer": "sons-in-law",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q15",
+        "question": "Your _ is getting quite long; you need a haircut.",
+        "options": [
+            "hair",
+            "hairs",
+            "haires"
+        ],
+        "answer": "hair",
+        "type": "MCQ",
+        "tags": [
+            "present_continuous",
+            "uncountable",
+            "singular"
+        ]
+    },
+    {
+        "id": "q16",
+        "question": "Many _ are migrating south for the winter.",
+        "options": [
+            "goose",
+            "geese",
+            "gooses"
+        ],
+        "answer": "geese",
+        "type": "Speak",
+        "tags": [
+            "present_continuous",
+            "plural"
+        ]
+    },
+    {
+        "id": "q17",
+        "question": "The _ of the trees turn brown in autumn.",
+        "options": [
+            "leaf",
+            "leaves",
+            "leafs"
+        ],
+        "answer": "leaves",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural",
+            "fact"
+        ]
+    },
+    {
+        "id": "q18",
+        "question": "He told us some very funny _.",
+        "options": [
+            "story",
+            "stories",
+            "storys"
+        ],
+        "answer": "stories",
+        "type": "Speak",
+        "tags": [
+            "past_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q19",
+        "question": "All the _ were stolen from the shop.",
+        "options": [
+            "watch",
+            "watches",
+            "watchs"
+        ],
+        "answer": "watches",
+        "type": "MCQ",
+        "tags": [
+            "past_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q20",
+        "question": "The _ is investigating the crime scene.",
+        "options": [
+            "police",
+            "policeman",
+            "policemen"
+        ],
+        "answer": "policeman",
+        "type": "MCQ",
+        "tags": [
+            "present_continuous",
+            "singular",
+            "3rd_person"
+        ]
+    },
+    {
+        "id": "q21",
+        "question": "I found several _ in the attic.",
+        "options": [
+            "mouse",
+            "mouses",
+            "mice"
+        ],
+        "answer": "mice",
+        "type": "Speak",
+        "tags": [
+            "past_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q22",
+        "question": "The _ are delicious this year.",
+        "options": [
+            "tomato",
+            "tomatos",
+            "tomatoes"
+        ],
+        "answer": "tomatoes",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q23",
+        "question": "She bought two _ of bread.",
+        "options": [
+            "loaf",
+            "loafs",
+            "loaves"
+        ],
+        "answer": "loaves",
+        "type": "MCQ",
+        "tags": [
+            "past_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q24",
+        "question": "There _ a lot of traffic on the highway today.",
+        "options": [
+            "is",
+            "are",
+            "am"
+        ],
+        "answer": "is",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "uncountable",
+            "agreement"
+        ]
+    },
+    {
+        "id": "q25",
+        "question": "The _ in the pond are swimming quickly.",
+        "options": [
+            "fish",
+            "fishes",
+            "fishs"
+        ],
+        "answer": "fish",
+        "type": "MCQ",
+        "tags": [
+            "present_continuous",
+            "plural"
+        ]
+    },
+    {
+        "id": "q26",
+        "question": "We need to change the _ on the bed.",
+        "options": [
+            "pillowcase",
+            "pillowcases",
+            "pillowcasies"
+        ],
+        "answer": "pillowcases",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q27",
+        "question": "How many _ are there in the alphabet?",
+        "options": [
+            "letter",
+            "letters",
+            "letteres"
+        ],
+        "answer": "letters",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural",
+            "fact"
+        ]
+    },
+    {
+        "id": "q28",
+        "question": "The _ were grazing peacefully.",
+        "options": [
+            "ox",
+            "oxes",
+            "oxen"
+        ],
+        "answer": "oxen",
+        "type": "Speak",
+        "tags": [
+            "past_continuous",
+            "plural"
+        ]
+    },
+    {
+        "id": "q29",
+        "question": "The _ is always right, according to the manager.",
+        "options": [
+            "customer",
+            "customers",
+            "customeres"
+        ],
+        "answer": "customer",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q30",
+        "question": "I have two _ in my pocket.",
+        "options": [
+            "penny",
+            "pennies",
+            "pennys"
+        ],
+        "answer": "pennies",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q31",
+        "question": "Can you pass me those _?",
+        "options": [
+            "glass",
+            "glasses",
+            "glassies"
+        ],
+        "answer": "glasses",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q32",
+        "question": "The _ has lived here for ten years.",
+        "options": [
+            "family",
+            "families",
+            "familys"
+        ],
+        "answer": "family",
+        "type": "MCQ",
+        "tags": [
+            "present_perfect",
+            "collective",
+            "singular"
+        ]
+    },
+    {
+        "id": "q33",
+        "question": "The _ are sharp, so be careful.",
+        "options": [
+            "scissor",
+            "scissors",
+            "scissores"
+        ],
+        "answer": "scissors",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q34",
+        "question": "I saw a _ of birds flying north.",
+        "options": [
+            "flock",
+            "flocks",
+            "flockes"
+        ],
+        "answer": "flock",
+        "type": "Speak",
+        "tags": [
+            "past_simple",
+            "collective",
+            "singular"
+        ]
+    },
+    {
+        "id": "q35",
+        "question": "The _ are very busy during the holidays.",
+        "options": [
+            "shelf",
+            "shelfs",
+            "shelves"
+        ],
+        "answer": "shelves",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q36",
+        "question": "There are too many _ in this room.",
+        "options": [
+            "box",
+            "boxes",
+            "boxs"
+        ],
+        "answer": "boxes",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q37",
+        "question": "The _ is playing with a ball of yarn.",
+        "options": [
+            "puppy",
+            "puppies",
+            "puppys"
+        ],
+        "answer": "puppy",
+        "type": "MCQ",
+        "tags": [
+            "present_continuous",
+            "singular"
+        ]
+    },
+    {
+        "id": "q38",
+        "question": "The _ are ready to order.",
+        "options": [
+            "lady",
+            "ladies",
+            "ladys"
+        ],
+        "answer": "ladies",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q39",
+        "question": "He has a lot of _ to do today.",
+        "options": [
+            "work",
+            "works",
+            "workes"
+        ],
+        "answer": "work",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "uncountable"
+        ]
+    },
+    {
+        "id": "q40",
+        "question": "The _ are shining brightly tonight.",
+        "options": [
+            "star",
+            "stars",
+            "stares"
+        ],
+        "answer": "stars",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q41",
+        "question": "One of my _ is missing.",
+        "options": [
+            "shoe",
+            "shoes",
+            "shoeies"
+        ],
+        "answer": "shoes",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q42",
+        "question": "The _ is full of water.",
+        "options": [
+            "bucket",
+            "buckets",
+            "bucketes"
+        ],
+        "answer": "bucket",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q43",
+        "question": "We saw many _ at the zoo.",
+        "options": [
+            "monkey",
+            "monkeis",
+            "monkeys"
+        ],
+        "answer": "monkeys",
+        "type": "MCQ",
+        "tags": [
+            "past_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q44",
+        "question": "The _ in the library must be quiet.",
+        "options": [
+            "student",
+            "students",
+            "studentes"
+        ],
+        "answer": "students",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q45",
+        "question": "I need three _ of sugar for the cake.",
+        "options": [
+            "cup",
+            "cups",
+            "cupes"
+        ],
+        "answer": "cups",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q46",
+        "question": "That _ is very expensive.",
+        "options": [
+            "watch",
+            "watches",
+            "watchs"
+        ],
+        "answer": "watch",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q47",
+        "question": "The _ are blooming in the garden.",
+        "options": [
+            "flower",
+            "flowers",
+            "floweres"
+        ],
+        "answer": "flowers",
+        "type": "MCQ",
+        "tags": [
+            "present_continuous",
+            "plural"
+        ]
+    },
+    {
+        "id": "q48",
+        "question": "The _ is grazing in the meadow.",
+        "options": [
+            "horse",
+            "horses",
+            "horsies"
+        ],
+        "answer": "horse",
+        "type": "MCQ",
+        "tags": [
+            "present_continuous",
+            "singular"
+        ]
+    },
+    {
+        "id": "q49",
+        "question": "How many _ did you buy?",
+        "options": [
+            "potato",
+            "potatos",
+            "potatoes"
+        ],
+        "answer": "potatoes",
+        "type": "Speak",
+        "tags": [
+            "past_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q50",
+        "question": "The _ is very bright today.",
+        "options": [
+            "sun",
+            "suns",
+            "sunnes"
+        ],
+        "answer": "sun",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular",
+            "fact"
+        ]
+    },
+    {
+        "id": "q51",
+        "question": "I love eating _.",
+        "options": [
+            "strawberry",
+            "strawberrys",
+            "strawberries"
+        ],
+        "answer": "strawberries",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q52",
+        "question": "The _ are very fast.",
+        "options": [
+            "bus",
+            "buses",
+            "bussies"
+        ],
+        "answer": "buses",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q53",
+        "question": "I have a few _ to make.",
+        "options": [
+            "suggestion",
+            "suggestions",
+            "suggestionies"
+        ],
+        "answer": "suggestions",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q54",
+        "question": "The _ is barking at the mailman.",
+        "options": [
+            "dog",
+            "dogs",
+            "doges"
+        ],
+        "answer": "dog",
+        "type": "Speak",
+        "tags": [
+            "present_continuous",
+            "singular"
+        ]
+    },
+    {
+        "id": "q55",
+        "question": "There are many _ in the sky.",
+        "options": [
+            "cloud",
+            "clouds",
+            "cloudes"
+        ],
+        "answer": "clouds",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q56",
+        "question": "The _ are very helpful.",
+        "options": [
+            "neighbor",
+            "neighbors",
+            "neighbores"
+        ],
+        "answer": "neighbors",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q57",
+        "question": "I bought two _ of milk.",
+        "options": [
+            "carton",
+            "cartons",
+            "cartonies"
+        ],
+        "answer": "cartons",
+        "type": "MCQ",
+        "tags": [
+            "past_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q58",
+        "question": "The _ is very small.",
+        "options": [
+            "ant",
+            "ants",
+            "antes"
+        ],
+        "answer": "ant",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q59",
+        "question": "Do you like _?",
+        "options": [
+            "cherry",
+            "cherries",
+            "cherrys"
+        ],
+        "answer": "cherries",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q60",
+        "question": "The _ are playing soccer.",
+        "options": [
+            "boy",
+            "boys",
+            "boies"
+        ],
+        "answer": "boys",
+        "type": "MCQ",
+        "tags": [
+            "present_continuous",
+            "plural"
+        ]
+    },
+    {
+        "id": "q61",
+        "question": "There _ some money on the table.",
+        "options": [
+            "is",
+            "are",
+            "am"
+        ],
+        "answer": "is",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "uncountable",
+            "agreement"
+        ]
+    },
+    {
+        "id": "q62",
+        "question": "I have two _.",
+        "options": [
+            "sister",
+            "sisters",
+            "sisteres"
+        ],
+        "answer": "sisters",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q63",
+        "question": "The _ is very high.",
+        "options": [
+            "mountain",
+            "mountains",
+            "mountainies"
+        ],
+        "answer": "mountain",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q64",
+        "question": "The _ are chirping.",
+        "options": [
+            "bird",
+            "birds",
+            "birdes"
+        ],
+        "answer": "birds",
+        "type": "Speak",
+        "tags": [
+            "present_continuous",
+            "plural"
+        ]
+    },
+    {
+        "id": "q65",
+        "question": "He has a lot of _.",
+        "options": [
+            "friend",
+            "friends",
+            "friendes"
+        ],
+        "answer": "friends",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q66",
+        "question": "The _ is very clean.",
+        "options": [
+            "room",
+            "rooms",
+            "roomes"
+        ],
+        "answer": "room",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q67",
+        "question": "There are several _ on the wall.",
+        "options": [
+            "picture",
+            "pictures",
+            "picturies"
+        ],
+        "answer": "pictures",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q68",
+        "question": "The _ is very hot.",
+        "options": [
+            "tea",
+            "teas",
+            "teaes"
+        ],
+        "answer": "tea",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "uncountable",
+            "singular"
+        ]
+    },
+    {
+        "id": "q69",
+        "question": "The _ are running fast.",
+        "options": [
+            "runner",
+            "runners",
+            "runneres"
+        ],
+        "answer": "runners",
+        "type": "Speak",
+        "tags": [
+            "present_continuous",
+            "plural"
+        ]
+    },
+    {
+        "id": "q70",
+        "question": "I need a _.",
+        "options": [
+            "pencil",
+            "pencils",
+            "penciles"
+        ],
+        "answer": "pencil",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q71",
+        "question": "The _ are very old.",
+        "options": [
+            "tree",
+            "trees",
+            "treeies"
+        ],
+        "answer": "trees",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q72",
+        "question": "I have some _.",
+        "options": [
+            "news",
+            "newses",
+            "newsies"
+        ],
+        "answer": "news",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "uncountable"
+        ]
+    },
+    {
+        "id": "q73",
+        "question": "The _ is very big.",
+        "options": [
+            "house",
+            "houses",
+            "housies"
+        ],
+        "answer": "house",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q74",
+        "question": "The _ are very loud.",
+        "options": [
+            "child",
+            "children",
+            "childes"
+        ],
+        "answer": "children",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q75",
+        "question": "I have a _.",
+        "options": [
+            "car",
+            "cars",
+            "cares"
+        ],
+        "answer": "car",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q76",
+        "question": "The _ are very beautiful.",
+        "options": [
+            "painting",
+            "paintings",
+            "paintinges"
+        ],
+        "answer": "paintings",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q77",
+        "question": "The _ is very interesting.",
+        "options": [
+            "book",
+            "books",
+            "bookes"
+        ],
+        "answer": "book",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q78",
+        "question": "The _ are very tired.",
+        "options": [
+            "player",
+            "players",
+            "playeres"
+        ],
+        "answer": "players",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q79",
+        "question": "I need some _.",
+        "options": [
+            "information",
+            "informations",
+            "informationies"
+        ],
+        "answer": "information",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "uncountable"
+        ]
+    },
+    {
+        "id": "q80",
+        "question": "The _ is very sweet.",
+        "options": [
+            "apple",
+            "apples",
+            "applies"
+        ],
+        "answer": "apple",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q81",
+        "question": "The _ are very sharp.",
+        "options": [
+            "pencil",
+            "pencils",
+            "penciles"
+        ],
+        "answer": "pencils",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q82",
+        "question": "I have a _.",
+        "options": [
+            "problem",
+            "problems",
+            "problemies"
+        ],
+        "answer": "problem",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q83",
+        "question": "The _ are very cold.",
+        "options": [
+            "drink",
+            "drinks",
+            "drinkies"
+        ],
+        "answer": "drinks",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q84",
+        "question": "I need a _ of water.",
+        "options": [
+            "glass",
+            "glasses",
+            "glassies"
+        ],
+        "answer": "glass",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q85",
+        "question": "The _ is very soft.",
+        "options": [
+            "pillow",
+            "pillows",
+            "pillowie"
+        ],
+        "answer": "pillow",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q86",
+        "question": "The _ are very bright.",
+        "options": [
+            "light",
+            "lights",
+            "lighties"
+        ],
+        "answer": "lights",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q87",
+        "question": "I have a _.",
+        "options": [
+            "question",
+            "questions",
+            "questionies"
+        ],
+        "answer": "question",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q88",
+        "question": "The _ are very expensive.",
+        "options": [
+            "shoe",
+            "shoes",
+            "shoeies"
+        ],
+        "answer": "shoes",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q89",
+        "question": "I need some _.",
+        "options": [
+            "help",
+            "helps",
+            "helpies"
+        ],
+        "answer": "help",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "uncountable"
+        ]
+    },
+    {
+        "id": "q90",
+        "question": "The _ is very heavy.",
+        "options": [
+            "bag",
+            "bags",
+            "bagies"
+        ],
+        "answer": "bag",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q91",
+        "question": "The _ are very small.",
+        "options": [
+            "key",
+            "keys",
+            "keyies"
+        ],
+        "answer": "keys",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q92",
+        "question": "I have a _.",
+        "options": [
+            "idea",
+            "ideas",
+            "ideies"
+        ],
+        "answer": "idea",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q93",
+        "question": "The _ are very hungry.",
+        "options": [
+            "cat",
+            "cats",
+            "caties"
+        ],
+        "answer": "cats",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q94",
+        "question": "I need a _.",
+        "options": [
+            "towel",
+            "towels",
+            "towelies"
+        ],
+        "answer": "towel",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q95",
+        "question": "The _ is very old.",
+        "options": [
+            "phone",
+            "phones",
+            "phonies"
+        ],
+        "answer": "phone",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q96",
+        "question": "The _ are very dirty.",
+        "options": [
+            "dish",
+            "dishes",
+            "dishies"
+        ],
+        "answer": "dishes",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q97",
+        "question": "I have a _.",
+        "options": [
+            "meeting",
+            "meetings",
+            "meetingies"
+        ],
+        "answer": "meeting",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    },
+    {
+        "id": "q98",
+        "question": "The _ are very long.",
+        "options": [
+            "day",
+            "days",
+            "dayies"
+        ],
+        "answer": "days",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "plural"
+        ]
+    },
+    {
+        "id": "q99",
+        "question": "I need some _.",
+        "options": [
+            "water",
+            "waters",
+            "wateries"
+        ],
+        "answer": "water",
+        "type": "Speak",
+        "tags": [
+            "present_simple",
+            "uncountable"
+        ]
+    },
+    {
+        "id": "q100",
+        "question": "The _ is very beautiful.",
+        "options": [
+            "view",
+            "views",
+            "viewies"
+        ],
+        "answer": "view",
+        "type": "MCQ",
+        "tags": [
+            "present_simple",
+            "singular"
+        ]
+    }
+]
