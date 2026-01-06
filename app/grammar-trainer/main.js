@@ -24,6 +24,8 @@ const state = {
   questionStartTime: null,
   questionTimerInterval: null,
   totalTimeMs: 0,
+  datasets: [],
+  manifestLoaded: false,
 
   // Recording state
   mediaRecorder: null,
@@ -101,6 +103,97 @@ const elements = {
 // ============================================
 
 /**
+ * Show a temporary message inside the dataset select
+ * @param {string} message
+ * @param {boolean} disable
+ */
+function setDatasetSelectMessage(message, disable = false) {
+  if (!elements.datasetSelect) return;
+  elements.datasetSelect.innerHTML = '';
+  const option = document.createElement('option');
+  option.value = '';
+  option.textContent = message;
+  elements.datasetSelect.appendChild(option);
+  elements.datasetSelect.disabled = disable;
+}
+
+/**
+ * Render dataset options filtered by category
+ * @param {string} category
+ */
+function renderDatasetOptions(category = 'all') {
+  if (!elements.datasetSelect) return;
+
+  const matchesCategory = (dataset) => {
+    if (!Array.isArray(dataset.categories) || dataset.categories.length === 0) {
+      return true;
+    }
+    return dataset.categories.includes(category) || category === 'all';
+  };
+
+  const filtered = state.datasets.filter(matchesCategory);
+
+  elements.datasetSelect.innerHTML = '';
+  elements.datasetSelect.disabled = filtered.length === 0;
+
+  if (filtered.length === 0) {
+    const option = document.createElement('option');
+    option.value = '';
+    option.textContent = 'No datasets for this category';
+    elements.datasetSelect.appendChild(option);
+    return;
+  }
+
+  filtered.forEach(dataset => {
+    const option = document.createElement('option');
+    option.value = dataset.path;
+    option.textContent = dataset.name || dataset.id || dataset.path;
+    elements.datasetSelect.appendChild(option);
+  });
+
+  // Preserve current selection if still available
+  const currentValue = elements.datasetSelect.value;
+  const hasCurrent = filtered.some(d => d.path === currentValue);
+  if (!hasCurrent) {
+    elements.datasetSelect.value = filtered[0].path;
+  }
+}
+
+/**
+ * Load manifest file describing datasets
+ */
+async function loadDatasetManifest() {
+  try {
+    setDatasetSelectMessage('Loading datasets...');
+    const response = await fetch('data/manifest.json');
+    if (!response.ok) {
+      throw new Error(`Failed to load manifest: ${response.status} ${response.statusText}`);
+    }
+
+    const manifest = await response.json();
+    if (!manifest || !Array.isArray(manifest.datasets)) {
+      throw new Error('Invalid manifest format: expected { datasets: [] }');
+    }
+
+    state.datasets = manifest.datasets.map(dataset => ({
+      id: dataset.id,
+      name: dataset.name,
+      path: dataset.path,
+      categories: dataset.categories || []
+    }));
+
+    state.manifestLoaded = true;
+    renderDatasetOptions(elements.categorySelect.value || 'all');
+  } catch (error) {
+    console.error('Dataset manifest loading error:', error);
+    state.datasets = [];
+    state.manifestLoaded = false;
+    setDatasetSelectMessage('Failed to load datasets', true);
+    showError(error.message || 'Failed to load datasets. Check manifest.json.');
+  }
+}
+
+/**
  * Load questions from a JSON dataset file
  * @param {string} path - Path to the JSON file
  * @returns {Promise<Array>} Array of question objects
@@ -167,6 +260,11 @@ async function startSession() {
   const datasetPath = elements.datasetSelect.value;
   const requestedCount = parseInt(elements.questionCountInput.value, 10) || 10;
   state.autoNext = elements.autoNextToggle.checked;
+
+  if (!datasetPath) {
+    showError('Please select a dataset for this category.');
+    return;
+  }
 
   // Show loading state
   elements.startBtn.disabled = true;
@@ -1094,6 +1192,11 @@ function initEventListeners() {
     elements.questionCountInput.value = value;
   });
 
+  elements.categorySelect.addEventListener('change', () => {
+    const category = elements.categorySelect.value || 'all';
+    renderDatasetOptions(category);
+  });
+
   if (elements.micSelector) {
     elements.micSelector.addEventListener('change', (event) => {
       state.selectedMicId = event.target.value;
@@ -1115,6 +1218,7 @@ function initEventListeners() {
 document.addEventListener('DOMContentLoaded', () => {
   console.info('[App] DOMContentLoaded');
   initEventListeners();
+  loadDatasetManifest();
   refreshMicrophones();
 
   if (navigator.mediaDevices && navigator.mediaDevices.addEventListener) {

@@ -1,0 +1,24 @@
+{
+  "datasets": [
+    {
+      "id": "person_agreement",
+      "name": "Person & Agreement",
+      "path": "data/person_agreement.json",
+      "categories": ["person_agreement"]
+    },
+    {
+      "id": "person_agreement_inter_daily_100",
+      "name": "Person & Agreement Intermediate 100",
+      "path": "data/person_agree_inter_daily_100.json",
+      "categories": [
+        "person_agreement"
+      ]
+    },
+    {
+      "id": "tense_basic",
+      "name": "Tense Practice",
+      "path": "data/tense_basic.json",
+      "categories": ["tense"]
+    }
+  ]
+}
