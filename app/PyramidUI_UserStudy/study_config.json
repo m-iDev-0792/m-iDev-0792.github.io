@@ -1,0 +1,5 @@
+{
+  "upload_url": "http://127.0.0.1:8000/upload",
+  "remote_config_url": "https://m-idev-0792.github.io/app/PyramidUI_UserStudy/study_config.json",
+  "contact_email": "zbhe96@student.ubc.ca"
+}
