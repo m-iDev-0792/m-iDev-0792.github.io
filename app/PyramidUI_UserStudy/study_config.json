@@ -30,12 +30,12 @@
     "task4": {
       "enabled": true,
       "skip_practice": false,
-      "round_num": 4
+      "round_num": 6
     },
     "task5": {
       "enabled": true,
       "skip_practice": false,
-      "round_num": 4
+      "round_num": 6
     }
   }
 }
