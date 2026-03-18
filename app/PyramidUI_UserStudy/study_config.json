@@ -1,5 +1,41 @@
 {
   "upload_url": "https://madge-untubbed-bria.ngrok-free.dev/upload",
   "remote_config_url": "https://m-idev-0792.github.io/app/PyramidUI_UserStudy/study_config.json",
-  "contact_email": "zbhe96@student.ubc.ca"
+  "contact_email": "zbhe96@student.ubc.ca",
+  "round_observation_seconds": "5",
+  "task_break_warning_minutes": "25",
+  "startup_defaults": {
+    "randomize_task_order": false,
+    "task1": {
+      "enabled": true,
+      "skip_practice": false,
+      "ui_num": 20,
+      "subtasks": [
+        "Category",
+        "Function",
+        "Score"
+      ]
+    },
+    "task2": {
+      "enabled": true,
+      "skip_practice": false,
+      "pair_num": 20
+    },
+    "task3": {
+      "enabled": true,
+      "skip_practice": false,
+      "size": 6,
+      "round_num": 6
+    },
+    "task4": {
+      "enabled": true,
+      "skip_practice": false,
+      "round_num": 4
+    },
+    "task5": {
+      "enabled": true,
+      "skip_practice": false,
+      "round_num": 4
+    }
+  }
 }
