@@ -25,17 +25,39 @@
       "enabled": true,
       "skip_practice": false,
       "size": 6,
-      "round_num": 6
+      "round_num": 5
     },
     "task4": {
       "enabled": true,
       "skip_practice": false,
-      "round_num": 6
+      "round_num": 5
     },
     "task5": {
       "enabled": true,
       "skip_practice": false,
-      "round_num": 6
+      "round_num": 5
     }
+  },
+  "task_tutorials": {
+    "task1": [
+      "Task1_1.jpeg",
+      "Task1_2.jpeg"
+    ],
+    "task2": [
+      "Task2_1.jpeg"
+    ],
+    "task3": [],
+    "task4": [
+      "Task4_1.jpeg",
+      "Task4_2.jpeg"
+    ],
+    "task5": [
+      "Task5_1.jpeg",
+      "Task5_2.jpeg"
+    ]
+  },
+  "tutorial_assets": {
+    "version": 0,
+    "image_urls": []
   }
 }
