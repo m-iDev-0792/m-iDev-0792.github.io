@@ -9,7 +9,7 @@
     "task1": {
       "enabled": true,
       "skip_practice": false,
-      "ui_num": 16,
+      "ui_num": 15,
       "subtasks": [
         "Category",
         "Function",
@@ -19,7 +19,7 @@
     "task2": {
       "enabled": true,
       "skip_practice": false,
-      "pair_num": 16
+      "pair_num": 15
     },
     "task3": {
       "enabled": true,
@@ -30,12 +30,12 @@
     "task4": {
       "enabled": true,
       "skip_practice": false,
-      "round_num": 5
+      "round_num": 4
     },
     "task5": {
       "enabled": true,
       "skip_practice": false,
-      "round_num": 5
+      "round_num": 4
     }
   },
   "task_tutorials": {
