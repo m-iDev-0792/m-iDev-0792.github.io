@@ -44,16 +44,25 @@
       "Task1_2.jpeg"
     ],
     "task2": [
+      "Task1_1.jpeg",
+      "Task1_2.jpeg",
       "Task2_1.jpeg"
     ],
-    "task3": [],
+    "task3": [
+      "Task1_1.jpeg",
+      "Task1_2.jpeg",
+      "Task2_1.jpeg"
+    ],
     "task4": [
+      "Task1_1.jpeg",
+      "Task1_2.jpeg",
+      "Task2_1.jpeg",
       "Task4_1.jpeg",
       "Task4_2.jpeg"
     ],
     "task5": [
-      "Task5_1.jpeg",
-      "Task5_2.jpeg",
+      "Task4_1.jpeg",
+      "Task4_1.jpeg",
       "Task5_3.jpeg",
       "Task5_4.jpeg"
     ]
