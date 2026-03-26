@@ -5,7 +5,7 @@
   "round_observation_seconds": "5",
   "task_break_warning_minutes": "25",
   "startup_defaults": {
-    "randomize_task_order": false,
+    "randomize_task_order": true,
     "task1": {
       "enabled": true,
       "skip_practice": false,
