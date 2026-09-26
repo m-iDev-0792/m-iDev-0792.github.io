@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LaTeX &amp; Markdown Unwrapper</title>
+<meta name="description" content="Rejoin hard-wrapped LaTeX or Markdown paragraphs into single lines. Only wrap-induced line breaks are joined; blank lines, lists, headings, comments, code blocks, tables and math environments are kept. Runs entirely in your browser.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232A4BA0'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+  :root {
+    --paper:      #EFF1F5;
+    --surface:    #FFFFFF;
+    --surface-2:  #F7F8FB;
+    --line:       #DCDFE7;
+    --line-hard:  #C3C8D4;
+    --ink:        #191C22;
+    --ink-2:      #495060;
+    --ink-3:      #79808F;
+    --accent:     #2A4BA0;
+    --accent-2:   #4A6FCF;
+    --accent-soft:#E3E9F8;
+    --keep:       #8C6210;
+    --keep-soft:  #F6EEDA;
+    --on-accent:  #FFFFFF;
+    --shadow:     0 1px 2px rgba(20,26,40,.06), 0 8px 24px -14px rgba(20,26,40,.28);
+
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, "PingFang SC", monospace;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --serif:"IBM Plex Serif", Georgia, "Songti SC", "Noto Serif CJK SC", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:      #101317;
+      --surface:    #191D23;
+      --surface-2:  #1F242B;
+      --line:       #2B3038;
+      --line-hard:  #3B424E;
+      --ink:        #E7E9EE;
+      --ink-2:      #A7AEBC;
+      --ink-3:      #7A8290;
+      --accent:     #8CA8F2;
+      --accent-2:   #A9BEF7;
+      --accent-soft:#1D2740;
+      --on-accent:  #0F131A;
+      --keep:       #D9A73F;
+      --keep-soft:  #2E2718;
+      --shadow:     0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#101317; --surface:#191D23; --surface-2:#1F242B;
+    --line:#2B3038; --line-hard:#3B424E;
+    --ink:#E7E9EE; --ink-2:#A7AEBC; --ink-3:#7A8290;
+    --accent:#8CA8F2; --accent-2:#A9BEF7; --accent-soft:#1D2740; --on-accent:#0F131A;
+    --keep:#D9A73F; --keep-soft:#2E2718;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 20px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* ---------- masthead ---------- */
+  header.masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line-hard);
+  }
+  .title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -.01em;
+    margin: 0 0 4px;
+    text-wrap: balance;
+  }
+  .tagline {
+    margin: 0;
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+  .tagline code {
+    font-family: var(--mono);
+    font-size: .92em;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 0 4px;
+  }
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  button {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line-hard);
+    border-radius: 4px;
+    padding: 7px 13px;
+    cursor: pointer;
+    transition: background .12s ease, border-color .12s ease, color .12s ease;
+  }
+  button:hover { background: var(--surface-2); border-color: var(--ink-3); }
+  button.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+  }
+  button.primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
+  button:focus-visible, textarea:focus-visible, input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  kbd {
+    font-family: var(--mono);
+    font-size: 11px;
+    opacity: .75;
+    margin-left: 6px;
+  }
+
+  /* ---------- options ---------- */
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .opt-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-right: 4px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 11px 5px 9px;
+    border: 1px solid var(--line-hard);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink-2);
+    cursor: pointer;
+    user-select: none;
+    font-size: 13px;
+    position: relative;
+    transition: background .12s ease, color .12s ease, border-color .12s ease;
+  }
+  .chip:hover { border-color: var(--ink-3); }
+  .chip input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .chip .tick {
+    width: 13px; height: 13px;
+    border: 1px solid var(--line-hard);
+    border-radius: 3px;
+    background: var(--surface-2);
+    position: relative;
+    flex: none;
+  }
+  .chip:has(input:checked) {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+  .chip:has(input:checked) .tick {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .chip:has(input:checked) .tick::after {
+    content: "";
+    position: absolute;
+    left: 4px; top: 1px;
+    width: 3px; height: 7px;
+    border: solid var(--surface);
+    border-width: 0 1.6px 1.6px 0;
+    transform: rotate(43deg);
+  }
+  .chip:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .chip:has(input:disabled) { opacity: .45; cursor: not-allowed; }
+  .opt-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .options { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .opt-label { min-width: 2.6em; }
+
+  .seg {
+    display: inline-flex;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--line-hard);
+    border-radius: 999px;
+    background: var(--surface);
+  }
+  .seg label {
+    position: relative;
+    padding: 4px 13px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--ink-2);
+    cursor: pointer;
+    user-select: none;
+    transition: background .12s ease, color .12s ease;
+  }
+  .seg label:hover { color: var(--ink); }
+  .seg input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .seg label:has(input:checked) { background: var(--accent); color: var(--on-accent); }
+  .seg label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .detected {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+  .detected b { color: var(--accent); font-weight: 600; }
+  footer.note p { margin: 0 0 6px; }
+
+  /* ---------- panes ---------- */
+  .panes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .pane {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    min-height: 380px;
+  }
+  .pane.drop { border-color: var(--accent); }
+  .pane-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .pane-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .pane-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+  textarea {
+    flex: 1;
+    width: 100%;
+    resize: vertical;
+    border: 0;
+    padding: 14px;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.7;
+    tab-size: 2;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+  }
+  textarea:focus { outline: none; }
+  .pane:focus-within { border-color: var(--line-hard); }
+  #out { background: var(--surface); }
+
+  /* ---------- ledger ---------- */
+  .ledger {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .ledger-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .stats { display: flex; gap: 16px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .stats b { font-weight: 600; font-size: 13px; }
+  .stat-join b { color: var(--accent); }
+  .stat-keep b { color: var(--keep); }
+  .stat-line { color: var(--ink-3); }
+  .rows {
+    max-height: 240px;
+    overflow: auto;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 62px 170px minmax(0, 1fr);
+    gap: 10px;
+    align-items: baseline;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .row:last-child { border-bottom: 0; }
+  .row .ln { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .row .why {
+    color: var(--keep);
+    background: var(--keep-soft);
+    border-radius: 3px;
+    padding: 1px 6px;
+    justify-self: start;
+    white-space: nowrap;
+  }
+  .row .snip {
+    color: var(--ink-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .empty { padding: 16px 12px; color: var(--ink-3); font-family: var(--mono); font-size: 12px; }
+
+  footer.note {
+    color: var(--ink-3);
+    font-size: 12.5px;
+    max-width: 78ch;
+  }
+  footer.note b { color: var(--ink-2); font-weight: 500; }
+  footer.note code { font-family: var(--mono); font-size: .92em; }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%) translateY(8px);
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  .toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+  @media (max-width: 860px) {
+    .panes { grid-template-columns: 1fr; }
+    .pane { min-height: 300px; }
+    .row { grid-template-columns: 52px 170px; }
+    .row .snip { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <h1 class="title">LaTeX &amp; Markdown Unwrapper</h1>
+      <p class="tagline">Rejoin hard-wrapped paragraphs into single lines. Only line breaks caused by wrapping are joined; breaks at blank lines, headings, list items, quotes, comments, <code>\\</code>, code blocks, tables and math environments stay as they are.</p>
+    </div>
+    <div class="actions">
+      <button class="primary" id="run">Unwrap<kbd>⌘↵</kbd></button>
+      <button id="copy">Copy result</button>
+      <button id="feed">Use result as input</button>
+      <button id="sample">Switch example</button>
+      <button id="clear">Clear</button>
+    </div>
+  </header>
+
+  <div class="options">
+    <div class="opt-row">
+      <span class="opt-label">Syntax</span>
+      <div class="seg" role="radiogroup" aria-label="Source syntax">
+        <label><input type="radio" name="mode" value="auto" checked>Auto</label>
+        <label><input type="radio" name="mode" value="tex">LaTeX</label>
+        <label><input type="radio" name="mode" value="md">Markdown</label>
+      </div>
+      <span class="detected" id="detected"></span>
+    </div>
+    <div class="opt-row">
+      <span class="opt-label">Rules</span>
+      <label class="chip"><input type="checkbox" id="o-struct" checked><span class="tick"></span>Keep structural lines separate</label>
+      <label class="chip"><input type="checkbox" id="o-env" checked><span class="tick"></span>Protect math / tables / code</label>
+      <label class="chip" title="LaTeX only"><input type="checkbox" id="o-comment" checked><span class="tick"></span>Don’t join across % comments</label>
+      <label class="chip"><input type="checkbox" id="o-space" checked><span class="tick"></span>Collapse extra spaces</label>
+      <label class="chip"><input type="checkbox" id="o-indent" checked><span class="tick"></span>Keep leading indentation</label>
+    </div>
+  </div>
+
+  <div class="panes">
+    <section class="pane" id="in-pane">
+      <div class="pane-head">
+        <span class="pane-name">Input · wrapped .tex / .md</span>
+        <span class="pane-meta" id="in-meta">0 lines</span>
+      </div>
+      <textarea id="in" spellcheck="false" aria-label="LaTeX or Markdown source"></textarea>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <span class="pane-name">Output · unwrapped</span>
+        <span class="pane-meta" id="out-meta">0 lines</span>
+      </div>
+      <textarea id="out" spellcheck="false" readonly aria-label="Unwrapped result"></textarea>
+    </section>
+  </div>
+
+  <section class="ledger">
+    <div class="ledger-head">
+      <span class="pane-name">Break log · which line breaks were kept</span>
+      <div class="stats">
+        <span class="stat-join">Joined <b id="s-join">0</b></span>
+        <span class="stat-keep">Kept <b id="s-keep">0</b></span>
+        <span class="stat-line" id="s-line">—</span>
+      </div>
+    </div>
+    <div class="rows" id="rows"></div>
+  </section>
+
+  <footer class="note">
+    <p><b>LaTeX:</b> blank line → protected environment (<code>tabular</code> <code>align</code> <code>lstlisting</code> …) → trailing <code>%</code> comment → trailing <code>\\</code> → unclosed brace (treated as a continuation, so it is joined) → previous line is a standalone command → next line starts with a structural command, <code>&amp;</code> or <code>$$</code>.</p>
+    <p><b>Markdown:</b> blank line → protected block (<code>```</code> fences, indented code, tables, <code>$$</code> math, front matter, HTML) → hard break (two trailing spaces or a trailing <code>\</code>) → heading or horizontal rule → list item → change in quote depth → footnote or link definition. Continuation lines at the same <code>&gt;</code> depth are joined with their prefix removed.</p>
+    <p>A line break is joined only when none of these rules apply. <em>Auto</em> guesses the syntax from the content. You can drop a <code>.tex</code> or <code>.md</code> file onto the input pane. Everything runs locally in your browser.</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ================= LaTeX ================= */
+
+  /* Protected environments: lines inside are kept verbatim */
+  var PROTECTED = ["verbatim","Verbatim","lstlisting","minted","alltt","semiverbatim","filecontents","comment",
+    "tabular","tabular*","tabularx","tabulary","longtable","array","matrix","pmatrix","bmatrix","vmatrix","smallmatrix",
+    "align","align*","alignat","alignat*","gather","gather*","equation","equation*","eqnarray","eqnarray*",
+    "multline","multline*","split","aligned","gathered","cases","dcases","tikzpicture","forest","algorithmic","algorithm"];
+
+  /* Next line starts with one of these commands → keep the break */
+  var BREAK_BEFORE = ["begin","end","item","bibitem","part","chapter","section","subsection","subsubsection",
+    "paragraph","subparagraph","appendix","caption","subcaption","label","noindent","newline","linebreak",
+    "hline","toprule","midrule","bottomrule","cmidrule","addlinespace","rowcolor",
+    "newcommand","renewcommand","providecommand","def","newenvironment","usepackage","documentclass",
+    "input","include","maketitle","tableofcontents","bibliography","bibliographystyle","printbibliography",
+    "clearpage","newpage","pagebreak","vspace","bigskip","medskip","smallskip","centering","raggedright",
+    "includegraphics","title","author","date","affiliation","email","keywords","abstract","par",
+    "if","ifx","ifnum","ifthenelse","else","fi","footnotetext","setlength","addtolength","captionof"];
+
+  /* Previous line is one of these standalone commands → keep the break */
+  var BREAK_AFTER = ["begin","end","part","chapter","section","subsection","subsubsection","paragraph","subparagraph",
+    "appendix","label","hline","toprule","midrule","bottomrule","cmidrule","addlinespace",
+    "newcommand","renewcommand","providecommand","newenvironment","usepackage","documentclass",
+    "input","include","maketitle","tableofcontents","bibliography","bibliographystyle","printbibliography",
+    "clearpage","newpage","pagebreak","vspace","bigskip","medskip","smallskip","centering","raggedright",
+    "includegraphics","setlength","addtolength","if","ifx","ifnum","ifthenelse","else","fi"];
+
+  function cmdRe(list) {
+    return new RegExp("^\\\\(?:" + list.map(function (c) {
+      return c.replace(/[*]/g, "\\*");
+    }).join("|") + ")(?![a-zA-Z@])");
+  }
+  var RE_BEFORE = cmdRe(BREAK_BEFORE);
+  var RE_AFTER  = cmdRe(BREAK_AFTER);
+  var RE_DBS    = /\\\\\*?\s*(?:\[[^\]]*\])?\s*$/;      /* trailing \\, including \\[2pt] */
+  var RE_ENV    = /\\(begin|end)\s*\{([^}]*)\}/g;
+  var PROT_SET  = (function () { var s = {}; PROTECTED.forEach(function (n) { s[n] = 1; }); return s; })();
+
+  /* Position of the first unescaped % */
+  function commentAt(s) {
+    for (var i = 0; i < s.length; i++) {
+      if (s.charAt(i) === "%") {
+        var bs = 0, j = i - 1;
+        while (j >= 0 && s.charAt(j) === "\\") { bs++; j--; }
+        if (bs % 2 === 0) return i;
+      }
+    }
+    return -1;
+  }
+  /* Net brace balance, ignoring comments and escaped \{ \} */
+  function braceBalance(s) {
+    var c = commentAt(s);
+    if (c >= 0) s = s.slice(0, c);
+    var n = 0;
+    for (var i = 0; i < s.length; i++) {
+      var ch = s.charAt(i);
+      if (ch === "\\") { i++; continue; }
+      if (ch === "{") n++;
+      else if (ch === "}") n--;
+    }
+    return n;
+  }
+
+  function texProtect(lines, opt) {
+    var n = lines.length, prot = new Array(n), depth = 0;
+    for (var i = 0; i < n; i++) {
+      var before = depth, m;
+      RE_ENV.lastIndex = 0;
+      if (opt.envs) {
+        while ((m = RE_ENV.exec(lines[i])) !== null) {
+          if (!PROT_SET[m[2]]) continue;
+          if (m[1] === "begin") depth++;
+          else depth = Math.max(0, depth - 1);
+        }
+      }
+      prot[i] = before > 0 || depth > 0;
+    }
+    return prot;
+  }
+
+  function texReason(lines, prot, i, opt) {
+    var A = lines[i], B = lines[i + 1];
+    if (A.trim() === "" || B.trim() === "") return "blank";
+    if (prot[i] || prot[i + 1]) return "env";
+    if (opt.comments && commentAt(A) >= 0) return "comment";
+    if (RE_DBS.test(A)) return "dbs";
+
+    var a = A.trim(), b = B.trim();
+    if (b.charAt(0) === "%") return "comment";
+    if (b.charAt(0) === "&") return "amp";
+    if (b.indexOf("$$") === 0) return "math";
+    if (RE_DBS.test(b) && b.indexOf("\\\\") === 0) return "dbs";
+    if (!opt.struct) return null;
+    /* Unclosed brace → continuation of a multi-line command, so join */
+    if (braceBalance(A) > 0) return null;
+    if (RE_AFTER.test(a)) return "after";
+    if (RE_BEFORE.test(b)) return "before";
+    return null;
+  }
+
+  /* ================= Markdown ================= */
+
+  var MD_FENCE   = /^ {0,3}(`{3,}|~{3,})/;
+  var MD_HEADING = /^#{1,6}(\s|$)/;
+  var MD_SETEXT  = /^(=+|-+)$/;
+  var MD_RULE    = /^([-*_])(\s*\1){2,}$/;
+  var MD_LIST    = /^([-*+]|\d{1,9}[.)])(\s|$)/;
+  var MD_DEF     = /^\[[^\]]+\]:/;
+  var MD_HTML    = /^<(\/?[a-zA-Z]|!--)/;
+  var MD_TSEP    = /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$/;
+  var MD_HARD    = /( {2,}|\t|\\)$/;
+  var MD_QUOTE   = /^(\s*>)+\s?/;
+
+  function qDepth(s) {
+    var m = s.match(/^(\s*>)+/);
+    return m ? m[0].split(">").length - 1 : 0;
+  }
+
+  function mdProtect(lines, opt) {
+    var n = lines.length, prot = new Array(n), i;
+    for (i = 0; i < n; i++) prot[i] = false;
+    if (!opt.envs) return prot;
+
+    /* YAML front matter */
+    if (n && lines[0].trim() === "---") {
+      for (i = 1; i < n; i++) {
+        var t0 = lines[i].trim();
+        if (t0 === "---" || t0 === "...") {
+          for (var f = 0; f <= i; f++) prot[f] = true;
+          break;
+        }
+      }
+    }
+
+    var fence = null, math = false, texMath = false, html = false;
+    var prevBlank = true, prevCode = false, shallowIsList = false;
+    for (i = 0; i < n; i++) {
+      var L = lines[i], t = L.trim();
+      if (prot[i] && !fence) { prevBlank = t === ""; continue; }
+
+      /* ``` / ~~~ fenced code */
+      if (fence) {
+        prot[i] = true;
+        var c = L.match(MD_FENCE);
+        if (c && c[1].charAt(0) === fence.charAt(0) && c[1].length >= fence.length && L.trim() === c[1]) fence = null;
+        continue;
+      }
+      var fm = L.match(MD_FENCE);
+      if (fm) { fence = fm[1]; prot[i] = true; prevCode = false; continue; }
+
+      /* $$ … $$ and \[ … \] math blocks */
+      if (math) { prot[i] = true; if (/\$\$\s*$/.test(t)) math = false; continue; }
+      if (t.indexOf("$$") === 0) {
+        prot[i] = true;
+        if (!(t.length >= 4 && /\$\$$/.test(t))) math = true;
+        continue;
+      }
+      if (texMath) { prot[i] = true; if (t === "\\]") texMath = false; continue; }
+      if (t === "\\[") { prot[i] = true; texMath = true; continue; }
+
+      /* <!-- … --> and single-line HTML */
+      if (html) { prot[i] = true; if (t.indexOf("-->") >= 0) html = false; continue; }
+      if (t.indexOf("<!--") === 0) { prot[i] = true; if (t.indexOf("-->") < 0) html = true; continue; }
+      if (MD_HTML.test(t) && /^ {0,3}</.test(L)) { prot[i] = true; continue; }
+
+      /* Indented code (outside lists, after a blank or code line) */
+      if (t !== "" && /^( {4,}|\t)/.test(L) && (prevBlank || prevCode) && !shallowIsList) {
+        prot[i] = true; prevCode = true; prevBlank = false; continue;
+      }
+      if (t !== "") {
+        prevCode = false;
+        if (!/^( {4,}|\t)/.test(L)) shallowIsList = MD_LIST.test(t.replace(MD_QUOTE, ""));
+      }
+      prevBlank = t === "";
+    }
+
+    /* Tables: delimiter row + header + following rows containing | */
+    for (i = 1; i < n; i++) {
+      if (!MD_TSEP.test(lines[i]) || lines[i].indexOf("|") < 0 || lines[i - 1].indexOf("|") < 0) continue;
+      prot[i - 1] = prot[i] = true;
+      for (var j = i + 1; j < n && lines[j].trim() !== "" && lines[j].indexOf("|") >= 0; j++) prot[j] = true;
+    }
+    return prot;
+  }
+
+  function mdReason(lines, prot, i, opt) {
+    var A = lines[i], B = lines[i + 1];
+    if (A.trim() === "" || B.trim() === "") return "blank";
+    if (prot[i] || prot[i + 1]) return "block";
+    if (MD_HARD.test(A)) return "hard";
+    if (!opt.struct) return null;
+
+    var a = A.trim(), b = B.trim();
+    var qa = qDepth(a), qb = qDepth(b);
+    if (qa !== qb) return "quote";
+    if (qa) {
+      a = a.replace(MD_QUOTE, "").trim();
+      b = b.replace(MD_QUOTE, "").trim();
+      if (a === "" || b === "") return "blank";
+      if (MD_FENCE.test(b) || MD_FENCE.test(a)) return "block";
+    }
+    if (MD_HEADING.test(a) || MD_HEADING.test(b)) return "heading";
+    if (MD_SETEXT.test(b)) return "heading";
+    if (MD_RULE.test(a) || MD_RULE.test(b)) return "rule";
+    if (MD_LIST.test(b)) return "list";
+    if (MD_DEF.test(b)) return "def";
+    if (MD_DEF.test(a) && !/\[\^/.test(a)) return "def";
+    if (b.charAt(0) === "|") return "table";
+    if (MD_HTML.test(a) || MD_HTML.test(b)) return "html";
+    return null;
+  }
+
+  /* ================= Auto-detect ================= */
+
+  function count(t, re) { var m = t.match(re); return m ? m.length : 0; }
+  function detect(t) {
+    var tex = 2 * count(t, /\\(?:begin|end|section|subsection|subsubsection|cite[pt]?|ref|autoref|cref|label|emph|textbf|textit|item|usepackage|documentclass|caption|footnote)(?![a-zA-Z])/g)
+            + count(t, /^\s*%/gm);
+    var md  = 2 * count(t, /^ {0,3}#{1,6}\s/gm)
+            + 2 * count(t, /^ {0,3}(```|~~~)/gm)
+            + 2 * count(t, /\[[^\]\n]+\]\([^)\n]+\)/g)
+            + count(t, /^\s*([-*+]|\d+[.)])\s+\S/gm)
+            + count(t, /^\s*>/gm)
+            + count(t, /^\s*\|.*\|\s*$/gm)
+            + count(t, /\*\*[^*\n]+\*\*|`[^`\n]+`/g);
+    return tex > md ? "tex" : "md";
+  }
+
+  /* ================= Unwrap ================= */
+
+  var REASON = {
+    blank:   "Blank line",
+    env:     "Protected env",
+    comment: "Trailing % comment",
+    dbs:     "Explicit \\\\ break",
+    after:   "Standalone command",
+    before:  "Next line is command",
+    amp:     "Table row &",
+    math:    "Display math $$",
+    block:   "Code / table / math",
+    hard:    "Hard line break",
+    heading: "Heading",
+    rule:    "Horizontal rule",
+    list:    "List item",
+    quote:   "Quote depth",
+    def:     "Footnote / link def",
+    table:   "Table row",
+    html:    "HTML"
+  };
+
+  function unwrap(text, opt, mode) {
+    var lines = String(text).replace(/\r\n?/g, "\n").split("\n");
+    var n = lines.length;
+    var md = mode === "md";
+    var prot = md ? mdProtect(lines, opt) : texProtect(lines, opt);
+    var reasonAt = md ? mdReason : texReason;
+
+    var out = [], kept = [], joins = 0, buf = null;
+
+    for (var k = 0; k < n; k++) {
+      if (buf === null) buf = opt.indent ? lines[k] : lines[k].replace(/^\s+/, "");
+      if (k === n - 1) { out.push(buf.replace(/\s+$/, "")); break; }
+
+      var why = reasonAt(lines, prot, k, opt);
+      if (why) {
+        /* Markdown hard breaks rely on trailing spaces; keep them */
+        out.push(why === "hard" || prot[k] ? buf : buf.replace(/\s+$/, ""));
+        buf = null;
+        if (lines[k].trim() !== "" && lines[k + 1].trim() !== "") {
+          kept.push({ line: k + 1, why: why, snip: lines[k].trim() });
+        }
+      } else {
+        var next = lines[k + 1];
+        if (md && qDepth(next)) next = next.replace(MD_QUOTE, "");
+        buf = buf.replace(/\s+$/, "") + " " + next.replace(/^\s+/, "");
+        if (opt.space) buf = buf.replace(/(\S)[ \t]{2,}(?=\S)/g, "$1 ");
+        joins++;
+      }
+    }
+
+    return { text: out.join("\n"), joins: joins, kept: kept };
+  }
+
+  /* ---------- UI ---------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var inEl = $("in"), outEl = $("out"), rowsEl = $("rows");
+  var opts = { struct: $("o-struct"), envs: $("o-env"), comments: $("o-comment"), space: $("o-space"), indent: $("o-indent") };
+  var modeEls = document.querySelectorAll('input[name="mode"]');
+
+  var SAMPLE_TEX = [
+    "\\section{Findings}",
+    "\\label{sec:findings}",
+    "",
+    "The Physical--Virtual contrast bundled presence with first-hand",
+    "familiarity. The stand-ins offered a category rather than this object;",
+    "an identical virtual twin would have isolated touch alone.",
+    "",
+    "% TODO: add a citation for immersive analytics",
+    "Participants who handled the printed model reported higher confidence",
+    "($M=5.4$, $SD=0.8$) than those who saw the rendering only, though the",
+    "effect did not survive correction.",
+    "",
+    "\\begin{itemize}",
+    "  \\item Presence and familiarity were confounded in the",
+    "        Physical condition.",
+    "  \\item An identical virtual twin would isolate touch, but not weight.",
+    "\\end{itemize}",
+    "",
+    "\\begin{tabular}{lrr}",
+    "  \\toprule",
+    "  Condition & $M$ & $SD$ \\\\",
+    "  Physical  & 5.4 & 0.8  \\\\",
+    "  Virtual   & 4.9 & 1.1  \\\\",
+    "  \\bottomrule",
+    "\\end{tabular}",
+    "",
+    "\\caption{Confidence ratings by condition, with the stand-in",
+    "  objects grouped under \\emph{Physical}.}"
+  ].join("\n");
+
+  var SAMPLE_MD = [
+    "## Findings",
+    "",
+    "The Physical--Virtual contrast bundled presence with first-hand",
+    "familiarity. The stand-ins offered a category rather than this object;",
+    "an identical virtual twin would have isolated touch alone.",
+    "",
+    "- Presence and familiarity were confounded in the",
+    "  Physical condition.",
+    "- An identical virtual twin would isolate touch,",
+    "  but not weight.",
+    "",
+    "> Participants who handled the printed model reported higher",
+    "> confidence than those who saw the rendering only, though the",
+    "> effect did not survive correction.",
+    "",
+    "This line ends with two spaces, a Markdown hard break,  ",
+    "so the next line stays on its own.",
+    "",
+    "| Condition | M   | SD  |",
+    "|-----------|-----|-----|",
+    "| Physical  | 5.4 | 0.8 |",
+    "| Virtual   | 4.9 | 1.1 |",
+    "",
+    "```python",
+    "def unwrap(text):",
+    "    return text  # code blocks are kept verbatim",
+    "```"
+  ].join("\n");
+
+  function lineCount(s) { return s === "" ? 0 : s.split("\n").length; }
+
+  function chosenMode() {
+    for (var i = 0; i < modeEls.length; i++) if (modeEls[i].checked) return modeEls[i].value;
+    return "auto";
+  }
+
+  function render() {
+    var choice = chosenMode();
+    var mode = choice === "auto" ? detect(inEl.value) : choice;
+    var label = mode === "md" ? "Markdown" : "LaTeX";
+    $("detected").innerHTML = choice === "auto" && inEl.value.trim() !== "" ? "Detected: <b>" + label + "</b>" : "";
+    opts.comments.disabled = mode === "md";
+
+    var opt = {
+      struct:   opts.struct.checked,
+      envs:     opts.envs.checked,
+      comments: opts.comments.checked,
+      space:    opts.space.checked,
+      indent:   opts.indent.checked
+    };
+    var res = unwrap(inEl.value, opt, mode);
+    outEl.value = res.text;
+
+    $("in-meta").textContent  = lineCount(inEl.value) + " lines";
+    $("out-meta").textContent = lineCount(res.text) + " lines";
+    $("s-join").textContent = res.joins;
+    $("s-keep").textContent = res.kept.length;
+    $("s-line").textContent = lineCount(inEl.value) + " → " + lineCount(res.text) + " lines";
+
+    rowsEl.textContent = "";
+    if (!res.kept.length) {
+      var e = document.createElement("div");
+      e.className = "empty";
+      e.textContent = inEl.value.trim() === "" ? "Paste or drop .tex / .md content to see every line break that was kept." : "No line breaks kept apart from blank lines.";
+      rowsEl.appendChild(e);
+      return;
+    }
+    var cap = Math.min(res.kept.length, 200);
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < cap; i++) {
+      var r = res.kept[i];
+      var row = document.createElement("div");
+      row.className = "row";
+      var ln = document.createElement("span");  ln.className = "ln";   ln.textContent = "L" + r.line;
+      var wy = document.createElement("span");  wy.className = "why";  wy.textContent = REASON[r.why];
+      var sp = document.createElement("span");  sp.className = "snip"; sp.textContent = r.snip;
+      row.appendChild(ln); row.appendChild(wy); row.appendChild(sp);
+      frag.appendChild(row);
+    }
+    if (res.kept.length > cap) {
+      var more = document.createElement("div");
+      more.className = "empty";
+      more.textContent = (res.kept.length - cap) + " more not shown.";
+      frag.appendChild(more);
+    }
+    rowsEl.appendChild(frag);
+  }
+
+  var toastEl = $("toast"), toastTimer = null;
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add("on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove("on"); }, 1600);
+  }
+
+  $("run").addEventListener("click", function () { render(); toast("Joined " + $("s-join").textContent + " wrapped lines"); });
+  $("feed").addEventListener("click", function () {
+    if (!outEl.value) return;
+    inEl.value = outEl.value;
+    render();
+    toast("Result moved to input");
+  });
+  $("sample").addEventListener("click", function () {
+    var choice = chosenMode();
+    var showMd = choice === "md" || (choice === "auto" && inEl.value === SAMPLE_TEX);
+    if (choice === "tex") showMd = false;
+    inEl.value = showMd ? SAMPLE_MD : SAMPLE_TEX;
+    render();
+    toast(showMd ? "Loaded Markdown example" : "Loaded LaTeX example");
+  });
+  $("clear").addEventListener("click", function () { inEl.value = ""; render(); inEl.focus(); });
+  $("copy").addEventListener("click", function () {
+    var t = outEl.value;
+    if (!t) { toast("Nothing to copy"); return; }
+    function fallback() {
+      outEl.removeAttribute("readonly");
+      outEl.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      outEl.setAttribute("readonly", "readonly");
+      toast(ok ? "Copied to clipboard" : "Copy failed — select the text and copy manually");
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(function () { toast("Copied to clipboard"); }, fallback);
+    } else { fallback(); }
+  });
+
+  inEl.addEventListener("input", render);
+  Object.keys(opts).forEach(function (k) { opts[k].addEventListener("change", render); });
+  Array.prototype.forEach.call(modeEls, function (el) {
+    el.addEventListener("change", function () {
+      /* If the input is still an example, swap to the matching one */
+      if (inEl.value === SAMPLE_TEX && el.value === "md") inEl.value = SAMPLE_MD;
+      else if (inEl.value === SAMPLE_MD && el.value === "tex") inEl.value = SAMPLE_TEX;
+      render();
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === "Enter") { e.preventDefault(); render(); toast("Joined " + $("s-join").textContent + " wrapped lines"); }
+  });
+
+  var pane = $("in-pane");
+  ["dragenter", "dragover"].forEach(function (ev) {
+    pane.addEventListener(ev, function (e) { e.preventDefault(); pane.classList.add("drop"); });
+  });
+  ["dragleave", "drop"].forEach(function (ev) {
+    pane.addEventListener(ev, function () { pane.classList.remove("drop"); });
+  });
+  pane.addEventListener("drop", function (e) {
+    e.preventDefault();
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!f) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      inEl.value = String(reader.result);
+      if (/\.(md|markdown|mdx)$/i.test(f.name)) document.querySelector('input[name="mode"][value="md"]').checked = true;
+      else if (/\.(tex|ltx|sty|cls|bib)$/i.test(f.name)) document.querySelector('input[name="mode"][value="tex"]').checked = true;
+      render();
+      toast("Loaded " + f.name);
+    };
+    reader.readAsText(f);
+  });
+
+  inEl.value = SAMPLE_TEX;
+  render();
+})();
+</script>
+</body>
+</html>
